@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // Firebase Auth
 import { auth } from '../firebase'
 import {db} from "../firebase";
@@ -16,6 +17,7 @@ import Sidebar from "./chat/Sidebar";
 
 const Chat = () => {
     const [user] = useAuthState(auth)
+    const theme = useParams();
     const chatHeight = {
         minHeight: '60vh',
         maxHeight: '60vh'
@@ -26,7 +28,7 @@ const Chat = () => {
     const scroll = useRef();
     useEffect(() => {
         // Hacemos una Query a la base de datos que nos devuelva los mensajes ordenados por timestamp
-        const q = query(collection(db, "messages"), orderBy("timestamp"));
+        const q = query(collection(db, theme.theme), orderBy("timestamp"));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let messages = [];
             querySnapshot.forEach((doc) => {
@@ -67,8 +69,8 @@ const Chat = () => {
                 <h1>Chat</h1>
                 <h2 className="font-bold italic">Eliminar este botón cuando esté el Login creado</h2>
                 {user ? <LogOut /> : <SignIn />}
-                <Link to="/">
-                    <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Home</button>
+                <Link to="/themes">
+                    <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Themes</button>
                 </Link>
             </div>
             <main>
@@ -78,12 +80,12 @@ const Chat = () => {
                         <div id="chat" className="bg-white w-[100%] flex flex-col border overflow-y-scroll" style={chatHeight}>
                             {/*  */}
                             { messages && messages.map((message) => (
-                                <Message key={message.id} message={message} />
+                                <Message key={message.id} message={message} theme={theme.theme}/>
                             ))}
                         </div>
                         {/*  Send Message Component */}
                         <div className="flex w-[100%] justify-center border bg-white">
-                            <SendMessage scroll={scroll}/>
+                            <SendMessage scroll={scroll} theme={theme.theme}/>
                             <span ref={scroll}></span>
                         </div>
                     </div>

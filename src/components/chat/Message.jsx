@@ -3,9 +3,9 @@ import { auth } from '../../firebase'
 import { db } from "../../firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 
-async function deleteMessage(messageId, messageUid) {
+async function deleteMessage(messageId, messageUid, currentTheme) {
     console.log(messageId, messageUid)
-    const messageRef = doc(db, "messages", messageId);
+    const messageRef = doc(db, currentTheme, messageId);
     const { uid } = auth.currentUser;
 
     if (uid === messageUid) {
@@ -13,9 +13,10 @@ async function deleteMessage(messageId, messageUid) {
     }
 }
 
-const Message = ({ message }) => {
+const Message = ({ message, theme }) => {
     const isCurrentUser = message.uid === auth.currentUser.uid;
     const mssgClass = isCurrentUser ? "chat chat-end" : "chat chat-start";
+    const currentTheme = theme;
 
     return (
         <div className="w-[100%]">
@@ -28,7 +29,7 @@ const Message = ({ message }) => {
                 </div>
                 {isCurrentUser && (
                     <div className="chat-footer">
-                        <button onClick={() => deleteMessage(message.id, message.uid)}>
+                        <button onClick={() => deleteMessage(message.id, message.uid, currentTheme)}>
                             <svg className="h-4 w-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <polyline points="3 6 5 6 21 6" />
                                 <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />

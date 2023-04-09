@@ -5,7 +5,8 @@ function Home() {
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center">
       <h1 className="text-3xl text-white">Home</h1>
-      <Link to="chat">Chat</Link>
+      {/* <Link to="chat">Chat</Link> */}
+      <Link to="themes">Themes</Link>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {auth, db} from "../../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const SendMessage = ({scroll}) => {
+const SendMessage = ({scroll, theme}) => {
     const [input, setInput] = useState('');
     const sendMessage = async (e) => {
         e.preventDefault()
@@ -11,7 +11,7 @@ const SendMessage = ({scroll}) => {
             return;
         };
         const {uid, displayName} = auth.currentUser;
-        await addDoc(collection(db, 'messages'), {
+        await addDoc(collection(db, theme), {
             text: input,
             name: displayName,
             uid,
