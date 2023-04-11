@@ -44,7 +44,7 @@ export default function Example() {
 
   return (
     <div className="flex justify-center w-full">
-      <Navbar className="w-4/5 mt-6">
+      <Navbar className="w-4/5 mt-6 shadow-xl">
         <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
           <Typography
             as="a"
