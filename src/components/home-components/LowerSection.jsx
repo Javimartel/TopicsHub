@@ -29,7 +29,7 @@ export default function LowerSection() {
                     </Typography>
                 </div>
 
-                <Card className="w-4/5 pt-5">
+                <Card className="w-4/5 pt-5 mb-5 shadow-lg">
                     <CardBody>
                         <Tabs value={type} className="overflow-visible">
                             <TabsHeader className="">
