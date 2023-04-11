@@ -18,6 +18,13 @@ import Sidebar from "./chat/Sidebar";
 const Chat = () => {
     const [user] = useAuthState(auth)
     const theme = useParams();
+
+    // Si no existe el tema, redirigimos a 404
+    if (!theme) {
+        window.location.href = '/404';
+    }
+
+    const [isEmpty, setIsEmpty] = useState(false);
     const chatHeight = {
         minHeight: '60vh',
         maxHeight: '60vh'
@@ -37,6 +44,12 @@ const Chat = () => {
             });
             // Actualizamos el estado de los mensajes
             setMessages(messages);
+            
+            // Comprobar si está vacío el chat (no existe)
+            if (messages.length === 0) {
+                setIsEmpty(true);
+            }
+
             // Scroll cada vez que llega un mensaje
             const chat = document.querySelector('#chat');
             chat.scrollTo(0, chat.scrollHeight);
@@ -74,23 +87,27 @@ const Chat = () => {
                 </Link>
             </div>
             <main>
-                <div className="w-[100%] flex justify-center">
-                    <Sidebar />
-                    <div className="w-[60%] flex flex-col items-center">
-                        <div id="chat" className="bg-white w-[100%] flex flex-col border overflow-y-scroll" style={chatHeight}>
-                            {/*  */}
-                            { messages && messages.map((message) => (
-                                <Message key={message.id} message={message} theme={theme.theme}/>
-                            ))}
+                {isEmpty ? 
+                    <h1 className="text-center text-2xl text-[#FF0000]">No tienes permiso para crear un chat nuevo</h1> 
+                    : 
+                    <div className="w-[100%] flex justify-center">
+                        <Sidebar />
+                        <div className="w-[60%] flex flex-col items-center">
+                            <div id="chat" className="bg-white w-[100%] flex flex-col border overflow-y-scroll" style={chatHeight}>
+                                {/*  */}
+                                { messages && messages.map((message) => (
+                                    <Message key={message.id} message={message} theme={theme.theme}/>
+                                ))}
+                            </div>
+                            {/*  Send Message Component */}
+                            <div className="flex w-[100%] justify-center border bg-white">
+                                <SendMessage scroll={scroll} theme={theme.theme}/>
+                                <span ref={scroll}></span>
+                            </div>
                         </div>
-                        {/*  Send Message Component */}
-                        <div className="flex w-[100%] justify-center border bg-white">
-                            <SendMessage scroll={scroll} theme={theme.theme}/>
-                            <span ref={scroll}></span>
-                        </div>
+                        {/* Reemplazar más adelante por el perfil, es solo orientativo */}
                     </div>
-                    {/* Reemplazar más adelante por el perfil, es solo orientativo */}
-                </div>
+                }
             </main>
         </>
     );
