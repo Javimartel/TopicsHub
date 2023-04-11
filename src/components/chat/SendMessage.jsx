@@ -11,13 +11,14 @@ const SendMessage = ({scroll, theme}) => {
             return;
         };
         const {uid, displayName} = auth.currentUser;
+        const textToAdd = input.trim();
+        setInput('');
         await addDoc(collection(db, theme), {
-            text: input,
+            text: textToAdd,
             name: displayName,
             uid,
             timestamp: serverTimestamp(),
         })
-        setInput('');
         scroll.current.scrollIntoView({behavior: 'smooth'});
     }
 
