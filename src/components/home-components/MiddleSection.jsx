@@ -23,7 +23,7 @@ export default function MiddleSection() {
           </Typography>
         </div>
         <div>
-          <img src="./src/assets/uploadfree.jpg" alt="Photo" className="p-5" />
+          <img src="/images/conference.jpg" alt="Photo" className="p-5" />
         </div>
       </section>
     </>

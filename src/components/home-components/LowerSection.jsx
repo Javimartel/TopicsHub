@@ -62,7 +62,7 @@ export default function LowerSection() {
                                                 variant="outlined"
                                                 className="flex items-center gap-3"
                                             >
-                                                <img src="./src/assets/google-tile.svg" alt="metamask" className="w-6 h-6" />
+                                                <img src="/images/google-tile.svg" alt="metamask" className="w-6 h-6" />
                                                 Continue with Google
                                             </Button>
                                         </div>
@@ -89,7 +89,7 @@ export default function LowerSection() {
                                                 variant="outlined"
                                                 className="flex items-center gap-3"
                                             >
-                                                <img src="./src/assets/google-tile.svg" alt="metamask" className="w-6 h-6" />
+                                                <img src="/images/google-tile.svg" alt="metamask" className="w-6 h-6" />
                                                 Continue with Google
                                             </Button>
                                         </div>
