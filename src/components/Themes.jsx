@@ -1,11 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CardAbout from "./CardAbout"
+import { auth } from '../firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import SignIn from "./chat/SignIn";
+import LogOut from "./chat/LogOut";
 
-function Home() {
+function Themes() {
+    const [user] = useAuthState(auth)
+    console.log(user);
     return (
         <div className="h-screen w-full flex flex-col justify-center items-center">
             <h1 className="text-3xl text-white">Temáticas</h1>
+            <h2 className="font-bold italic">Eliminar este botón cuando esté el Login creado</h2>
+            {user ? <LogOut /> : <SignIn />}
             <Link to="/">Home</Link>
             <div className="flex justify-center w-[50%]">
                 <Link to="/chat/Anime">
@@ -22,4 +30,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Themes;
