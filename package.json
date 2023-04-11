@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.17",
     "@material-tailwind/react": "^1.4.2",
     "daisyui": "^2.51.5",
     "firebase": "^9.19.1",

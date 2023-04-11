@@ -8,6 +8,7 @@
   html {
     background-color: white !important;
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
   }
 }
 
