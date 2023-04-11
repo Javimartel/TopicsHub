@@ -17,8 +17,9 @@ export default function LowerSection() {
     const [type, setType] = React.useState("card");
     return (
         <>
-            <section className="flex w-full mt-20 justify-evenly">
-                <div className="flex flex-col items-center justify-center w-1/3">
+            <section className="flex justify-center">
+
+                <div className="hidden">
                     <Typography variant="h2" color="black" className="font-mono">
                         Come <span className="text-blue-500">In</span>.
                     </Typography>
@@ -27,7 +28,8 @@ export default function LowerSection() {
                         voluptas, quod, quia, voluptate quae quibusdam voluptates
                     </Typography>
                 </div>
-                <Card className="w-1/4 pt-5 border-gray-200">
+
+                <Card className="w-4/5 pt-5">
                     <CardBody>
                         <Tabs value={type} className="overflow-visible">
                             <TabsHeader className="">
@@ -58,31 +60,23 @@ export default function LowerSection() {
                                             <Button
                                                 size="lg"
                                                 variant="outlined"
-                                                color="blue-gray"
                                                 className="flex items-center gap-3"
                                             >
                                                 <img src="./src/assets/google-tile.svg" alt="metamask" className="w-6 h-6" />
                                                 Continue with Google
                                             </Button>
                                         </div>
-                                        <div className="mb-2">
+                                        <div className="mb-4">
                                             <Typography variant="small" color="blue-gray" className="text-center">
                                                 Or
                                             </Typography>
                                         </div>
                                         <div className="mb-4">
-                                            <Typography variant="small" color="blue-gray">
-                                                Email Address
-                                            </Typography>
                                             <Input type="email" label="Email" id="login_email" />
                                         </div>
                                         <div className="mb-6">
-                                            <Typography variant="small" color="blue-gray">
-                                                Password
-                                            </Typography>
                                             <Input type="password" label="Password" id="login_password" />
                                         </div>
-
                                         <Button size="lg">Login</Button>
                                     </form>
                                 </TabPanel>
@@ -93,32 +87,25 @@ export default function LowerSection() {
                                             <Button
                                                 size="lg"
                                                 variant="outlined"
-                                                color="blue-gray"
                                                 className="flex items-center gap-3"
                                             >
                                                 <img src="./src/assets/google-tile.svg" alt="metamask" className="w-6 h-6" />
                                                 Continue with Google
                                             </Button>
                                         </div>
-                                        <div className="mb-2">
+                                        <div className="mb-4">
                                             <Typography variant="small" color="blue-gray" className="text-center">
                                                 Or
                                             </Typography>
                                         </div>
                                         <div className="mb-4">
-                                            <Typography variant="small" color="blue-gray">
-                                                Email Address
-                                            </Typography>
-                                            <Input type="email" label="Email" id="login_email" />
+                                            <Input type="email" label="Email" id="sign_email" />
                                         </div>
                                         <div className="mb-6">
-                                            <Typography variant="small" color="blue-gray">
-                                                Password
-                                            </Typography>
-                                            <Input type="password" label="Password" id="login_password" />
+                                            <Input type="password" label="Password" id="sign_password" />
                                         </div>
 
-                                        <Button size="lg">Login</Button>
+                                        <Button size="lg">Sign Up</Button>
                                     </form>
                                 </TabPanel>
                             </TabsBody>
@@ -126,7 +113,7 @@ export default function LowerSection() {
                     </CardBody>
                 </Card>
 
-                <div className="flex flex-col items-center justify-center w-1/3">
+                <div className="hidden">
                     <Typography variant="h2" color="black" className="font-mono text-right">
                         Join <span className="text-blue-500">Us</span>.
                     </Typography>
@@ -135,8 +122,6 @@ export default function LowerSection() {
                         Join Us and enjoy the freedom of expression and the freedom of opinion.
                         Be free and opinion.
                     </Typography>
-
-
                 </div>
 
             </section>

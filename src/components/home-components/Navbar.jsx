@@ -18,24 +18,24 @@ export default function Example() {
   }, []);
 
   const ResponsiveList = (
-    <ul className="flex flex-col items-center mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="flex flex-col items-center mt-4 mb-1 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-lg">
+        <a href="#" className="flex items-center text-md">
           Example
         </a>
       </Typography>
       <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-lg">
+        <a href="#" className="flex items-center text-md">
           Example
         </a>
       </Typography>
       <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-lg">
+        <a href="#" className="flex items-center text-md">
           Example
         </a>
       </Typography>
       <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-lg">
+        <a href="#" className="flex items-center text-md">
           Example
         </a>
       </Typography>
@@ -59,7 +59,7 @@ export default function Example() {
 
           <Button
             variant="gradient"
-            size="lg"
+            size="md"
             className="hidden lg:inline-block"
           >
             <span>Join Us</span>
@@ -107,7 +107,7 @@ export default function Example() {
           <div className="container mx-auto">
             {ResponsiveList}
             <Button variant="gradient" size="sm" fullWidth className="mb-2">
-              <span>Buy Now</span>
+              <span>Join Us</span>
             </Button>
           </div>
         </MobileNav>

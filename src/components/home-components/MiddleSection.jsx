@@ -5,26 +5,25 @@ import { Typography } from "@material-tailwind/react";
 export default function MiddleSection() {
     return (
         <>
-            <section className="flex w-full justify-evenly">
-                <div className="flex justify-center w-1/3 mb-4">
+            <section className="flex w-full mt-6 justify-evenly">
+                <div className="hidden">
                     <img
                         src="./src/assets/uploadfree.jpg"
                         alt="Photo"
                     />
                 </div>
+
                 <div className="flex flex-col justify-center text-center">
-                    <Typography variant="h2" color="black" className="font-mono">
-                        Donde quieras, cuando quieras <br />
+                    <Typography color="black" className="font-mono text-3xl font-bold text-center">
+                        Donde quieras, <br /> cuando quieras <br />
                         <span className="text-blue-500">Libre Opinión</span>.
                     </Typography>
                     <Typography
-                        variant="paragraph"
                         color="black"
-                        className="mt-8 font-mono text-center"
+                        className="m-5 font-mono text-center text-md"
                     >
-                        Donde quieras, cuando quieras, con quien quieras. <br />
+                        Donde quieras, cuando quieras, con quien quieras. {` `}
                         Disfruta de la libertad de expresión y de la libertad de opinión.
-                        <br />
                         Se libre y opina.
                     </Typography>
                 </div>
