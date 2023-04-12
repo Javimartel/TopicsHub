@@ -8,12 +8,12 @@ import Footer from "./home-components/Footer";
 
 function Home() {
   return (
-    <main id="home-main" className="relative flex-col">
-      <Navbar /> {/* Navbar */}
-      <UpperSection /> {/* Upper section */}
-      <MiddleSection /> {/* Middle section */}
-      {/* <LowerSection /> Lower section */}
-      <Footer /> {/* Footer section */}
+    <main id="home-main" className="relative flex-col w-full">
+      <Navbar /> 
+      <UpperSection /> 
+      <MiddleSection /> 
+      {/* <LowerSection /> */}
+      <Footer /> 
     </main>
   );
 }

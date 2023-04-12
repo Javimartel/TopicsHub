@@ -141,11 +141,11 @@ export default function UpperSection() {
                 <div className="flex justify-center lg:space-evenly">
 
                     <div className="flex flex-col w-4/5 text-center lg:text-left lg:w-2/3 lg:justify-center">
-                        <Typography color="black" className="font-mono text-4xl font-bold lg:ml-12 lg:text-5xl">
+                        <Typography color="black" className="font-mono text-4xl font-bold lg:pl-12 lg:text-5xl">
                             Topics<span className="text-blue-500">Hub</span>
                         </Typography>
 
-                        <Typography color="black" className="mt-8 font-mono text-md lg:ml-12 lg:w-4/5 lg:text-lg">
+                        <Typography color="black" className="mt-8 font-mono text-md lg:pl-12 lg:w-4/5 lg:text-lg">
                             Disfruta de la libertad de expresión y de la libertad de opinión.
                             Siempre respetando nuestras normas de convivencia.
                             <br />
@@ -160,7 +160,7 @@ export default function UpperSection() {
                         </div>
                     </div>
 
-                    <div className="hidden w-2/3 lg:block">
+                    <div className="hidden w-2/4 lg:block">
                         <img src="/images/conference.jpg" alt="home-img" className="object-contain" />
                     </div>
                 </div>
@@ -169,11 +169,11 @@ export default function UpperSection() {
             <section className="flex flex-col mt-8">
                 <div className="flex flex-col items-center">
 
-                    <Typography color="black" className="font-mono text-3xl font-bold text-center lg:w-full lg:ml-12 lg:text-4xl">
+                    <Typography color="black" className="font-mono text-3xl font-bold text-center lg:w-full lg:pl-12 lg:text-4xl">
                         ¿Qué es <span className="text-blue-500">Libre Opinión</span>?
                     </Typography>
 
-                    <Typography color="black" className="mt-2 font-mono text-center text-md lg:w-full lg:ml-12 lg:text-lg">
+                    <Typography color="black" className="mt-2 font-mono text-center text-md lg:w-full lg:pl-12 lg:text-lg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </Typography>
 
