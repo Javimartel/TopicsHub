@@ -11,8 +11,8 @@ function Home() {
     <main id="home-main" className="relative flex-col">
       <Navbar /> {/* Navbar */}
       <UpperSection /> {/* Upper section */}
-      <LowerSection /> {/* Lower section */}
       <MiddleSection /> {/* Middle section */}
+      {/* <LowerSection /> Lower section */}
       <Footer /> {/* Footer section */}
     </main>
   );

@@ -18,19 +18,19 @@ export default function Example() {
   }, []);
 
   const ResponsiveList = (
-    <ul className="flex flex-col items-center mt-4 mb-1 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="flex flex-col items-center mt-4 mb-1 font-mono lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-md">
-          Example
+        <a href="#" className="flex items-center font-bold text-md">
+          About Us
         </a>
       </Typography>
       <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-md">
-          Example
+        <a href="#" className="flex items-center font-bold text-md">
+          Blog
         </a>
       </Typography>
       <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-md">
+        <a href="#" className="flex items-center font-bold text-md">
           Example
         </a>
       </Typography>

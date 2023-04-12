@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="flex items-center justify-center h-full mb-5">
                 <FaTwitter size={30} color="black" className="mr-8" />
                 <FaGithub size={30} color="black" className="mr-8" />
-                <FaLinkedinIn size={30} color="black" className="" />
+                <FaLinkedinIn size={30} color="black" />
             </div>
         </footer>
     );

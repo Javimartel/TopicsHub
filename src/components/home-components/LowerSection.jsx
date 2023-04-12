@@ -16,7 +16,7 @@ export default function LowerSection() {
     const [type, setType] = React.useState("card");
     return (
         <>
-            <section className="flex justify-center ">
+            <section className="flex flex-col items-center justify-center mt-8 mb-14">
                 <div className="hidden">
                     <Typography color="black" className="font-mono">
                         Come <span className="text-blue-500">In</span>.
@@ -24,16 +24,22 @@ export default function LowerSection() {
                     <Typography
                         variant="paragraph"
                         color="black"
-                        className="font-mono w-2/3 text-center"
+                        className="w-2/3 font-mono text-center"
                     >
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
                         voluptas, quod, quia, voluptate quae quibusdam voluptates
                     </Typography>
                 </div>
+                
+                <div className="lg:hidden">
+                    <Typography color="black" className="mb-4 font-mono text-3xl font-bold md:text-4xl">
+                        Join <span className="text-blue-500">Us</span> 
+                    </Typography>
+                </div>
 
-                <Card className="mb-5 w-4/5 border border-gray-300 pt-5 shadow-lg">
+                <Card className="w-4/5 max-w-sm md:max-w-md">
                     <CardBody>
-                        <Tabs value={type} className="overflow-visible">
+                        <Tabs value={type} className="overflow-visible ">
                             <TabsHeader className="">
                                 <Tab value="card" onClick={() => setType("card")}>
                                     Login
@@ -57,8 +63,8 @@ export default function LowerSection() {
                                 }}
                             >
                                 <TabPanel value="card" className="p-0">
-                                    <form className="mt-8 flex flex-col">
-                                        <div className="mb-4 flex w-full justify-center">
+                                    <form className="flex flex-col mt-8">
+                                        <div className="flex justify-center w-full mb-4">
                                             <Button
                                                 size="lg"
                                                 variant="outlined"
@@ -67,7 +73,7 @@ export default function LowerSection() {
                                                 <img
                                                     src="/images/google-tile.svg"
                                                     alt="google"
-                                                    className="h-6 w-6"
+                                                    className="w-6 h-6"
                                                 />
                                                 Continue with Google
                                             </Button>
@@ -76,7 +82,7 @@ export default function LowerSection() {
                                             <Typography
                                                 variant="small"
                                                 color="blue-gray"
-                                                className="text-center font-bold"
+                                                className="font-bold text-center"
                                             >
                                                 Or
                                             </Typography>
@@ -96,30 +102,7 @@ export default function LowerSection() {
                                 </TabPanel>
 
                                 <TabPanel value="sign" className="p-0">
-                                    <form className="mt-8 flex flex-col">
-                                        <div className="mb-4 flex w-full justify-center">
-                                            <Button
-                                                size="lg"
-                                                variant="outlined"
-                                                className="flex items-center gap-3"
-                                            >
-                                                <img
-                                                    src="/images/google-tile.svg"
-                                                    alt="google"
-                                                    className="h-6 w-6"
-                                                />
-                                                Continue with Google
-                                            </Button>
-                                        </div>
-                                        <div className="mb-4">
-                                            <Typography
-                                                variant="small"
-                                                color="blue-gray"
-                                                className="text-center font-bold"
-                                            >
-                                                Or
-                                            </Typography>
-                                        </div>
+                                    <form className="flex flex-col mt-8">
                                         <div className="mb-4">
                                             <Input type="email" label="Email" id="sign_email" />
                                         </div>
@@ -151,7 +134,7 @@ export default function LowerSection() {
                     <Typography
                         variant="paragraph"
                         color="black"
-                        className="font-mono w-2/3 text-center"
+                        className="w-2/3 font-mono text-center"
                     >
                         Join Us and enjoy the freedom of expression and the freedom of
                         opinion. Be free and opinion.
