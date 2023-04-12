@@ -17,6 +17,12 @@ import Sidebar from "./chat/Sidebar";
 
 const Chat = () => {
     const [user] = useAuthState(auth)
+
+    // Si no existe el usuario, redirigimos a 404
+    // if (!user) {
+    //     return <Navigate to="/404" />
+    // }
+
     const theme = useParams();
 
     // Si no existe el tema, redirigimos a 404
@@ -32,7 +38,7 @@ const Chat = () => {
         maxHeight: '60vh'
     };
     const messageWrapper = {
-        wordWrap: 'break-word'
+        overflowWrap: 'break-word'
     }
 
     const [messages, setMessages] = useState([]);
@@ -94,8 +100,8 @@ const Chat = () => {
                     ) : (
                         <div className="w-[100%] flex justify-center">
                             <Sidebar />
-                            <div className="w-[60%] flex flex-col items-center">
-                                <div id="chat" ref={chatRef} className="bg-white max-w-full flex flex-col border overflow-y-scroll" style={chatHeight}>
+                            <div className="w-[50%] flex flex-col items-center">
+                                <div id="chat" ref={chatRef} className="bg-white max-w-full flex flex-col border overflow-y-auto" style={chatHeight}>
                                     {/*  */}
                                     {messages && messages.map((message) => (
                                         <Message key={message.id} message={message} theme={theme.theme} style={messageWrapper} />
