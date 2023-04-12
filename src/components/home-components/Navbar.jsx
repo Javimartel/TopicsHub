@@ -34,11 +34,6 @@ export default function Example() {
           Example
         </a>
       </Typography>
-      <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center text-md">
-          Example
-        </a>
-      </Typography>
     </ul>
   );
 
