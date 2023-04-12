@@ -73,59 +73,63 @@ export default function UpperSection() {
 
     const lg_features = (
         <>
-            <div className="flex flex-col items-center justify-center w-1/2">
+            <div className="flex flex-col w-1/5">
                 <BsChatFill
                     size={30}
                     color="rgb(46 149 237)"
-                    className="flex justify-center w-full mb-4 "
+                    className="mb-4"
                 />
-                <div className="flex justify-center w-5/6 text-center">
-                    <p className="text-gray-800 text-md">
+                <div className="flex flex-col">
+                    <p className="text-lg font-bold text-gray-800 text-md">
                         Chatea con tus amigos
                     </p>
-                </div>
-            </div>
-
-            <div className="flex flex-col items-center justify-center w-1/2">
-                <div>
-                    <BsPersonCheckFill
-                        size={30}
-                        color="green"
-                        className="flex justify-center w-full mb-4"
-                    />
-                </div>
-                <div className="flex justify-center w-5/6 text-center">
-                    <p className="text-gray-800 text-md">
-                        Seguridad en tus conversaciones.
+                    <p className="text-left text-gray-800 text-md ">
+                        Chatea con tus amigos y familiares de forma segura y privada.
                     </p>
                 </div>
             </div>
-
-            <div className="flex flex-col items-center justify-center w-1/2">
-                <div>
-                    <BsFlagFill
-                        size={30}
-                        color="#ff2a26"
-                        className="flex justify-center w-full mb-4 text-center"
-                    />
-                </div>
-                <div className="flex justify-center w-5/6 text-center">
-                    <p className="text-gray-800 text-md">
-                    Respeta las reglas de la comunidad
+            <div className="flex flex-col w-1/5">
+                <BsChatFill
+                    size={30}
+                    color="rgb(46 149 237)"
+                    className="mb-4"
+                />
+                <div className="flex flex-col">
+                    <p className="text-lg font-bold text-gray-800 text-md">
+                        Chatea con tus amigos
+                    </p>
+                    <p className="text-left text-gray-800 text-md ">
+                        Chatea con tus amigos y familiares de forma segura y privada.
                     </p>
                 </div>
             </div>
-            <div className="flex flex-col items-center justify-center w-1/2">
-                <div>
-                    <BsAwardFill
-                        size={30}
-                        color="lightgreen"
-                        className="flex justify-center w-full mb-4"
-                    />
+            <div className="flex flex-col items-end w-1/5 text-right">
+                <BsChatFill
+                    size={30}
+                    color="rgb(46 149 237)"
+                    className="mb-4"
+                />
+                <div className="flex flex-col">
+                    <p className="text-lg font-bold text-gray-800 text-md">
+                        Chatea con tus amigos
+                    </p>
+                    <p className="text-gray-800 text-md ">
+                        Chatea con tus amigos y familiares de forma segura y privada.
+                    </p>
                 </div>
-                <div className="flex justify-center w-5/6 text-center">
-                    <p className="text-gray-800 text-md">
-                    Se un usuario activo y gana puntos
+            </div>
+            <div className="flex flex-col items-end w-1/5 text-right">
+                <BsChatFill
+                    size={30}
+                    color="rgb(46 149 237)"
+                    className="mb-4"
+                />
+                <div className="flex flex-col">
+                    <p className="text-lg font-bold text-gray-800 text-md">
+                        Chatea con tus amigos
+                    </p>
+                    <p className="text-gray-800 text-md ">
+                        Chatea con tus amigos y familiares de forma segura y privada.
                     </p>
                 </div>
             </div>
@@ -137,17 +141,11 @@ export default function UpperSection() {
                 <div className="flex justify-center lg:space-evenly">
 
                     <div className="flex flex-col w-4/5 text-center lg:text-left lg:w-2/3 lg:justify-center">
-                        <Typography
-                            color="black"
-                            className="font-mono text-3xl font-bold lg:ml-12 md:text-4xl lg:text-5xl"
-                        >
+                        <Typography color="black" className="font-mono text-3xl font-bold lg:ml-12 md:text-4xl lg:text-5xl">
                             Topics<span className="text-blue-500">Hub</span>
                         </Typography>
 
-                        <Typography
-                            color="black"
-                            className="mt-8 font-mono text-md lg:ml-12 lg:w-4/5 lg:text-lg"
-                        >
+                        <Typography color="black" className="mt-8 font-mono text-md lg:ml-12 lg:w-4/5 lg:text-lg">
                             Disfruta de la libertad de expresión y de la libertad de opinión.
                             Siempre respetando nuestras normas de convivencia.
                             <br />
@@ -156,40 +154,33 @@ export default function UpperSection() {
                             Ademas de poder debatir, puedes ganar puntos y premios.
                         </Typography>
                         <div className="flex justify-center w-full mt-8">
-                            <Button
-                                variant="outlined"
-                                size="lg"
-                                className="flex items-center gap-2"
-                            >
-                                Read More
-                                <BsFillBookmarkFill />
+                            <Button variant="outlined" size="lg" className="flex items-center gap-2">
+                                Read More <BsFillBookmarkFill />
                             </Button>
                         </div>
                     </div>
 
                     <div className="hidden w-2/3 lg:block">
-                        <img
-                            src="/images/conference.jpg"
-                            alt="home-img"
-                            className="object-contain"
-                        />
+                        <img src="/images/conference.jpg" alt="home-img" className="object-contain" />
                     </div>
                 </div>
             </section>
 
             <section className="flex flex-col mt-2">
                 <div className="flex flex-col items-center p-5">
-                    <Typography
-                        color="black"
-                        className="font-mono text-3xl font-bold text-center lg:w-full lg:text-left lg:ml-12 lg:text-4xl"
-                    >
+
+                    <Typography color="black" className="font-mono text-3xl font-bold text-center lg:w-full lg:ml-12 lg:text-4xl">
                         ¿Qué es <span className="text-blue-500">Libre Opinión</span>?
+                    </Typography>
+
+                    <Typography color="black" className="mt-2 font-mono text-center text-md lg:w-full lg:ml-12 lg:text-lg">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </Typography>
 
                     <div className="flex flex-wrap items-center max-w-md mt-12 text-center lg:hidden">
                         {features}
                     </div>
-                    <div className="items-center justify-center hidden w-full mt-12 lg:flex ">
+                    <div className="items-center hidden w-full mt-12 justify-evenly lg:flex ">
                         {lg_features}
                     </div>
                 </div>
