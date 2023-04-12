@@ -4,7 +4,6 @@ import { db } from "../../firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 
 async function deleteMessage(messageId, messageUid, currentTheme) {
-    console.log(messageId, messageUid)
     const messageRef = doc(db, currentTheme, messageId);
     const { uid } = auth.currentUser;
 

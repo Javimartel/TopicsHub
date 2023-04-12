@@ -7,7 +7,6 @@ import {useAuthState} from 'react-firebase-hooks/auth'
 
 const Nav = () => {
     const [user] = useAuthState(auth)
-    console.log(user)
 
     return (
         <nav className="w-full h-10 flex justify-center items-stretch  m-4 p-">
