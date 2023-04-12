@@ -41,31 +41,17 @@ export default function Example() {
     <div className="flex justify-center w-full">
       <Navbar className="w-4/5 mt-6 shadow-xl">
         <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
-          <Typography
-            as="a"
-            href="#"
-            variant="h4"
-            className="mr-4 cursor-pointer"
-          >
+          <Typography as="a" href="#" variant="h4" className="mr-4 cursor-pointer" >
             Topics<span className="text-blue-500">Hub</span>
           </Typography>
 
           <div className="hidden lg:block">{ResponsiveList}</div>
 
-          <Button
-            variant="gradient"
-            size="md"
-            className="hidden lg:inline-block"
-          >
+          <Button variant="gradient" size="md" className="hidden lg:inline-block">
             <span>Join Us</span>
           </Button>
 
-          <IconButton
-            variant="text"
-            className="w-6 h-6 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-            ripple={false}
-            onClick={() => setOpenNav(!openNav)}
-          >
+          <IconButton variant="text" className="w-6 h-6 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden" ripple={false} onClick={() => setOpenNav(!openNav)} >
             {openNav ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"

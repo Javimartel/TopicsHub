@@ -4,9 +4,9 @@ import { Typography } from "@material-tailwind/react";
 export default function MiddleSection() {
   return (
     <>
-      <section className="flex flex-col items-center w-full lg:mt-12 lg:flex-row">
+      <section className="flex flex-col items-center w-full lg:mt-10 lg:flex-row">
       
-        <div className="flex flex-col items-center w-full p-5 md:w-2/3">
+        <div id="rounded-border" className="flex flex-col items-center w-full p-5 md:w-2/3 lg:bg-[#e8f5f6] lg:p-5">
           <Typography color="black" className="font-mono text-3xl font-bold lg:text-4xl">
             ¿Como <span className="text-blue-500">funciona</span>?
           </Typography>
@@ -28,7 +28,7 @@ export default function MiddleSection() {
           <img src="/images/contact.jpg" alt="Photo" className="w-2/3 lg:w-2/3 md:w-2/4" />
         </div>
         
-        <div className="flex flex-col items-center w-full p-5 mt-4 md:w-2/3 md:order-1">
+        <div id="rounded-border2" className="flex flex-col items-center w-full p-3 mt-10 md:w-2/3 md:order-1 lg:bg-[#e8f5f6] lg:p-5">
           <Typography color="black" className="font-mono text-3xl font-bold lg:text-4xl">
             ¿Donde <span className="text-blue-500">chatear</span>?
           </Typography>

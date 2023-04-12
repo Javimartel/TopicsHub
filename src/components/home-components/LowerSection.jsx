@@ -21,19 +21,15 @@ export default function LowerSection() {
                     <Typography color="black" className="font-mono">
                         Come <span className="text-blue-500">In</span>.
                     </Typography>
-                    <Typography
-                        variant="paragraph"
-                        color="black"
-                        className="w-2/3 font-mono text-center"
-                    >
+                    <Typography variant="paragraph" color="black" className="w-2/3 font-mono text-center">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
                         voluptas, quod, quia, voluptate quae quibusdam voluptates
                     </Typography>
                 </div>
-                
+
                 <div className="lg:hidden">
                     <Typography color="black" className="mb-4 font-mono text-3xl font-bold md:text-4xl">
-                        Join <span className="text-blue-500">Us</span> 
+                        Join <span className="text-blue-500">Us</span>
                     </Typography>
                 </div>
 
@@ -65,25 +61,13 @@ export default function LowerSection() {
                                 <TabPanel value="card" className="p-0">
                                     <form className="flex flex-col mt-8">
                                         <div className="flex justify-center w-full mb-4">
-                                            <Button
-                                                size="lg"
-                                                variant="outlined"
-                                                className="flex items-center gap-3"
-                                            >
-                                                <img
-                                                    src="/images/google-tile.svg"
-                                                    alt="google"
-                                                    className="w-6 h-6"
-                                                />
+                                            <Button size="lg" variant="outlined" className="flex items-center gap-3">
+                                                <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
                                                 Continue with Google
                                             </Button>
                                         </div>
                                         <div className="mb-4">
-                                            <Typography
-                                                variant="small"
-                                                color="blue-gray"
-                                                className="font-bold text-center"
-                                            >
+                                            <Typography variant="small" color="blue-gray" className="font-bold text-center" >
                                                 Or
                                             </Typography>
                                         </div>
@@ -91,11 +75,7 @@ export default function LowerSection() {
                                             <Input type="email" label="Email" id="login_email" />
                                         </div>
                                         <div className="mb-6">
-                                            <Input
-                                                type="password"
-                                                label="Password"
-                                                id="login_password"
-                                            />
+                                            <Input type="password" label="Password" id="login_password" />
                                         </div>
                                         <Button size="lg">Login</Button>
                                     </form>
@@ -107,13 +87,8 @@ export default function LowerSection() {
                                             <Input type="email" label="Email" id="sign_email" />
                                         </div>
                                         <div className="mb-6">
-                                            <Input
-                                                type="password"
-                                                label="Password"
-                                                id="sign_password"
-                                            />
+                                            <Input type="password" label="Password" id="sign_password" />
                                         </div>
-
                                         <Button size="lg">Sign Up</Button>
                                     </form>
                                 </TabPanel>
@@ -123,19 +98,11 @@ export default function LowerSection() {
                 </Card>
 
                 <div className="hidden">
-                    <Typography
-                        variant="h2"
-                        color="black"
-                        className="font-mono text-right"
-                    >
+                    <Typography variant="h2" color="black" className="font-mono text-right">
                         Join <span className="text-blue-500">Us</span>.
                     </Typography>
 
-                    <Typography
-                        variant="paragraph"
-                        color="black"
-                        className="w-2/3 font-mono text-center"
-                    >
+                    <Typography variant="paragraph" color="black" className="w-2/3 font-mono text-center" >
                         Join Us and enjoy the freedom of expression and the freedom of
                         opinion. Be free and opinion.
                     </Typography>
