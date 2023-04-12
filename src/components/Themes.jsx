@@ -8,7 +8,6 @@ import LogOut from "./chat/LogOut";
 
 function Themes() {
     const [user] = useAuthState(auth)
-    console.log(user);
     return (
         <div className="h-screen w-full flex flex-col justify-center items-center">
             <h1 className="text-3xl text-white">Temáticas</h1>
