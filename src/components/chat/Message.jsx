@@ -23,7 +23,7 @@ const Message = ({ message, theme }) => {
                 <div className="chat-header">
                     {message.name}
                 </div>
-                <div className="chat-bubble chat-bubble-primary">
+                <div className="chat-bubble chat-bubble-primary break-words">
                     {message.text}
                 </div>
                 {isCurrentUser && (
