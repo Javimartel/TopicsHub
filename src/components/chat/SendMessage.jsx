@@ -8,7 +8,6 @@ const SendMessage = ({theme}) => {
     const sendMessage = async (e) => {
       e.preventDefault();
       const textToAdd = inputRef.current.value.trim();
-      console.log(textToAdd);
       if (textToAdd === '') {
         alert('Por favor añade un mensaje');
         return;
