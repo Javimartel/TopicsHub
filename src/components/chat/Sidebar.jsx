@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { auth } from '../../firebase'
-import {db} from "../../firebase";
-import {query, collection, orderBy, onSnapshot, where} from "firebase/firestore";
+import { db } from "../../firebase";
+import { query, collection, orderBy, onSnapshot, where } from "firebase/firestore";
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 function Sidebar() {
@@ -84,15 +84,14 @@ function Sidebar() {
           {searchResults.map((user) => (
             <div
               key={user.uid}
-              className={`flex items-center px-2 py-1 hover:bg-gray-200 cursor-pointer ${
-                activeChatId &&
-                chats.find((chat) =>
-                  chat.users.includes(user.uid) &&
-                  chat.users.includes(currentUser.uid)
-                )?.id === activeChatId
+              className={`flex items-center px-2 py-1 hover:bg-gray-200 cursor-pointer ${activeChatId &&
+                  chats.find((chat) =>
+                    chat.users.includes(user.uid) &&
+                    chat.users.includes(currentUser.uid)
+                  )?.id === activeChatId
                   ? "bg-gray-200"
                   : ""
-              }`}
+                }`}
               onClick={() => {
                 const chat = chats.find(
                   (chat) =>

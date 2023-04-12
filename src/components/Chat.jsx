@@ -64,7 +64,7 @@ const Chat = () => {
                 chatRef.current.scrollTo(0, chatRef.current.scrollHeight);
             }
         };
-        
+
         // Añadimos el spinner de 1,5s y modificamos el estado de showSpinner
         const timeoutId = setTimeout(() => {
             setShowSpinner(false);
