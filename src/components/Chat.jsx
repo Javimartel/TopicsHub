@@ -37,13 +37,11 @@ const Chat = () => {
         minHeight: '60vh',
         maxHeight: '60vh'
     };
-    const messageWrapper = {
-        overflowWrap: 'break-word'
-    }
 
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
+        // Obtenemos los mensajes de la colección del tema proporcionado
         const q = query(collection(db, theme.theme), orderBy("timestamp"));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let messages = [];
@@ -53,24 +51,29 @@ const Chat = () => {
             setMessages(messages);
             scrollChat();
 
+            // Si no hay mensajes, modificamos el estado de isEmpty
             if (messages.length === 0) {
                 setIsEmpty(true);
             }
 
         });
 
+        // Añadimos el scroll automático al final del chat
         const scrollChat = () => {
             if (chatRef.current) {
                 chatRef.current.scrollTo(0, chatRef.current.scrollHeight);
             }
         };
         
+        // Añadimos el spinner de 1,5s y modificamos el estado de showSpinner
         const timeoutId = setTimeout(() => {
             setShowSpinner(false);
         }, 1500);
 
         return () => {
+            // Devolvemos la función unsubscribe para que no se quede escuchando
             unsubscribe();
+            // Limpiamos el timeout para que no se quede ejecutando si el componente se desmonta antes de los 1,5s
             clearTimeout(timeoutId);
         };
     }, []);
@@ -85,6 +88,7 @@ const Chat = () => {
                     <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Themes</button>
                 </Link>
             </div>
+            {/* Añadimos el spinner de 1,5s para que se muestre antes que el main */}
             {showSpinner ? (
                 <div className="spin">
                     <div className="m-10 flex justify-center items-center">
@@ -95,20 +99,21 @@ const Chat = () => {
                 </div>
             ) : (
                 <main>
+                    {/* Comprobamos si está vacío el chat para redirigir a 404 */}
                     {isEmpty ? (
                         <Navigate to="/404" />
                     ) : (
                         <div className="w-[100%] flex justify-center">
                             <Sidebar />
                             <div className="w-[50%] flex flex-col items-center">
-                                <div id="chat" ref={chatRef} className="bg-white max-w-full flex flex-col border overflow-y-auto" style={chatHeight}>
-                                    {/*  */}
+                                <div id="chat" ref={chatRef} className="bg-white flex flex-col border overflow-y-auto" style={chatHeight}>
+                                    {/* Añadimos todos los mensajes */}
                                     {messages && messages.map((message) => (
-                                        <Message key={message.id} message={message} theme={theme.theme} style={messageWrapper} />
+                                        <Message key={message.id} message={message} theme={theme.theme} />
                                     ))}
                                 </div>
-                                {/*  Send Message Component */}
                                 <div className="flex w-[100%] justify-center border bg-white">
+                                    {/* Añadimos el componente para enviar mensajes */}
                                     <SendMessage theme={theme.theme} />
                                 </div>
                             </div>
