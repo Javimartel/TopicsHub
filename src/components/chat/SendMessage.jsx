@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {auth, db} from "../../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
-const SendMessage = ({scroll, theme}) => {
+const SendMessage = ({theme}) => {
     const [input, setInput] = useState('');
     const sendMessage = async (e) => {
         e.preventDefault()
@@ -19,7 +19,6 @@ const SendMessage = ({scroll, theme}) => {
             uid,
             timestamp: serverTimestamp(),
         })
-        scroll.current.scrollIntoView({behavior: 'smooth'});
     }
 
     return (
