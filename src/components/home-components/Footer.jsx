@@ -8,7 +8,7 @@ export default function Footer() {
 
             <div className="flex flex-col items-center justify-center w-full h-full">
                 <div className="flex items-center justify-center h-full mb-5">
-                    <Typography variant="paragraph" color="black" className="font-mono">
+                    <Typography variant="paragraph" color="black" className="font-mono text-lg font-bold">
                     Topics<span className="text-blue-500">Hub</span>
                     </Typography>
                 </div>

@@ -141,7 +141,7 @@ export default function UpperSection() {
                 <div className="flex justify-center lg:space-evenly">
 
                     <div className="flex flex-col w-4/5 text-center lg:text-left lg:w-2/3 lg:justify-center">
-                        <Typography color="black" className="font-mono text-3xl font-bold lg:ml-12 md:text-4xl lg:text-5xl">
+                        <Typography color="black" className="font-mono text-4xl font-bold lg:ml-12 lg:text-5xl">
                             Topics<span className="text-blue-500">Hub</span>
                         </Typography>
 
@@ -166,8 +166,8 @@ export default function UpperSection() {
                 </div>
             </section>
 
-            <section className="flex flex-col mt-2">
-                <div className="flex flex-col items-center p-5">
+            <section className="flex flex-col mt-8">
+                <div className="flex flex-col items-center">
 
                     <Typography color="black" className="font-mono text-3xl font-bold text-center lg:w-full lg:ml-12 lg:text-4xl">
                         ¿Qué es <span className="text-blue-500">Libre Opinión</span>?
