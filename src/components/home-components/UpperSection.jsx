@@ -61,7 +61,7 @@ export default function UpperSection() {
                         ¿Qué es <span className="text-blue-500">Libre Opinión</span>?
                     </Typography>
 
-                    <div className="mt-12 flex flex-col items-center text-center md:flex-row ">
+                    <div className="mt-12 flex flex-wrap items-center text-center md:flex-row md:flex-nowrap ">
 
                         <div className="mb-8 w-1/2">
                             <BsChatFill
@@ -71,7 +71,7 @@ export default function UpperSection() {
                             />
                             <div className="md:w-full md:flex md:justify-center">
                                 <p className="text-md text-gray-800 md:text-lg">
-                                    Chatea libremente
+                                    Chatea
                                 </p>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ export default function UpperSection() {
                             </div>
                             <div className="md:w-full md:flex md:justify-center">
                                 <p className="text-md text-gray-800 md:text-lg">
-                                    Cumple las normas
+                                    Cumple
                                 </p>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ export default function MiddleSection() {
           </Typography>
         </div>
         <div className="w-full flex justify-center">
-          <img src="/images/uploadfree.jpg" alt="Photo" className="w-2/5 md:w-3/5" />
+          <img src="/images/uploadfree.jpg" alt="Photo" className="w-3/6 md:w-3/5" />
         </div>
       </section>
     </>
