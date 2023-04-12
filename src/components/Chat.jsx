@@ -106,7 +106,7 @@ const Chat = () => {
                         <div className="w-[100%] flex justify-center">
                             <Sidebar />
                             <div className="w-[50%] flex flex-col items-center">
-                                <div id="chat" ref={chatRef} className="bg-white flex flex-col border overflow-y-auto" style={chatHeight}>
+                                <div id="chat" ref={chatRef} className="bg-white min-w-full max-w-full flex flex-col border overflow-y-auto" style={chatHeight}>
                                     {/* Añadimos todos los mensajes */}
                                     {messages && messages.map((message) => (
                                         <Message key={message.id} message={message} theme={theme.theme} />
