@@ -5,9 +5,9 @@ import { auth } from "../../firebase";
 
 const LogOut = () => {
 
-    const singOut = () => {
-        singOut(auth)
-    }
+    // const signOut = () => {
+    //     signOut(auth)
+    // }
 
     return (
         <div>
