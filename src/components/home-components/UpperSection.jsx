@@ -106,8 +106,8 @@ export default function UpperSection() {
     return (
         <>
             <section className="flex flex-col w-full mt-16 lg:mt-24 "> {/* Portrait */}
-                <div className="flex justify-center w-full">
-                    <div className="flex items-center justify-center">
+                <div className="flex justify-center w-full 2xl:justify-between">
+                    <div className="flex items-center justify-center ">
                         <div className="flex flex-col w-full md:pr-10 md:pl-10">
 
                             <Typography color="black" className="font-mono text-4xl font-bold text-center lg:text-5xl 2xl:text-left"> {/* Title */}
@@ -121,13 +121,13 @@ export default function UpperSection() {
                                     <br />
                                     Ademas de poder debatir, puedes ganar puntos y premios.
                                 </Typography>
-                                
+
                                 <div className="justify-center hidden w-full mt-8 md:flex lg:hidden">
                                     <Button variant="outlined" size="lg" className="flex items-center gap-2 lg:text-lg">
                                         Read More <BsFillBookmarkFill />
                                     </Button>
                                 </div>
-                                
+
                                 <Typography color="black" className="font-mono text-center text-md lg:text-lg 2xl:text-left">
                                     <br />
                                     Ven con nostros y participa en la comunidad de <strong className="font-bold">Topics</strong><span className="font-bold text-blue-500">Hub</span>.
@@ -145,8 +145,8 @@ export default function UpperSection() {
                         </div>
                     </div>
 
-                    <div className="hidden w-3/6 mr-12 2xl:flex 2xl:w-1/2 2xl:justify-center">
-                        <img src="/images/conference.webp" alt="home-img" className="object-cover" />
+                    <div className="hidden w-3/6 mr-12 2xl:flex 2xl:w-2/5 2xl:justify-center">
+                        <img src="/images/conference.webp" alt="home-img" className="object-cover 2xl:m-w-[500px]" />
                     </div>
                 </div>
             </section>
