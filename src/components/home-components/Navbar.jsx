@@ -19,18 +19,18 @@ export default function Example() {
 
   const ResponsiveList = (
     <ul className="flex flex-col items-center mt-4 mb-1 font-mono lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center font-bold text-md">
+      <Typography as="li" color="black" className="p-1">
+        <a href="#" className="flex items-center text-md lg:text-lg">
           About Us
         </a>
       </Typography>
-      <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center font-bold text-md">
+      <Typography as="li" color="black" className="p-1">
+        <a href="#" className="flex items-center text-md lg:text-lg">
           Blog
         </a>
       </Typography>
-      <Typography as="li" color="blue-gray" className="p-1">
-        <a href="#" className="flex items-center font-bold text-md">
+      <Typography as="li" color="black" className="p-1">
+        <a href="#" className="flex items-center text-md lg:text-lg">
           Example
         </a>
       </Typography>
@@ -39,9 +39,9 @@ export default function Example() {
 
   return (
     <div className="flex justify-center w-full">
-      <Navbar className="w-4/5 mt-6 shadow-xl">
+      <Navbar className="w-4/5 mt-6 border shadow-xl lg:w-2/4 border-light-blue-100 lg:min-w-[600px]">
         <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
-          <Typography as="a" href="#" variant="h4" className="mr-4 cursor-pointer" >
+          <Typography as="a" href="#" variant="h4" className="mr-4 cursor-pointer lg:text-2xl" >
             Topics<span className="text-blue-500">Hub</span>
           </Typography>
 
@@ -87,7 +87,7 @@ export default function Example() {
         <MobileNav open={openNav}>
           <div className="container mx-auto">
             {ResponsiveList}
-            <Button variant="gradient" size="sm" fullWidth className="mb-2">
+            <Button variant="gradient" size="lg" fullWidth className="mb-2">
               <span>Join Us</span>
             </Button>
           </div>

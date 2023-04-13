@@ -4,7 +4,7 @@ import { Typography } from "@material-tailwind/react";
 
 export default function Footer() {
     return (
-        <footer className="bottom-0 flex flex-row w-full pt-5 bg-[#e8f5f6]"> {/* Footer section */}
+        <footer className="bottom-0 flex flex-row w-full pt-5 bg-[#fbf9fa]"> {/* Footer section */}
 
             <div className="flex flex-col items-center justify-center w-full h-full">
                 <div className="flex items-center justify-center h-full mb-5">
