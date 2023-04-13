@@ -13,9 +13,12 @@ import SendMessage from "./chat/sendMessage";
 import SignIn from "./chat/SignIn";
 import LogOut from "./chat/LogOut";
 import Sidebar from "./chat/Sidebar";
+// Custom hook
+import { useSpinner } from "./hooks/useSpinner";
 
 
 const Chat = () => {
+    // Obtenemos el usuario de Firebase Auth
     const [user] = useAuthState(auth)
 
     // Si no existe el usuario, redirigimos a 404
@@ -23,6 +26,7 @@ const Chat = () => {
     //     return <Navigate to="/404" />
     // }
 
+    // Obtenemos el tema del chat pasado por ruta
     const theme = useParams();
 
     // Si no existe el tema, redirigimos a 404
@@ -30,15 +34,20 @@ const Chat = () => {
         return <Navigate to="/404" />
     }
 
+    // Creamos una referencia para el chat
     const chatRef = useRef(null);
+    // Estado para los mensajes
+    const [messages, setMessages] = useState([]);
+    // Creamos un estado para comprobar si el chat está vacío
     const [isEmpty, setIsEmpty] = useState(false);
-    const [showSpinner, setShowSpinner] = useState(true);
+    // Añadimos el custom Hook para el spinner
+    const showSpinner = useSpinner();
+
+    // Estilos para el chat
     const chatHeight = {
         minHeight: '60vh',
         maxHeight: '60vh'
     };
-
-    const [messages, setMessages] = useState([]);
 
     useEffect(() => {
         // Obtenemos los mensajes de la colección del tema proporcionado
@@ -48,7 +57,9 @@ const Chat = () => {
             querySnapshot.forEach((doc) => {
                 messages.push({ ...doc.data(), id: doc.id });
             });
+            // Actualizamos el estado con los mensajes
             setMessages(messages);
+            
             scrollChat();
 
             // Si no hay mensajes, modificamos el estado de isEmpty
@@ -65,16 +76,10 @@ const Chat = () => {
             }
         };
 
-        // Añadimos el spinner de 1,5s y modificamos el estado de showSpinner
-        const timeoutId = setTimeout(() => {
-            setShowSpinner(false);
-        }, 1500);
 
         return () => {
             // Devolvemos la función unsubscribe para que no se quede escuchando
             unsubscribe();
-            // Limpiamos el timeout para que no se quede ejecutando si el componente se desmonta antes de los 1,5s
-            clearTimeout(timeoutId);
         };
     }, []);
 
