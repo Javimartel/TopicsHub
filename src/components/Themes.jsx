@@ -16,10 +16,20 @@ function Themes() {
             <Link to="/">Home</Link>
             <div className="flex justify-center w-[50%]">
                 <Link to="/chat/Anime">
-                    <CardAbout theme="Anime" category="Entretenimiento" img="https://img.asmedia.epimg.net/resizer/4Xiieu6FlFODR6qVHG3Yb3YS2DY=/1952x1098/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/G3IUZ2VTD5ITVCVVMBJTKGRXBI.jpg" />
+                    <CardAbout 
+                        theme="Anime" 
+                        description="Chat para hablar de anime y manga"
+                        category="Entretenimiento" 
+                        img="https://t.ctcdn.com.br/-jRX-9m58XZ2bTM0qcuI-Pp0fI4=/340x265:1654x1005/720x405/smart/filters:format(webp)/i521747.jpeg" 
+                    />
                 </Link>
                 <Link to="/chat/Ropa">
-                    <CardAbout theme="Ropa" category="Moda" img="https://img.freepik.com/foto-gratis/tienda-ropa-tienda-ropa-perchas-tienda-boutique-moderna_1150-8886.jpg" />
+                    <CardAbout 
+                        theme="Ropa" 
+                        description="Chat para hablar de moda y tendencias"
+                        category="Moda" 
+                        img="https://img.freepik.com/foto-gratis/tienda-ropa-tienda-ropa-perchas-tienda-boutique-moderna_1150-8886.jpg" 
+                    />
                 </Link>
                 {/* <CardAbout theme="Manga" />
       <CardAbout theme="Coches" /> */}
