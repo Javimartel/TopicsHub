@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAF35Ak_Jb3JvDz8hmmLtD03WSSdy60KTo",
@@ -17,3 +18,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+export const sendMessageWith = async (theme, textToAdd, uid, displayName) => {
+    try {
+        const docRef = await addDoc(collection(db, theme), {
+            text: textToAdd,
+            name: displayName,
+            uid,
+            timestamp: serverTimestamp(),
+        });
+        return docRef;
+    } catch (error) {
+        console.error("Error sending message: ", error);
+    }
+};

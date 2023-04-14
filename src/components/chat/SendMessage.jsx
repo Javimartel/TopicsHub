@@ -1,33 +1,30 @@
-import React, { useState, useRef } from "react";
-import { auth, db } from "../../firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import React, { useRef } from "react";
+import { auth } from "../../firebase";
+import { sendMessageWith } from "../../firebase";
 
 const SendMessage = ({ theme }) => {
-    const inputRef = useRef('');
+    // Referencia al input
+    const inputRef = useRef("");
 
-    const sendMessage = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const textToAdd = inputRef.current.value.trim();
-        if (textToAdd === '') {
-            alert('Por favor añade un mensaje');
+        const textToAdd = inputRef.current.valueOf.trim();
+
+        if (textToAdd === "") {
+            alert("Por favor añade un mensaje");
             return;
         }
 
         const { uid, displayName } = auth.currentUser;
-        await addDoc(collection(db, theme), {
-            text: textToAdd,
-            name: displayName,
-            uid,
-            timestamp: serverTimestamp(),
-        });
+        await sendMessageWith(theme, textToAdd, uid, displayName);
 
-        // Limpiar el campo de entrada y restablecer el estado de error
-        inputRef.current.value = '';
+        // Limpiar el input despues de enviar el mensaje
+        inputRef.current.valueOf = "";
     };
 
     return (
         <div className="w-[50%] m-4">
-            <form onSubmit={sendMessage} className="flex justify-evenly">
+            <form onSubmit={handleSubmit} className="flex justify-evenly">
                 <input type="text" ref={inputRef} className="input input-bordered input-info w-full max-w-xs" />
                 <button type="submit" className="btn btn-primary">Enviar</button>
             </form>
