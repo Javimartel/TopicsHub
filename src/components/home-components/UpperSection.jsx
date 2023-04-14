@@ -106,7 +106,7 @@ export default function UpperSection() {
     return (
         <>
             <section className="flex flex-col w-full mt-16 lg:mt-24 "> {/* Portrait */}
-                <div className="flex justify-center w-full 2xl:justify-between">
+                <div className="flex justify-center w-full 2xl:justify-evenly">
                     <div className="flex items-center justify-center ">
                         <div className="flex flex-col w-full md:pr-10 md:pl-10">
 
@@ -115,11 +115,11 @@ export default function UpperSection() {
                             </Typography>
 
                             <div className="flex flex-col pl-5 pr-5 text-center lg:p-0 2xl:text-left"> {/* Description */}
-                                <Typography color="black" className="font-mono text-md lg:text-lg">
+                                <Typography color="black" className="font-mono text-center text-md lg:text-lg 2xl:text-left">
                                     <br />
-                                    <strong className="font-bold">Topics</strong><span className="font-bold text-blue-500">Hub</span> es una plataforma de debate y discusión de temas de actualidad.
+                                    Ven con nostros y participa en la comunidad de <strong className="font-bold">Topics</strong><span className="font-bold text-blue-500">Hub</span>.
                                     <br />
-                                    Ademas de poder debatir, puedes ganar puntos y premios.
+                                    Discute y debate con tus amigos sobre temas de actualidad.
                                 </Typography>
 
                                 <div className="justify-center hidden w-full mt-8 md:flex lg:hidden">
@@ -146,7 +146,7 @@ export default function UpperSection() {
                     </div>
 
                     <div className="hidden w-3/6 mr-12 2xl:flex 2xl:w-2/5 2xl:justify-center">
-                        <img src="/images/conference.webp" alt="home-img" className="object-cover 2xl:m-w-[500px]" />
+                        <img src="/images/conference.webp" alt="home-img" className="object-cover 2xl:m-w-[500px] 2xl:max-w-[600px]" />
                     </div>
                 </div>
             </section>
@@ -156,7 +156,7 @@ export default function UpperSection() {
 
                     <div className="w-full p-5 lg:p-5 bg-[#fbf9fa]">
                         <Typography color="black" className="font-mono text-3xl font-bold text-center lg:w-full lg:pl-12 lg:text-4xl">
-                            ¿Qué es Topcis<span className="text-blue-500">Hub</span>?
+                            ¿Por qué Topcis<span className="text-blue-500">Hub</span>?
                         </Typography>
 
                         <Typography color="black" className="mt-2 font-mono text-center text-md lg:w-full lg:pl-12 lg:text-lg">
@@ -166,10 +166,10 @@ export default function UpperSection() {
                         </Typography>
                     </div>
 
-                    <div className="flex flex-wrap items-center w-full mt-12 text-center md:justify-evenly lg:hidden md:flex-nowrap md:pl-5 md:pr-5">
+                    <div className="flex flex-wrap items-center w-2/3 mt-12 text-center md:justify-evenly lg:hidden md:w-full md:flex-nowrap md:pl-5 md:pr-5">
                         {features}
                     </div>
-                    <div className="items-center hidden w-full mt-20 justify-evenly lg:flex ">
+                    <div className="items-center hidden w-full mt-12 justify-evenly lg:flex ">
                         {lg_features}
                     </div>
                 </div>
