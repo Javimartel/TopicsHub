@@ -1,13 +1,20 @@
 import React from "react";
-import { Link  } from "react-router-dom";
+import Navbar from "./home-components/Navbar";
+import UpperSection from "./home-components/UpperSection";
+import MiddleSection from "./home-components/MiddleSection";
+import LowerSection from "./home-components/LowerSection";
+import Footer from "./home-components/Footer";
+
 
 function Home() {
   return (
-    <div className="h-screen w-full flex flex-col justify-center items-center">
-      <h1 className="text-3xl text-white">Home</h1>
-      {/* <Link to="chat">Chat</Link> */}
-      <Link to="themes">Themes</Link>
-    </div>
+    <main id="home-main" className="relative flex-col w-full">
+      <Navbar /> 
+      <UpperSection /> 
+      <MiddleSection /> 
+      {/* <LowerSection /> */}
+      <Footer /> 
+    </main>
   );
 }
 

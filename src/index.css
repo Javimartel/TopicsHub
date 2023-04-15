@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer base {
+  html {
+    background-color: white !important;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+#rounded-border {
+  border-radius: 0px 100px 100px 0px;
+}	
+
+#rounded-border2 {
+  border-radius: 100px 0px 0px 100px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
