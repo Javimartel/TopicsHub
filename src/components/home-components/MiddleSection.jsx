@@ -76,7 +76,7 @@ export default function MiddleSection() {
               Their are a lot of <span className="text-blue-500">Topics</span> to choose from, and you can create your own topic.
               Just click on the button below and start chatting.
             </Typography>
-            <Button color="light-blue" buttonType="filled" size="lg" className="w-1/3 mt-4">
+            <Button color="light-blue" size="lg" className="w-1/3 mt-4">
               Join Us
             </Button>
           </div>

@@ -9,7 +9,7 @@ import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
 import { useAuthState } from 'react-firebase-hooks/auth'
 // Components
 import Message from "./chat/Message";
-import SendMessage from "./chat/sendMessage";
+import SendMessage from "./chat/SendMessage";
 import SignIn from "./chat/SignIn";
 import LogOut from "./chat/LogOut";
 import Sidebar from "./chat/Sidebar";
