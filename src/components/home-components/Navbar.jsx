@@ -6,6 +6,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
@@ -20,9 +21,9 @@ export default function Example() {
   const ResponsiveList = (
     <ul className="flex flex-col items-center mt-4 mb-1 font-mono lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography as="li" color="black" className="p-1">
-        <a href="#" className="flex items-center text-md lg:text-lg">
-          About Us
-        </a>
+        <Link to="/themes" className="flex items-center text-md lg:text-lg">
+          Themes
+        </Link>
       </Typography>
       <Typography as="li" color="black" className="p-1">
         <a href="#" className="flex items-center text-md lg:text-lg">
