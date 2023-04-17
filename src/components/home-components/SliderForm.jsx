@@ -12,27 +12,11 @@ import {
     TabPanel,
 } from "@material-tailwind/react";
 
-export default function LowerSection() {
+export default function SliderForm() {
     const [type, setType] = React.useState("card");
     return (
         <>
             <section className="flex flex-col items-center justify-center mt-8 mb-14">
-                <div className="hidden">
-                    <Typography color="black" className="font-mono">
-                        Come <span className="text-blue-500">In</span>.
-                    </Typography>
-                    <Typography variant="paragraph" color="black" className="w-2/3 font-mono text-center">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-                        voluptas, quod, quia, voluptate quae quibusdam voluptates
-                    </Typography>
-                </div>
-
-                <div className="lg:hidden">
-                    <Typography color="black" className="mb-4 font-mono text-3xl font-bold md:text-4xl">
-                        Join <span className="text-blue-500">Us</span>
-                    </Typography>
-                </div>
-
                 <Card className="w-4/5 max-w-sm md:max-w-md">
                     <CardBody>
                         <Tabs value={type} className="overflow-visible ">
@@ -96,17 +80,6 @@ export default function LowerSection() {
                         </Tabs>
                     </CardBody>
                 </Card>
-
-                <div className="hidden">
-                    <Typography variant="h2" color="black" className="font-mono text-right">
-                        Join <span className="text-blue-500">Us</span>.
-                    </Typography>
-
-                    <Typography variant="paragraph" color="black" className="w-2/3 font-mono text-center" >
-                        Join Us and enjoy the freedom of expression and the freedom of
-                        opinion. Be free and opinion.
-                    </Typography>
-                </div>
             </section>
         </>
     );
