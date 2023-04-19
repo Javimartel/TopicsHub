@@ -100,25 +100,30 @@ export default function Content() {
                         </div>
                     </div>
 
-                    <div className="hidden 2xl:block 2xl:w-1/3"> {/* Image */}
+                    <div className="hidden select-none 2xl:block 2xl:w-1/3"> {/* Chat */}
                         <div className="chat chat-start">
                             <div className="text-white chat-bubble bg-[#2196f3]">
-                                Hello there! <br /> General Kenobi!
+                                Hey, have you heard about TopicsHub? &#128064;
                             </div>
                         </div>
                         <div className="chat chat-end">
                             <div className="text-white chat-bubble bg-[#2196f3]">
-                                For the first time, we have a <br />chance at victory.
+                                No &#128517;, I haven't heard of it.
                             </div>
                         </div>
                         <div className="chat chat-start">
                             <div className="text-white chat-bubble bg-[#2196f3]">
-                                What do you mean? <br />We've won before!
+                                Oh, really? &#128533;
+                            </div>
+                        </div>
+                        <div className="chat chat-start">
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                There's a wide range of topics, from politics and current <br />events to sports and entertainment.
                             </div>
                         </div>
                         <div className="chat chat-end">
                             <div className="text-white chat-bubble bg-[#2196f3]">
-                                Not really... We lost to an energy drain.
+                                That sounds interesting. &#128527;
                             </div>
                         </div>
                     </div>
@@ -197,20 +202,28 @@ export default function Content() {
                     </p>
                 </div>
 
-                <div className="flex items-center justify-evenly"> {/* Chart Cont */}
+                <div className="flex items-center mt-10 justify-evenly"> {/* Chat Cont */}
 
-                    <div className="hidden mt-4 2xl:block 2xl:w-1/3"> {/* Image */}
+                    <div className="hidden select-none 2xl:block 2xl:w-1/3">
                         <div className="chat chat-start">
-                            <div className="text-white bg-[#2196f3] chat-bubble">It's over Anakin, <br />I have the high ground.</div>
+                            <div className="text-white bg-[#2196f3] chat-bubble">
+                                Hi, I'm TopicsHub! &#128075;
+                            </div>
                         </div>
                         <div className="chat chat-end">
-                            <div className="text-white chat-bubble bg-[#2196f3]">You underestimate my power!</div>
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                Hi, what is TopicsHub? &#128528;
+                            </div>
                         </div>
                         <div className="chat chat-start">
-                            <div className="text-white chat-bubble bg-[#2196f3]">You underestimate my power!</div>
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                TopicsHub is a chat platform where you can talk about any topic you want.
+                            </div>
                         </div>
                         <div className="chat chat-end">
-                            <div className="text-white chat-bubble bg-[#2196f3]">It's over Anakin, <br />I have the high ground.</div>
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                Oh, that's cool! &#128513;
+                            </div>
                         </div>
                     </div>
                     <div className="flex flex-col items-center justify-center w-4/5 h-full lg:justify-start lg:w-3/5 xl:w-3/5 xl:justify-center 2xl:w-1/3"> {/* Chart */}
