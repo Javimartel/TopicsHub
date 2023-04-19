@@ -74,28 +74,17 @@ export default function Content() {
         </>
     )
 
-    const chart = (
-        <>
-            <Progress value={40} color="blue" size="lg" className="w-1/3 p-1 bg-transparent lg:p-3 h-2/3" />
-            <Progress value={80} color="blue" size="lg" className="w-1/3 p-1 bg-transparent lg:p-3 h-2/3" />
-            <Progress value={90} color="blue" size="lg" className="w-1/3 p-1 bg-transparent lg:p-3 h-2/3" />
-            <Progress value={30} color="blue" size="lg" className="w-1/3 p-1 bg-transparent lg:p-3 h-2/3" />
-            <Progress value={10} color="blue" size="lg" className="w-1/3 p-1 bg-transparent lg:p-3 h-2/3" />
-            <Progress value={50} color="blue" size="lg" className="w-1/3 p-1 bg-transparent lg:p-3 h-2/3" />
-        </>
-    )
 
 
     return (
         <>
-            <section className="flex flex-col mt-12"> {/* Portrait */}
+            <section className="flex flex-col mt-16"> {/* Portrait */}
                 <div className="flex items-center justify-center 2xl:justify-evenly"> {/* Portrait Cont */}
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center 2xl:w-1/3">
                         <div className="flex flex-col text-center"> {/* Title */}
                             <h1 className="font-mono text-4xl font-bold 2xl:text-left">
                                 Topcis<span className="text-blue-500">Hub</span>
                             </h1>
-
                             <div className="flex flex-col px-1 2xl:text-left"> {/* Description */}
                                 <p className="mt-4 font-mono text-md 2xl:text-left">
                                     Ven con nostros y participa en la comunidad de <strong className="font-bold">Topics</strong><span className="font-bold text-blue-500">Hub</span>.
@@ -103,18 +92,35 @@ export default function Content() {
                                     Discute y debate con tus amigos sobre temas de actualidad.
                                 </p>
                             </div>
-
                             <div className="flex justify-center mt-6">
                                 <Button variant="filled" size="lg" className="flex items-center justify-center gap-2" >
                                     Read More <BsFillBookmarkFill />
                                 </Button>
                             </div>
-
                         </div>
                     </div>
 
-                    <div className="hidden 2xl:block"> {/* Image */}
-                        <img src="/images/conference.webp" alt="home-img" className="m-w-[500px] max-w-[600px]" />
+                    <div className="hidden 2xl:block 2xl:w-1/3"> {/* Image */}
+                        <div className="chat chat-start">
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                Hello there! <br /> General Kenobi!
+                            </div>
+                        </div>
+                        <div className="chat chat-end">
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                For the first time, we have a <br />chance at victory.
+                            </div>
+                        </div>
+                        <div className="chat chat-start">
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                What do you mean? <br />We've won before!
+                            </div>
+                        </div>
+                        <div className="chat chat-end">
+                            <div className="text-white chat-bubble bg-[#2196f3]">
+                                Not really... We lost to an energy drain.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -191,12 +197,23 @@ export default function Content() {
                     </p>
                 </div>
 
-                <div className="flex lg:flex-col lg:items-center xl:flex-row justify-center lg:h-[700px] xl:h-[400px]"> {/* Chart Cont */}
-                    <div className="flex-col items-center hidden w-4/5 h-full -rotate-90 lg:flex"> {/* Chart */}
-                        {chart}
+                <div className="flex items-center justify-evenly"> {/* Chart Cont */}
+
+                    <div className="hidden mt-4 2xl:block 2xl:w-1/3"> {/* Image */}
+                        <div className="chat chat-start">
+                            <div className="text-white bg-[#2196f3] chat-bubble">It's over Anakin, <br />I have the high ground.</div>
+                        </div>
+                        <div className="chat chat-end">
+                            <div className="text-white chat-bubble bg-[#2196f3]">You underestimate my power!</div>
+                        </div>
+                        <div className="chat chat-start">
+                            <div className="text-white chat-bubble bg-[#2196f3]">You underestimate my power!</div>
+                        </div>
+                        <div className="chat chat-end">
+                            <div className="text-white chat-bubble bg-[#2196f3]">It's over Anakin, <br />I have the high ground.</div>
+                        </div>
                     </div>
-                    
-                    <div className="flex flex-col items-center justify-center w-4/5 h-full lg:justify-start lg:w-3/5 xl:w-3/5 xl:justify-center"> {/* Chart */}
+                    <div className="flex flex-col items-center justify-center w-4/5 h-full lg:justify-start lg:w-3/5 xl:w-3/5 xl:justify-center 2xl:w-1/3"> {/* Chart */}
                         <Typography color="black" className="p-4 mt-2 font-mono text-center text-md lg:text-lg lg:w-2/3">
                             Their are a lot of <span className="text-blue-500">Topics</span> to choose from, and you can create your own topic.
                             Just click on the button below and start chatting.
