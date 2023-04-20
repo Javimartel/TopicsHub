@@ -34,7 +34,7 @@ const CardAbout = (props) => {
     //     </Typography>
     //   </CardBody>
     // </Card>
-    <div className="card lg:card-side bg-white text-gray-700 hover:text-black shadow-xl m-5">
+    <div className="card lg:card-side bg-blue-500 text-black hover:text-white shadow-xl m-5">
       <div className="min-w-[30%] max-w-[30%] min-h-[20vh] max-h-full"><img className="h-full min-w-full object-cover" src={props.img} alt={props.theme} /></div>
       <div className="card-body flex items-center">
         <h2 className="card-title">{props.theme}</h2>

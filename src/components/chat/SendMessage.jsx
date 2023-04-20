@@ -25,8 +25,8 @@ const SendMessage = ({ theme }) => {
     return (
         <div className="w-[50%] m-4">
             <form onSubmit={handleSubmit} className="flex justify-evenly">
-                <input type="text" ref={inputRef} className="input input-bordered input-info w-full max-w-xs" />
-                <button type="submit" className="btn btn-primary">Enviar</button>
+                <input type="text" ref={inputRef} className="input input-bordered border-black input-info w-full max-w-xs" />
+                <button type="submit" className="btn btn-black">Enviar</button>
             </form>
         </div>
     );
