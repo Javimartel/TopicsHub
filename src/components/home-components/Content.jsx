@@ -172,7 +172,7 @@ export default function Content() {
 
                         <h3 className="font-mono text-2xl font-bold text-center">
                             <div className="chat chat-start">
-                                <div className="chat-bubble bg-[#2196f3]">
+                                <div className="chat-bubble chat-bubble-info">
                                     <p>Who created TopicsHub? &#128517;</p>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@ export default function Content() {
                     <div className="mt-8">
                         <h3 className="font-mono text-2xl font-bold text-center">
                             <div className="chat chat-end">
-                                <div className="chat-bubble bg-[#2196f3]">
+                                <div className="chat-bubble chat-bubble-info">
                                     <p>How was TopicsHub created? &#129300;</p>
                                 </div>
                             </div>
@@ -233,63 +233,64 @@ export default function Content() {
                     </p>
                 </div>
 
-                <div className="flex flex-col items-center mt-10"> {/* Chat Cont */}
-                    <div className="w-2/3 p-2 select-none xl:w-3/6">
+                <div className="flex flex-col items-center justify-center mt-10"> {/* Chat Cont */}
+                    <div className="w-3/4 select-none xl:w-5/12">
                         <div className="chat chat-start">
-                            <div className="text-white bg-[#2196f3] chat-bubble">
+                            <div className=" bg-[#2196f3] chat-bubble">
                                 <p className="lg:text-xl">Hi, I'm TopicsHub! &#128075;</p>
                             </div>
                         </div>
                         <div className="chat chat-end">
-                            <div className="text-white chat-bubble bg-[#2196f3]">
+                            <div className=" chat-bubble bg-[#2196f3]">
                                 <p className="lg:text-xl">Hi, what is TopicsHub? &#128528;</p>
                             </div>
                         </div>
                         <div className="chat chat-start">
-                            <div className="text-white chat-bubble bg-[#2196f3]">
+                            <div className=" chat-bubble bg-[#2196f3]">
                                 <p className="lg:text-xl">It's a chat platform where you can <br />  talk about any topic you want! &#128513;</p>
                             </div>
                         </div>
                         <div className="chat chat-end">
-                            <div className="text-white chat-bubble bg-[#2196f3]">
+                            <div className=" chat-bubble bg-[#2196f3]">
                                 <p className="lg:text-xl">Oh, that's cool! &#128516;</p>
                             </div>
                         </div>
                         <div className="chat chat-start">
-                            <div className="text-white chat-bubble bg-[#2196f3]">
+                            <div className=" chat-bubble bg-[#2196f3]">
                                 <p className="lg:text-xl">Yeah, it is! &#128512;</p>
                             </div>
                         </div>
                         <div className="chat chat-end">
-                            <div className="text-white chat-bubble bg-[#2196f3]">
+                            <div className=" chat-bubble bg-[#2196f3]">
                                 <p className="lg:text-xl">What I have to do to join? &#128521;</p>
                             </div>
                         </div>
                         <div className="chat chat-start lg:text-xl">
-                            <div className="text-white chat-bubble bg-[#2196f3] cursor-pointer">
-                                <a className="font-mono text-white underline " onClick={scrollTop}>
+                            <div className="cursor-pointer chat-bubble bg-[#2196f3]">
+                                <a className="font-mono underline " onClick={scrollTop}>
                                     Click here to join!
                                 </a>
                             </div>
                         </div>
 
                         <div className="chat chat-end">
-                            <div className="text-white chat-bubble bg-[#2196f3]">
+                            <div className="chat-bubble bg-[#2196f3]">
                                 <p className="lg:text-xl">Thanks! &#128522;</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div className="flex flex-col gap-2 mt-8 text-center">
-                        <h3 className="font-mono text-3xl font-bold text-center">
-                            Be free to join! &#128513;
-                        </h3>
-                        <p> TopicsHub is a free platform, so you can join whenever you want!</p>
-                        <p> You can join TopicsHub by clicking the button below.</p>
-                        
-                        <button className="px-4 py-2 font-mono text-white bg-[#2196f3] rounded-md hover:bg-[#2196f3] hover:shadow-lg" onClick={scrollTop}>
-                            Join Now!
-                        </button>    
+
+                    <div className="flex justify-center w-full">
+                        <div className="flex flex-col items-center w-2/3 gap-2 mt-8 text-center">
+                            <h3 className="font-mono text-3xl font-bold text-center">
+                                Be free to join! &#128513;
+                            </h3>
+                            <p> TopicsHub is a free platform, so you can join whenever you want!</p>
+                            <p> You can join TopicsHub by clicking the button below.</p>
+                            <button className="px-4 py-2 font-mono text-white bg-[#2196f3] rounded-md hover:bg-[#2196f3] hover:shadow-lg w-2/3" onClick={scrollTop}>
+                                Join Now!
+                            </button>
+                        </div>
                     </div>
 
 
