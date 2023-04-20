@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from "react";
-import FirebaseContext from "../contexts/firebaseContext";
+import FirebaseContext from "../contexts/FirebaseContext";
 
 const SendMessage = ({ theme }) => {
     // Referencia al input
