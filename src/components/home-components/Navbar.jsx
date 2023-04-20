@@ -7,6 +7,8 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { BsFillBookmarkFill } from "react-icons/bs";
+
 
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
@@ -48,8 +50,8 @@ export default function Example() {
 
           <div className="hidden lg:block">{ResponsiveList}</div>
 
-          <Button variant="gradient" size="md" className="hidden lg:inline-block">
-            <span>Join Us</span>
+          <Button variant="filled" size="md" className="flex items-center justify-center gap-2">
+            Read More <BsFillBookmarkFill />
           </Button>
 
           <IconButton variant="text" className="w-6 h-6 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden" ripple={false} onClick={() => setOpenNav(!openNav)} >
