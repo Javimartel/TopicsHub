@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
-import { auth } from "../../firebase";
-import { sendMessageWith } from "../../firebase";
+import React, { useRef, useContext } from "react";
+import FirebaseContext from "../contexts/firebaseContext";
 
 const SendMessage = ({ theme }) => {
     // Referencia al input
     const inputRef = useRef("");
+    const { auth, sendMessageWith } = useContext(FirebaseContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,7 +18,6 @@ const SendMessage = ({ theme }) => {
         const { uid, displayName } = auth.currentUser;
         await sendMessageWith(theme, textToAdd, uid, displayName);
 
-        // Limpiar el input despues de enviar el mensaje
         inputRef.current.value = "";
     };
 
