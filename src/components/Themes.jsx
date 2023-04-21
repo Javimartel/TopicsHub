@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CardAbout from "./CardAbout"
 import { auth } from '../firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import SignIn from "./chat/SignIn";
+import SignIn from "./chat/LogIn";
 import LogOut from "./chat/LogOut";
 
+import FirebaseContext from "./contexts/FirebaseContext";
+
 function Themes() {
-    const [user] = useAuthState(auth)
+    const { getUser } = useContext(FirebaseContext);
+    const user = getUser();
+
+    // 1º: Se muestra 4 veces este console.log (no sé por qué)
+    // 2º: Al actualizar (F5) /themes el botón de Sign In 
+    console.log(user)
+
     return (
         <div className="h-screen w-full flex flex-col justify-center items-center">
             <h1 className="text-3xl text-white">Temáticas</h1>
@@ -15,6 +23,7 @@ function Themes() {
             {user ? <LogOut /> : <SignIn />}
             <Link to="/">Home</Link>
             <div className="flex justify-center w-[50%]">
+                {/* Esto es estático por ahora, será una colección de Firebase */}
                 <Link to="/chat/Anime">
                     <CardAbout 
                         theme="Anime" 
@@ -31,10 +40,7 @@ function Themes() {
                         img="https://img.freepik.com/foto-gratis/tienda-ropa-tienda-ropa-perchas-tienda-boutique-moderna_1150-8886.jpg" 
                     />
                 </Link>
-                {/* <CardAbout theme="Manga" />
-      <CardAbout theme="Coches" /> */}
             </div>
-            {/* <Link to="chat">Chat</Link> */}
         </div>
     );
 }

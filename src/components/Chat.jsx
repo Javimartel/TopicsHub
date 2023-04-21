@@ -10,7 +10,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 // Components
 import Message from "./chat/Message";
 import SendMessage from "./chat/SendMessage";
-import SignIn from "./chat/SignIn";
+import SignIn from "./chat/LogIn";
 import LogOut from "./chat/LogOut";
 import Sidebar from "./chat/Sidebar";
 // Custom hook

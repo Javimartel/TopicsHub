@@ -3,6 +3,10 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+// Firebase Auth
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { GoogleAuthProvider } from "firebase/auth";
+import { signInWithRedirect } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAF35Ak_Jb3JvDz8hmmLtD03WSSdy60KTo",
@@ -19,6 +23,25 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
+// FIREBASE FUNCTIONS
+
+// Obtener usuario
+export const getUser = () => {
+    const [user] = useAuthState(auth)
+    return user;
+}
+
+// Google Auth
+export const googleLogIn = () => {
+    try {
+        const provider = new GoogleAuthProvider();
+        signInWithRedirect(auth, provider)
+    } catch (error) {
+        console.error("Error signing in with Google: ", error);
+    }
+}
+
+// Enviar mensaje
 export const sendMessageWith = async (theme, textToAdd, uid, displayName) => {
     try {
         const docRef = await addDoc(collection(db, theme), {

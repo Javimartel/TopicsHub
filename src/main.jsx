@@ -4,13 +4,13 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import FirebaseContext from './components/contexts/FirebaseContext'
-import { auth, db, sendMessageWith } from './firebase'
+import { auth, getUser, googleLogIn, sendMessageWith } from './firebase'
 
 const FirebaseProvider = ({ children }) => {
+  const params = { auth, getUser, googleLogIn, sendMessageWith }
+  
   return (
-    // AUTH Y DB DEBERÍAN ESTAR EN PARÁMETROS
-    // AUTH TAMBIEN PUEDE SER OTRO PROVIDER Y QUE SOLO DEVUELVA UN USER DIRECTAMENTE
-    <FirebaseContext.Provider value={{ auth, db, sendMessageWith }}>
+    <FirebaseContext.Provider value={params}>
       {children}
     </FirebaseContext.Provider>
   );
