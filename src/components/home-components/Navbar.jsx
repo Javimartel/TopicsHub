@@ -50,7 +50,7 @@ export default function Example() {
 
           <div className="hidden lg:block">{ResponsiveList}</div>
 
-          <Button variant="filled" size="md" className="flex items-center justify-center gap-2">
+          <Button variant="gradient" size="md" className="items-center justify-center hidden gap-2 lg:flex">
             Read More <BsFillBookmarkFill />
           </Button>
 
@@ -90,8 +90,8 @@ export default function Example() {
         <MobileNav open={openNav}>
           <div className="container mx-auto">
             {ResponsiveList}
-            <Button variant="gradient" size="lg" fullWidth className="mb-2">
-              <span>Join Us</span>
+            <Button variant="gradient" size="lg" fullWidth className="flex items-center justify-center gap-2 mb-2">
+              Read More <BsFillBookmarkFill />
             </Button>
           </div>
         </MobileNav>
