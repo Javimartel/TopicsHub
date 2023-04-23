@@ -12,14 +12,6 @@
   }
 }
 
-#rounded-border {
-  border-radius: 0px 100px 100px 0px;
-}	
-
-#rounded-border2 {
-  border-radius: 100px 0px 0px 100px;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
