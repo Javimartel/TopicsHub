@@ -42,7 +42,7 @@ export default function Example() {
 
   return (
     <div className="flex justify-center w-full">
-      <Navbar className="w-4/5 mt-6 border shadow-xl lg:w-2/4 border-light-blue-100 lg:min-w-[600px]">
+      <Navbar className="w-4/5 mt-6 border shadow-xl lg:w-2/4 border-light-blue-100 lg:min-w-[750px]">
         <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
           <Typography as="a" href="#" variant="h4" className="mr-4 cursor-pointer lg:text-2xl" >
             Topics<span className="text-blue-500">Hub</span>
