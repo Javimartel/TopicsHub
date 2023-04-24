@@ -7,7 +7,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import { BsFillBookmarkFill } from "react-icons/bs";
+import { BsFillHeartFill } from "react-icons/bs";
 
 
 export default function Example() {
@@ -24,17 +24,17 @@ export default function Example() {
     <ul className="flex flex-col items-center mt-4 mb-1 font-mono lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography as="li" color="black" className="p-1">
         <Link to="/themes" className="flex items-center text-md lg:text-lg">
-          Themes
+          About
         </Link>
       </Typography>
       <Typography as="li" color="black" className="p-1">
         <a href="#" className="flex items-center text-md lg:text-lg">
-          Blog
+          Themes
         </a>
       </Typography>
       <Typography as="li" color="black" className="p-1">
         <a href="#" className="flex items-center text-md lg:text-lg">
-          Example
+          Contact
         </a>
       </Typography>
     </ul>
@@ -51,7 +51,7 @@ export default function Example() {
           <div className="hidden lg:block">{ResponsiveList}</div>
 
           <Button variant="gradient" size="md" className="items-center justify-center hidden gap-2 lg:flex">
-            Read More <BsFillBookmarkFill />
+            Join Us <BsFillHeartFill />
           </Button>
 
           <IconButton variant="text" className="w-6 h-6 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden" ripple={false} onClick={() => setOpenNav(!openNav)} >
@@ -91,7 +91,7 @@ export default function Example() {
           <div className="container mx-auto">
             {ResponsiveList}
             <Button variant="gradient" size="lg" fullWidth className="flex items-center justify-center gap-2 mb-2">
-              Read More <BsFillBookmarkFill />
+              Join Us <BsFillHeartFill />
             </Button>
           </div>
         </MobileNav>

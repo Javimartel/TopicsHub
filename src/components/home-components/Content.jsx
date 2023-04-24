@@ -1,12 +1,11 @@
 import React from "react";
-import { Button, Input, IconButton } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 import {
     BsChatFill,
     BsPersonCheckFill,
     BsAwardFill,
     BsFlagFill,
-    BsFillHeartFill,
-    BsFillSendFill
+    BsFillBookmarkFill
 } from "react-icons/bs";
 
 export default function Content() {
@@ -86,7 +85,7 @@ export default function Content() {
                 <div className="flex items-center justify-center xl:justify-evenly"> {/* Portrait Cont */}
 
                     <div className="flex items-center justify-center text-black 2xl:w-1/3"> {/* Portrait Text */}
-                        <div className="flex flex-col text-center 2xl:text-left"> {/* Title */}
+                        <div className="flex flex-col text-center 2xl:text-left 2xl:min-w-[600px]" > {/* Title */}
                             <h1 className="font-mono text-5xl font-bold 2xl:text-left">
                                 Topcis<span className="text-blue-500">Hub</span>
                             </h1>
@@ -99,7 +98,7 @@ export default function Content() {
                             </div>
                             <div className="flex justify-center mt-6"> {/* Button */}
                                 <Button variant="filled" size="lg" className="flex items-center justify-center gap-2">
-                                    Join Us <BsFillHeartFill />
+                                    Read More <BsFillBookmarkFill />
                                 </Button>
                             </div>
                         </div>
@@ -154,7 +153,6 @@ export default function Content() {
             </section>
 
             <section className="flex flex-col items-center mt-12"> {/* What is TopicsHub */}
-
                 <div className="flex flex-col items-center p-5 bg-[#fbf9fa] w-full text-black"> {/* What is TopicsHub Tittle */}
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
                         ¿Qué es  Topics<span className="text-blue-500">Hub</span>?
@@ -165,39 +163,26 @@ export default function Content() {
                         Elije un tema de interés y comienza a chatear con personas de todo el mundo.
                     </p>
                 </div>
-
                 <div className="w-4/5 mt-12"> {/* What is TopicsHub Cont */}
 
-                    <div> {/* What is TopicsHub Text */}
 
-                        <h3 className="font-mono text-xl font-bold text-center">
-                            <div className="chat chat-start">
-                                <div className="chat-bubble bg-[#2196f3]">
-                                    <p className="text-white">Who created TopicsHub? &#128517;</p>
-                                </div>
-                            </div>
-                        </h3>
-
-                        <div className="chat chat-start"> {/* What is TopicsHub Text */}
-                            <div className="bg-[#fbf9fa] chat-bubble">
-                                <p className="p-2 text-justify text-black text-md lg:text-xl">
-                                    Javier and Mario, two ambitious students of web development, were inspired by the idea of creating a
-                                    platform that could help users discover new topics and explore various categories of interest.
-                                    They knew that this concept had immense potential, and they were determined to make it a reality.
-                                    Thus, they set out on a mission to create TopicsHub, a user-friendly website that curates and organizes
-                                    content in a way that makes it easy to find and explore.
-                                </p>
+                    <h3 className="font-mono text-xl font-bold text-center">
+                        <div className="chat chat-start">
+                            <div className="chat-bubble bg-[#2196f3]">
+                                <p className="text-white">Who created TopicsHub? &#128517;</p>
                             </div>
                         </div>
+                    </h3>
 
-                        <div className="chat chat-start"> {/* What is TopicsHub Text */}
-                            <div className="bg-[#fbf9fa] chat-bubble">
-                                <p className="p-2 text-justify text-black text-md lg:text-xl" >
-                                    After months of hard work and dedication, Javier and Mario finally launched TopicsHub to the world.
-                                    It quickly gained popularity among users who appreciated its unique approach to content discovery,
-                                    and soon became a go-to destination for anyone looking to explore new topics and expand their horizons.
-                                </p>
-                            </div>
+                    <div className="chat chat-start">
+                        <div className="bg-[#fbf9fa] chat-bubble">
+                            <p className="p-2 text-justify text-black text-md lg:text-xl">
+                                Javier and Mario, two ambitious students of web development, were inspired by the idea of creating a
+                                platform that could help users discover new topics and explore various categories of interest.
+                                They knew that this concept had immense potential, and they were determined to make it a reality.
+                                Thus, they set out on a mission to create TopicsHub, a user-friendly website that curates and organizes
+                                content in a way that makes it easy to find and explore.
+                            </p>
                         </div>
                     </div>
 
@@ -218,18 +203,6 @@ export default function Content() {
                                     infrastructure, React for frontend development, and HTML and CSS for website design.
                                     The use of these technologies allowed them to create a secure, user-friendly, and
                                     aesthetically pleasing platform.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="chat chat-end"> {/* What is TopicsHub Text */}
-                            <div className="bg-[#fbf9fa] chat-bubble">
-                                <p className="p-2 text-justify text-black text-md lg:text-xl">
-                                    The creation of TopicsHub was successful due to their use of Firebase,
-                                    React, HTML, and CSS technologies. They created a platform for content
-                                    discovery and exploration that prioritized user experience, security, and
-                                    scalability. TopicsHub has become popular among users, and John and Sarah
-                                    continue to work on improving and enhancing the platform.
                                 </p>
                             </div>
                         </div>
