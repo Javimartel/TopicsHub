@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import {
   Navbar,
   MobileNav,
-  Typography,
   Button,
   IconButton,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { BsFillHeartFill } from "react-icons/bs";
-
+import Modal from "./Modal";
 
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
@@ -22,21 +21,21 @@ export default function Example() {
 
   const ResponsiveList = (
     <ul className="flex flex-col items-center mt-4 mb-1 font-mono lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography as="li" color="black" className="p-1">
-        <Link to="/themes" className="flex items-center text-md lg:text-lg">
-          About
-        </Link>
-      </Typography>
-      <Typography as="li" color="black" className="p-1">
-        <a href="#" className="flex items-center text-md lg:text-lg">
+      <li className="p-1">
+        <Link to="/themes" className="flex items-center text-black text-md lg:text-lg">
           Themes
+        </Link>
+      </li>
+      <li className="p-1">
+        <a href="#" className="flex items-center text-black text-md lg:text-lg">
+          About
         </a>
-      </Typography>
-      <Typography as="li" color="black" className="p-1">
-        <a href="#" className="flex items-center text-md lg:text-lg">
+      </li>
+      <li className="p-1">
+        <a href="#" className="flex items-center text-black text-md lg:text-lg">
           Contact
         </a>
-      </Typography>
+      </li>
     </ul>
   );
 
@@ -44,15 +43,15 @@ export default function Example() {
     <div className="flex justify-center w-full">
       <Navbar className="w-4/5 mt-6 border shadow-xl lg:w-2/4 border-light-blue-100 lg:min-w-[750px]">
         <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
-          <Typography as="a" href="#" variant="h4" className="mr-4 cursor-pointer lg:text-2xl" >
+          <a href="#" className="mr-4 text-xl font-bold cursor-pointer lg:text-2xl" >
             Topics<span className="text-blue-500">Hub</span>
-          </Typography>
+          </a>
 
           <div className="hidden lg:block">{ResponsiveList}</div>
 
-          <Button variant="gradient" size="md" className="items-center justify-center hidden gap-2 lg:flex">
+          <label htmlFor="my-modal-4" className="items-center justify-center hidden gap-2 border-none lg:flex btn hover:bg-[#2196f3] bg-[#2196f3] px-7">
             Join Us <BsFillHeartFill />
-          </Button>
+          </label>
 
           <IconButton variant="text" className="w-6 h-6 ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden" ripple={false} onClick={() => setOpenNav(!openNav)} >
             {openNav ? (
@@ -86,13 +85,14 @@ export default function Example() {
               </svg>
             )}
           </IconButton>
+
         </div>
         <MobileNav open={openNav}>
           <div className="container mx-auto">
             {ResponsiveList}
-            <Button variant="gradient" size="lg" fullWidth className="flex items-center justify-center gap-2 mb-2">
-              Join Us <BsFillHeartFill />
-            </Button>
+            <label htmlFor="my-modal-4" className="flex items-center justify-center w-full gap-2 mb-2 hover:bg-[#2196f3] bg-[#2196f3] btn border-none">
+            Join Us <BsFillHeartFill />
+          </label>
           </div>
         </MobileNav>
       </Navbar>

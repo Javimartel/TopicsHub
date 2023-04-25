@@ -1,11 +1,13 @@
 import React from "react";
 import { Button } from "@material-tailwind/react";
+import Modal from "./Modal";
 import {
     BsChatFill,
     BsPersonCheckFill,
     BsAwardFill,
     BsFlagFill,
-    BsFillBookmarkFill
+    BsFillBookmarkFill,
+    BsFillHeartFill,
 } from "react-icons/bs";
 
 export default function Content() {
@@ -136,7 +138,7 @@ export default function Content() {
                 <div className="flex flex-col items-center"> {/* Features Cont */}
                     <div className="w-full p-6 bg-[#fbf9fa] flex flex-col items-center text-black"> {/* Features Title */}
                         <h2 className="font-mono text-3xl font-bold text-center lg:text-4xl">
-                            Why <span className="text-blue-500">TopicsHub</span>?
+                            Why Topics<span className="text-blue-500">Hub</span>?
                         </h2>
                         <p className="mt-2 font-mono text-center text-md lg:text-lg">
                             Topics<span className="text-blue-500">Hub</span> is a place where you can chat with your friends in a safe way.<br />
@@ -152,7 +154,7 @@ export default function Content() {
             <section className="flex flex-col items-center lg:mt-12"> {/* What is TopicsHub */}
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] w-full text-black"> {/* What is TopicsHub Tittle */}
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
-                        What is <span className="text-blue-500">TopicsHub</span>?
+                        What is Topics<span className="text-blue-500">Hub</span>?
                     </h2>
                     <p className="mt-2 font-mono text-center text-md lg:text-lg"> {/* What is TopicsHub Description */}
                         Topics<span className="text-blue-500">Hub</span> is a real-time chat platform. <br />
@@ -161,8 +163,8 @@ export default function Content() {
                 </div>
                 <div className="w-full mt-12 md:w-4/5"> {/* What is TopicsHub Cont */}
                     <div className="chat chat-start ">
-                        <div className="chat-bubble bg-[#2196f3] min-w-[300px]">
-                            <h3 className="text-xl font-bold text-white">Who created TopicsHub? &#128517;</h3>
+                        <div className="chat-bubble bg-[#2196f3]">
+                            <h3 className="text-xl font-bold text-white">Who created it? &#128517;</h3>
                         </div>
                     </div>
                     <div className="chat chat-start">
@@ -219,14 +221,17 @@ export default function Content() {
                                 <p className="text-black"> Just click the button below.</p>
                             </div>
                             <div className="flex justify-center">
-                                <Button size="lg" className="w-2/3 mt-2">
-                                    Join Now!
-                                </Button>
+                                <label htmlFor="my-modal-4" className="items-center justify-center gap-2 border-none flex btn hover:bg-[#2196f3] bg-[#2196f3] px-7">
+                                    Join Us <BsFillHeartFill />
+                                </label>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
+            <Modal /> {/* Modal */}
         </>
     );
 }
