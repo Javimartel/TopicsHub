@@ -230,7 +230,7 @@ export default function Content() {
 
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-black">
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
-                        Can I have my own <span className="text-blue-500">Chat</span>?
+                        My own <span className="text-blue-500">Chat</span>?
                     </h2>
                     <p className="mt-2 font-mono text-center text-md lg:text-lg">
                         You can be the owner of a chat room.
