@@ -3,14 +3,12 @@ import { Route, Routes, Link } from 'react-router-dom'
 import Home from './components/Home'
 import Chat from './components/Chat'
 import Themes from './components/Themes'
-import Login from './components/home-components/SliderForm'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={ <Home /> } />
       <Route path="chat/:theme" element={ <Chat /> } />
-      <Route path="login" element={ <Login /> } />
       <Route path="themes" element={ <Themes /> } />
       <Route path="*" element={
         <div className='flex flex-col items-center justify-center h-screen text-2xl'>

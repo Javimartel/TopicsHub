@@ -1,14 +1,15 @@
 import React from "react";
-import { Button } from "@material-tailwind/react";
 import Modal from "./Modal";
+import Cards from "./Cards";
+import Prices from "./Prices";
 import {
     BsChatFill,
     BsPersonCheckFill,
     BsAwardFill,
     BsFlagFill,
     BsFillBookmarkFill,
-    BsFillHeartFill,
 } from "react-icons/bs";
+
 
 export default function Content() {
 
@@ -76,11 +77,6 @@ export default function Content() {
         </>
     )
 
-    const scrollTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-
     return (
         <>
             <section className="flex flex-col mt-16"> {/* Portrait */}
@@ -97,9 +93,9 @@ export default function Content() {
                                 </p>
                             </div>
                             <div className="flex justify-center mt-6"> {/* Button */}
-                                <Button variant="filled" size="lg" className="flex items-center justify-center gap-2">
+                                <button className="flex items-center justify-center gap-2 hover:bg-[#2196f3] bg-[#2196f3] btn border-none w-1/3 min-w-[160px]">
                                     Read More <BsFillBookmarkFill />
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -168,7 +164,7 @@ export default function Content() {
                         </div>
                     </div>
                     <div className="chat chat-start">
-                        <div className="bg-transparent chat-bubble min-w-[360px]">
+                        <div className="bg-gray-50 chat-bubble min-w-[360px]">
                             <p className="p-2 text-justify text-black text-md lg:text-lg">
                                 Javier and Mario, two ambitious students of web development, were inspired by the idea of creating a
                                 platform that could help users discover new topics and explore various categories of interest.
@@ -183,7 +179,7 @@ export default function Content() {
                             </div>
                         </div>
                         <div className="chat chat-end"> {/* What is TopicsHub Text */}
-                            <div className="bg-transparent chat-bubble min-w-[360px]">
+                            <div className="bg-gray-50 chat-bubble min-w-[360px]">
                                 <p className="p-2 text-justify text-black text-md lg:text-lg">
                                     Javier and Mario used a combination of Firebase, React, HTML, and CSS to develop TopicsHub,
                                     a platform for content discovery and exploration. They used Firebase for backend
@@ -202,7 +198,7 @@ export default function Content() {
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
                         Where to <span className="text-blue-500">Chat</span>?
                     </h2>
-                    <p className="font-mono text-center text-md lg:text-lg">
+                    <p className="mt-2 font-mono text-center text-md lg:text-lg">
                         Topics<span className="text-blue-500">Hub</span> has a wide range of topics.
                     </p>
                     <p className="font-mono text-center text-md lg:text-lg">
@@ -210,22 +206,43 @@ export default function Content() {
                     </p>
                 </div>
 
-                <div className="flex justify-center mt-12"> {/* Where to Chat Tittle */}
-                    <div className="flex items-center justify-center w-full text-center">
-                        <div className="flex flex-col">
-                            <div className="flex flex-col items-center w-full">
-                                <h3 className="font-mono text-2xl font-bold text-black">
-                                    Feel free to join! &#128513;
-                                </h3>
-                                <p className="text-black"> Join whenever you want!</p>
-                                <p className="text-black"> Just click the button below.</p>
-                            </div>
-                            <div className="flex justify-center">
-                                <label htmlFor="my-modal-4" className="items-center justify-center gap-2 border-none flex btn hover:bg-[#2196f3] bg-[#2196f3] px-7">
-                                    Join Us <BsFillHeartFill />
-                                </label>
-                            </div>
-                        </div>
+                <div className="flex flex-col items-center mt-12">
+                    <div className="flex flex-wrap justify-center gap-10 mt-6 w-6/6">
+                        <Cards />
+                    </div>
+
+                    <h3 className="mt-8 font-mono text-3xl font-bold text-center">
+                        Join a chat room and start chatting.
+                    </h3>
+
+                    <p className="mt-2 font-mono text-lg text-center">
+                        Topics<span className="text-blue-500">Hub</span> has a wide range of topics. <br />
+                        Just choose one and start chatting.
+                    </p>
+
+                    <label className="mt-4 hover:bg-[#2196f3] bg-[#2196f3] btn border-none" htmlFor="my-modal-4">
+                        Start Chatting
+                    </label>
+                </div>
+            </section>
+
+            <section className="flex flex-col justify-center mt-12 "> {/* Chat Owner */}
+
+                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-black">
+                    <h2 className="font-mono text-3xl font-bold lg:text-4xl">
+                        Can I have my own <span className="text-blue-500">Chat</span>?
+                    </h2>
+                    <p className="mt-2 font-mono text-center text-md lg:text-lg">
+                        You can be the owner of a chat room.
+                    </p>
+                    <p className="font-mono text-center text-md lg:text-lg">
+                        Just create a chat room and invite your friends.
+                    </p>
+                </div>
+
+                <div className="flex justify-center mt-12">
+                    <div className="flex flex-wrap justify-center w-4/5 gap-20">
+                        <Prices />
                     </div>
                 </div>
             </section>

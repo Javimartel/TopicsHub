@@ -45,15 +45,15 @@ export default function Modal() {
                                         },
                                     }}
                                 >
-                                    <TabPanel value="card" className="p-0 min-h-[320px]">
-                                        <form className="flex flex-col mt-8">
-                                            <div className="flex justify-center w-full mb-4">
+                                    <TabPanel value="card" className="p-0 min-h-[300px] flex items-end">
+                                        <form className="flex flex-col w-full">
+                                            <div className="flex justify-center mb-2">
                                                 <Button size="md" variant="outlined" className="flex items-center gap-3">
                                                     <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
                                                     Continue with Google
                                                 </Button>
                                             </div>
-                                            <div class="divider text-md">Or</div>
+                                            <div className="divider text-md">Or</div>
                                             <div className="mb-4">
                                                 <Input type="email" label="Email" id="login_email" />
                                             </div>
@@ -64,7 +64,7 @@ export default function Modal() {
                                         </form>
                                     </TabPanel>
 
-                                    <TabPanel value="sign" className="p-0 min-h-[320px]">
+                                    <TabPanel value="sign" className="p-0 min-h-[300px]">
                                         <form className="flex flex-col mt-8">
                                         <div className="mb-4">
                                             <p className="font-mono text-lg text-center text-black">
@@ -76,7 +76,6 @@ export default function Modal() {
                                         </div>
                                         <div className="flex flex-col gap-4 mb-4 sm:flex-row">
                                             <Input type="email" label="Name" />
-                                            <Input type="email" label="Username" />
                                         </div>
                                         <div className="mb-4">
                                             <Input type="email" label="Email" id="sign_email" />
