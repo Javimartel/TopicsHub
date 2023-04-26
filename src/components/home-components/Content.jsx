@@ -79,7 +79,7 @@ export default function Content() {
 
     return (
         <>
-            <section className="flex flex-col mt-16"> {/* Portrait */}
+            <section className="flex flex-col mt-20"> {/* Portrait */}
                 <div className="flex items-center justify-center xl:justify-evenly"> {/* Portrait Cont */}
                     <div className="flex items-center justify-center text-black 2xl:w-1/3"> {/* Portrait Text */}
                         <div className="flex flex-col text-center 2xl:text-left 2xl:min-w-[600px]" > {/* Title */}
@@ -205,17 +205,17 @@ export default function Content() {
                         Join a chat room and start chatting.
                     </p>
                 </div>
-
+                
                 <div className="flex flex-col items-center mt-12">
-                    <div className="flex flex-wrap justify-center gap-10 mt-6 w-6/6">
+                    <div className="flex flex-wrap justify-center gap-8 w-6/6">
                         <Cards />
                     </div>
 
-                    <h3 className="mt-8 font-mono text-3xl font-bold text-center">
+                    <h3 className="mt-12 font-mono text-3xl font-bold text-center">
                         Join a chat room and start chatting.
                     </h3>
 
-                    <p className="mt-2 font-mono text-lg text-center">
+                    <p className="mt-4 font-mono text-lg text-center">
                         Topics<span className="text-blue-500">Hub</span> has a wide range of topics. <br />
                         Just choose one and start chatting.
                     </p>
@@ -226,7 +226,7 @@ export default function Content() {
                 </div>
             </section>
 
-            <section className="flex flex-col justify-center mt-12 "> {/* Chat Owner */}
+            <section className="flex flex-col justify-center mt-8"> {/* Chat Owner */}
 
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-black">
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
@@ -241,12 +241,11 @@ export default function Content() {
                 </div>
 
                 <div className="flex justify-center mt-12">
-                    <div className="flex flex-wrap justify-center w-4/5 gap-20">
+                    <div className="flex flex-wrap justify-center w-full gap-2 lg:gap-12 xl:gap-20">
                         <Prices />
                     </div>
                 </div>
             </section>
-
 
             <Modal /> {/* Modal */}
         </>

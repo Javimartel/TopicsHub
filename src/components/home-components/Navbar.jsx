@@ -2,12 +2,10 @@ import { useState, useEffect } from "react";
 import {
   Navbar,
   MobileNav,
-  Button,
   IconButton,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { BsFillHeartFill } from "react-icons/bs";
-import Modal from "./Modal";
 
 export default function Example() {
   const [openNav, setOpenNav] = useState(false);
@@ -91,8 +89,8 @@ export default function Example() {
           <div className="container mx-auto">
             {ResponsiveList}
             <label htmlFor="my-modal-4" className="flex items-center justify-center w-full gap-2 mb-2 hover:bg-[#2196f3] bg-[#2196f3] btn border-none">
-            Join Us <BsFillHeartFill />
-          </label>
+              Join Us <BsFillHeartFill />
+            </label>
           </div>
         </MobileNav>
       </Navbar>

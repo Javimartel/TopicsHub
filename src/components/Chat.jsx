@@ -12,7 +12,8 @@ import Message from "./chat/Message";
 import SendMessage from "./chat/SendMessage";
 import SignIn from "./chat/SignIn";
 import LogOut from "./chat/LogOut";
-import Sidebar from "./chat/Sidebar";
+import Navbar from "./theme-components/Navbar"
+import Footer from "./home-components/Footer"
 // Custom hook
 import { useSpinner } from "./hooks/useSpinner";
 
@@ -59,7 +60,7 @@ const Chat = () => {
             });
             // Actualizamos el estado con los mensajes
             setMessages(messages);
-            
+
             scrollChat();
 
             // Si no hay mensajes, modificamos el estado de isEmpty
@@ -85,9 +86,9 @@ const Chat = () => {
 
     return (
         <>
-            <div className="w-full text-center p-6">
+            <div className="hidden w-full p-6 text-center ">
                 <h1>Chat</h1>
-                <h2 className="font-bold italic">Eliminar este botón cuando esté el Login creado</h2>
+                <h2 className="italic font-bold">Eliminar este botón cuando esté el Login creado</h2>
                 {user ? <LogOut /> : <SignIn />}
                 <Link to="/themes">
                     <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Themes</button>
@@ -96,33 +97,41 @@ const Chat = () => {
             {/* Añadimos el spinner de 1,5s para que se muestre antes que el main */}
             {showSpinner ? (
                 <div className="spin">
-                    <div className="m-10 flex justify-center items-center">
+                    <div className="flex items-center justify-center m-10">
                         <svg className="animate-spin spin" fill="none" height="150" viewBox="0 0 20 20" width="150" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10 3.5C6.41015 3.5 3.5 6.41015 3.5 10C3.5 10.4142 3.16421 10.75 2.75 10.75C2.33579 10.75 2 10.4142 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C9.58579 18 9.25 17.6642 9.25 17.25C9.25 16.8358 9.58579 16.5 10 16.5C13.5899 16.5 16.5 13.5899 16.5 10C16.5 6.41015 13.5899 3.5 10 3.5Z" fill="#ffffff" />
                         </svg>
                     </div>
                 </div>
             ) : (
-                <main>
+
+                <main className="flex flex-col items-center w-full">
+                    <Navbar />
                     {/* Comprobamos si está vacío el chat para redirigir a 404 */}
                     {isEmpty ? (
                         <Navigate to="/404" />
                     ) : (
-                        <div className="w-[100%] flex justify-center">
-                            <Sidebar />
-                            <div className="w-[50%] flex flex-col items-center">
-                                <div id="chat" ref={chatRef} className="bg-white min-w-full max-w-full flex flex-col border overflow-y-auto" style={chatHeight}>
+                        <div className="flex flex-col items-center w-full mt-12">
+
+                                <div className="flex justify-center w-2/3 py-5 text-3xl font-bold border border-gray-300">
+                                    <h1>{theme.theme}</h1>
+                                </div>
+
+                                <div id="chat" ref={chatRef} className="w-2/3 p-5 overflow-y-auto border border-gray-300" style={chatHeight}>
                                     {/* Añadimos todos los mensajes */}
                                     {messages && messages.map((message) => (
                                         <Message key={message.id} message={message} theme={theme.theme} />
                                     ))}
                                 </div>
-                                <div className="flex w-[100%] justify-center border bg-white">
+
+
+                                <div className="flex justify-center w-2/3 py-5 border border-gray-300">
                                     {/* Añadimos el componente para enviar mensajes */}
                                     <SendMessage theme={theme.theme} />
                                 </div>
+                                <Footer />
                             </div>
-                        </div>
+                    
                     )}
                 </main>
             )}
