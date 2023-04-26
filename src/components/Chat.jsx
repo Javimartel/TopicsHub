@@ -60,7 +60,8 @@ const Chat = () => {
             });
             // Actualizamos el estado con los mensajes
             setMessages(messages);
-            
+
+            // Hacemos el scroll
             scrollChat();
 
             // Si no hay mensajes, modificamos el estado de isEmpty
@@ -94,14 +95,14 @@ const Chat = () => {
                     <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Themes</button>
                 </Link>
             </div>
-            {/* Añadimos el spinner de 1,5s para que se muestre antes que el main */}
-            {showSpinner ? (
-                <Spinner />
-            ) : (
-                <main>
-                    {/* Comprobamos si está vacío el chat para redirigir a 404 */}
-                    {isEmpty ? (
-                        <Navigate to="/404" />
+            {/* Comprobamos si está vacío el chat para redirigir a 404 */}
+            {isEmpty ? (
+                <Navigate to="/404" />
+                ) : (
+                    <main>
+                    {/* Añadimos el spinner para que se muestre antes que el main */}
+                    {showSpinner ? (
+                        <Spinner />
                     ) : (
                         <div className="w-[100%] flex justify-center">
                             {/* <Sidebar /> */}
