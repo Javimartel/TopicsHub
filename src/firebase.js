@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { addDoc, collection, serverTimestamp, getDocs } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, onSnapshot } from "firebase/firestore";
 // Firebase Auth
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { GoogleAuthProvider } from "firebase/auth";
@@ -43,16 +43,34 @@ export const googleLogIn = () => {
 }
 
 // Obtener temas
-export const getThemes = async () => {
+export const getThemes = (callback) => {
     try {
-        const querySnapshot = await getDocs(collection(db, "Themes"));
-        const themes = [];
-        querySnapshot.forEach((doc) => {
-            themes.push({ id: doc.id, ...doc.data() });
+        const unsubscribe = onSnapshot(collection(db, "Themes"), (snapshot) => {
+            const themes = [];
+            snapshot.forEach((doc) => {
+                themes.push({ id: doc.id, ...doc.data() });
+            });
+            callback(themes);
         });
-        return themes;
+        return unsubscribe;
     } catch (error) {
         console.error("Error getting themes: ", error);
+    }
+};
+
+// Agregar tema
+export const addTheme = async (themeData) => {
+    try {
+        const docRef = await addDoc(collection(db, "Themes"), {
+            name: themeData.name,
+            description: themeData.description,
+            category: themeData.category,
+            img: themeData.img,
+        });
+        return docRef;
+
+    } catch (error) {
+        console.error("Error adding theme: ", error);
     }
 };
 

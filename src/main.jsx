@@ -4,10 +4,10 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import FirebaseContext from './components/contexts/FirebaseContext'
-import { auth, getUser, googleLogIn, getThemes, sendMessageWith } from './firebase'
+import { auth, getUser, googleLogIn, getThemes, addTheme, sendMessageWith } from './firebase'
 
 const FirebaseProvider = ({ children }) => {
-  const params = { auth, getUser, googleLogIn, getThemes, sendMessageWith }
+  const params = { auth, getUser, googleLogIn, getThemes, addTheme, sendMessageWith }
   
   return (
     <FirebaseContext.Provider value={params}>

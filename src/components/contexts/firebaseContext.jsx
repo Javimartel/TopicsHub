@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { auth, db, getUser, googleLogIn, getThemes, sendMessageWith } from "../../firebase";
+import { auth, db, getUser, googleLogIn, getThemes, addTheme, sendMessageWith } from "../../firebase";
 
 const FirebaseContext = createContext({
     auth,
@@ -7,6 +7,7 @@ const FirebaseContext = createContext({
     getUser,
     googleLogIn,
     getThemes,
+    addTheme,
     sendMessageWith,
 });
 
