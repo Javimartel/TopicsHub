@@ -2,11 +2,12 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, getDocs } from "firebase/firestore";
 // Firebase Auth
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithRedirect } from "firebase/auth";
+import { useSpinner } from "./components/hooks/useSpinner";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAF35Ak_Jb3JvDz8hmmLtD03WSSdy60KTo",
@@ -40,6 +41,20 @@ export const googleLogIn = () => {
         console.error("Error signing in with Google: ", error);
     }
 }
+
+// Obtener temas
+export const getThemes = async () => {
+    try {
+        const querySnapshot = await getDocs(collection(db, "Themes"));
+        const themes = [];
+        querySnapshot.forEach((doc) => {
+            themes.push({ id: doc.id, ...doc.data() });
+        });
+        return themes;
+    } catch (error) {
+        console.error("Error getting themes: ", error);
+    }
+};
 
 // Enviar mensaje
 export const sendMessageWith = async (theme, textToAdd, uid, displayName) => {
