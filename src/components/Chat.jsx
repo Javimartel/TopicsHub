@@ -29,12 +29,6 @@ const Chat = () => {
 
     // Obtenemos el tema del chat pasado por ruta
     const theme = useParams();
-
-    // Si no existe el tema, redirigimos a 404
-    if (!theme) {
-        return <Navigate to="/404" />
-    }
-
     // Creamos una referencia para el chat
     const chatRef = useRef(null);
     // Estado para los mensajes
@@ -98,8 +92,8 @@ const Chat = () => {
             {/* Comprobamos si está vacío el chat para redirigir a 404 */}
             {isEmpty ? (
                 <Navigate to="/404" />
-                ) : (
-                    <main>
+            ) : (
+                <main>
                     {/* Añadimos el spinner para que se muestre antes que el main */}
                     {showSpinner ? (
                         <Spinner />
