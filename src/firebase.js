@@ -9,13 +9,13 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithRedirect } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAF35Ak_Jb3JvDz8hmmLtD03WSSdy60KTo",
-    authDomain: "chat-test-b90f4.firebaseapp.com",
-    projectId: "chat-test-b90f4",
-    storageBucket: "chat-test-b90f4.appspot.com",
-    messagingSenderId: "1016719690846",
-    appId: "1:1016719690846:web:67227867eae6f5e011b8cf",
-    measurementId: "G-2NEVH1Z2S3"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
