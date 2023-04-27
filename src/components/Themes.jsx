@@ -42,10 +42,7 @@ function Themes() {
         addTheme(themeData);
 
         // Limpiamos los inputs
-        temaRef.current.value = "";
-        descripcionRef.current.value = "";
-        categoriaRef.current.value = "";
-        imagenRef.current.value = "";
+        [temaRef, descripcionRef, categoriaRef, imagenRef].forEach(ref => ref.current.value = "");
     }
 
     useEffect(() => {
