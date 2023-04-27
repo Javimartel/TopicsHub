@@ -2,12 +2,11 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { addDoc, collection, serverTimestamp, onSnapshot } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 // Firebase Auth
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithRedirect } from "firebase/auth";
-import { useSpinner } from "./components/hooks/useSpinner";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAF35Ak_Jb3JvDz8hmmLtD03WSSdy60KTo",
@@ -88,3 +87,13 @@ export const sendMessageWith = async (theme, textToAdd, uid, displayName) => {
         console.error("Error sending message: ", error);
     }
 };
+
+// Eliminar mensaje
+export const deleteMessage = async (messageId, messageUid, currentTheme) => {
+    const messageRef = doc(db, currentTheme, messageId);
+    const { uid } = auth.currentUser;
+
+    if (uid === messageUid) {
+        await deleteDoc(messageRef);
+    }
+}
