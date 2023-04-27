@@ -11,20 +11,24 @@ import {
     onSnapshot,
     doc,
     deleteDoc,
+    query,
+    orderBy,
 } from "firebase/firestore";
 
 // Firebase Storage functions
-import { 
-    getStorage, 
-    ref, 
-    uploadBytes, 
-    getDownloadURL 
+import {
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL
 } from "firebase/storage";
 
 // Firebase Auth
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { GoogleAuthProvider } from "firebase/auth";
-import { signInWithRedirect } from "firebase/auth";
+import { 
+    GoogleAuthProvider,
+    signInWithRedirect 
+} from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -39,7 +43,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+const db = getFirestore(app);
 
 // FIREBASE FUNCTIONS
 
@@ -125,6 +129,25 @@ export const sendMessageWith = async (theme, textToAdd, uid, displayName) => {
         return docRef;
     } catch (error) {
         console.error("Error sending message: ", error);
+    }
+};
+
+// Obtener mensajes
+export const getMessages = (theme, callback) => {
+    try {
+        const unsubscribe = onSnapshot(
+            query(collection(db, theme), orderBy("timestamp", "asc")),
+            (snapshot) => {
+                const messages = [];
+                snapshot.forEach((doc) => {
+                    messages.push({ id: doc.id, ...doc.data() });
+                });
+                callback(messages);
+            }
+        );
+        return unsubscribe;
+    } catch (error) {
+        console.error("Error getting messages: ", error);
     }
 };
 

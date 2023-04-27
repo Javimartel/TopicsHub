@@ -1,26 +1,23 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-// Firebase Auth
-import { auth } from '../firebase'
-import { db } from "../firebase";
-import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
-import { useAuthState } from 'react-firebase-hooks/auth'
+import FirebaseContext from "./contexts/FirebaseContext";
+
 // Components
 import Message from "./chat/Message";
 import SendMessage from "./chat/SendMessage";
 import SignIn from "./chat/LogIn";
 import LogOut from "./chat/LogOut";
 import Spinner from "./Spinner";
-import Sidebar from "./chat/Sidebar";
+
 // Custom hook
 import { useSpinner } from "./hooks/useSpinner";
 
 
 const Chat = () => {
     // Obtenemos el usuario de Firebase Auth
-    const [user] = useAuthState(auth)
+    const { getUser, getMessages } = useContext(FirebaseContext);
+    const user = getUser();
 
     // Si no existe el usuario, redirigimos a 404
     // if (!user) {
@@ -46,15 +43,9 @@ const Chat = () => {
 
     useEffect(() => {
         // Obtenemos los mensajes de la colección del tema proporcionado
-        const q = query(collection(db, theme.theme), orderBy("timestamp"));
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            let messages = [];
-            querySnapshot.forEach((doc) => {
-                messages.push({ ...doc.data(), id: doc.id });
-            });
-            // Actualizamos el estado con los mensajes
+        getMessages(theme.theme, (messages) => {
+            // Añadimos los mensajes al estado
             setMessages(messages);
-
             // Hacemos el scroll
             scrollChat();
 
@@ -62,7 +53,6 @@ const Chat = () => {
             if (messages.length === 0) {
                 setIsEmpty(true);
             }
-
         });
 
         // Añadimos el scroll automático al final del chat
@@ -72,11 +62,10 @@ const Chat = () => {
             }
         };
 
-
         return () => {
-            // Devolvemos la función unsubscribe para que no se quede escuchando
-            unsubscribe();
-        };
+            // Limpiamos el estado de los mensajes
+            setMessages([]);
+        }
     }, []);
 
     return (
