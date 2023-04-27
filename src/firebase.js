@@ -2,7 +2,25 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { addDoc, collection, serverTimestamp, onSnapshot, doc, deleteDoc } from "firebase/firestore";
+
+// Firebase Firestore functions
+import {
+    addDoc,
+    collection,
+    serverTimestamp,
+    onSnapshot,
+    doc,
+    deleteDoc,
+} from "firebase/firestore";
+
+// Firebase Storage functions
+import { 
+    getStorage, 
+    ref, 
+    uploadBytes, 
+    getDownloadURL 
+} from "firebase/storage";
+
 // Firebase Auth
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { GoogleAuthProvider } from "firebase/auth";
@@ -72,6 +90,28 @@ export const addTheme = async (themeData) => {
         console.error("Error adding theme: ", error);
     }
 };
+
+// Función para subir el archivo y obtener su enlace
+export const uploadFileAndGetURL = async (file) => {
+    try {
+        // Obtener referencia al Storage
+        const storage = getStorage();
+        // Crear una referencia al archivo en el Storage con su nombre original
+        const storageRef = ref(storage, file.name);
+
+        // Subir el archivo al Storage
+        await uploadBytes(storageRef, file);
+
+        // Obtener el enlace del archivo subido
+        const downloadURL = await getDownloadURL(storageRef);
+
+        // Devolver el enlace del archivo subido
+        return downloadURL;
+
+    } catch (error) {
+        console.error("Error al subir archivo:", error);
+    }
+}
 
 // Enviar mensaje
 export const sendMessageWith = async (theme, textToAdd, uid, displayName) => {

@@ -1,23 +1,23 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { BsPlusCircle } from "react-icons/bs";
+import FirebaseContext from "./contexts/FirebaseContext";
+
+// Componentes
 import CardAbout from "./CardAbout"
+import Spinner from "./Spinner"
 import SignIn from "./chat/LogIn";
 import LogOut from "./chat/LogOut";
-import Spinner from "./Spinner"
-
-import FirebaseContext from "./contexts/FirebaseContext";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
-
-import { BsPlusCircle } from "react-icons/bs";
 
 function Themes() {
-    const { getUser, getThemes, addTheme } = useContext(FirebaseContext);
+    const { getUser, getThemes, addTheme, uploadFileAndGetURL } = useContext(FirebaseContext);
     const user = getUser();
 
+    // Estados
     const [themes, setThemes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    // Referencias a los inputs
     const temaRef = useRef();
     const descripcionRef = useRef();
     const categoriaRef = useRef();
@@ -29,13 +29,10 @@ function Themes() {
         const categoria = categoriaRef.current.value.trim();
         const imagen = imagenRef.current.files[0];
 
-        const imagenURL = await uploadFile(imagen);
-
-        console.log(`Nuevo tema: ${tema}, descripción: ${descripcion}, categoría: ${categoria}, imagen: ${imagen}`);
-        console.log(imagenURL);
+        // Subimos la imagen a Firebase Storage y obtenemos su URL
+        const imagenURL = await uploadFileAndGetURL(imagen);
 
         const themeData = {
-            key: "test",
             name: tema,
             description: descripcion,
             category: categoria,
@@ -44,34 +41,11 @@ function Themes() {
 
         addTheme(themeData);
 
-        // setThemes([...themes, newTheme]);
-
+        // Limpiamos los inputs
         temaRef.current.value = "";
         descripcionRef.current.value = "";
         categoriaRef.current.value = "";
         imagenRef.current.value = "";
-    }
-
-    const storage = getStorage();
-
-    // Función para subir el archivo y obtener su enlace
-    async function uploadFile(file) {
-        try {
-            // Crear una referencia al archivo en el Storage con su nombre original
-            const storageRef = ref(storage, file.name);
-
-            // Subir el archivo al Storage
-            await uploadBytes(storageRef, file);
-
-            // Obtener el enlace del archivo subido
-            const downloadURL = await getDownloadURL(storageRef);
-
-            // Devolver el enlace del archivo subido
-            return downloadURL;
-
-        } catch (error) {
-            console.error("Error al subir archivo:", error);
-        }
     }
 
     useEffect(() => {
