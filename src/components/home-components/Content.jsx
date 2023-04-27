@@ -10,6 +10,8 @@ import {
     BsFillBookmarkFill,
 } from "react-icons/bs";
 
+import { Button, Input } from "@material-tailwind/react";
+
 
 export default function Content() {
 
@@ -81,8 +83,8 @@ export default function Content() {
         <>
             <section className="flex flex-col mt-20"> {/* Portrait */}
                 <div className="flex items-center justify-center xl:justify-evenly"> {/* Portrait Cont */}
-                    <div className="flex items-center justify-center text-black 2xl:w-1/3"> {/* Portrait Text */}
-                        <div className="flex flex-col text-center 2xl:text-left 2xl:min-w-[600px]" > {/* Title */}
+                    <div className="flex items-center justify-cente 2xl:w-1/3"> {/* Portrait Text */}
+                        <div className="flex flex-col text-center 2xl:text-left 2xl:min-w-[600px] text-blue-gray-800" > {/* Title */}
                             <h1 className="font-mono text-5xl font-bold 2xl:text-left">
                                 Topics<span className="text-blue-500">Hub</span>
                             </h1>
@@ -93,9 +95,7 @@ export default function Content() {
                                 </p>
                             </div>
                             <div className="flex justify-center mt-6"> {/* Button */}
-                                <button className="flex items-center justify-center gap-2 hover:bg-[#2196f3] bg-[#2196f3] btn border-none w-1/3 min-w-[160px]">
-                                    Read More <BsFillBookmarkFill />
-                                </button>
+                                <Button size="lg" className="flex items-center gap-1"> Read More <BsFillBookmarkFill /> </Button>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@ export default function Content() {
 
             <section className="flex flex-col mt-12"> {/* Features */}
                 <div className="flex flex-col items-center"> {/* Features Cont */}
-                    <div className="w-full p-6 bg-[#fbf9fa] flex flex-col items-center text-black"> {/* Features Title */}
+                    <div className="w-full p-6 bg-[#fbf9fa] flex flex-col items-center text-blue-gray-800"> {/* Features Title */}
                         <h2 className="font-mono text-3xl font-bold text-center lg:text-4xl">
                             Why Topics<span className="text-blue-500">Hub</span>?
                         </h2>
@@ -148,7 +148,7 @@ export default function Content() {
             </section>
 
             <section className="flex flex-col items-center lg:mt-12"> {/* What is TopicsHub */}
-                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] w-full text-black"> {/* What is TopicsHub Tittle */}
+                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] w-full text-blue-gray-800"> {/* What is TopicsHub Tittle */}
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
                         What is Topics<span className="text-blue-500">Hub</span>?
                     </h2>
@@ -194,7 +194,7 @@ export default function Content() {
 
             <section className="flex flex-col justify-center mt-12 "> {/* Where to Chat */}
 
-                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-black"> {/* Where to Chat Tittle */}
+                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-800"> {/* Where to Chat Tittle */}
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
                         Where to <span className="text-blue-500">Chat</span>?
                     </h2>
@@ -205,17 +205,17 @@ export default function Content() {
                         Join a chat room and start chatting.
                     </p>
                 </div>
-                
+
                 <div className="flex flex-col items-center mt-12">
                     <div className="flex flex-wrap justify-center gap-8 w-6/6">
                         <Cards />
                     </div>
 
-                    <h3 className="mt-12 font-mono text-3xl font-bold text-center">
+                    <h3 className="mt-12 font-mono text-3xl font-bold text-center text-blue-gray-800">
                         Join a chat room and start chatting.
                     </h3>
 
-                    <p className="mt-4 font-mono text-lg text-center">
+                    <p className="mt-4 font-mono text-lg text-center text-blue-gray-800">
                         Topics<span className="text-blue-500">Hub</span> has a wide range of topics. <br />
                         Just choose one and start chatting.
                     </p>
@@ -223,12 +223,13 @@ export default function Content() {
                     <label className="mt-4 hover:bg-[#2196f3] bg-[#2196f3] btn border-none" htmlFor="my-modal-4">
                         Start Chatting
                     </label>
+
                 </div>
             </section>
 
             <section className="flex flex-col justify-center mt-8"> {/* Chat Owner */}
 
-                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-black">
+                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-800">
                     <h2 className="font-mono text-3xl font-bold lg:text-4xl">
                         My own <span className="text-blue-500">Chat</span>?
                     </h2>

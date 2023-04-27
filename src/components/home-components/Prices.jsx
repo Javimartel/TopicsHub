@@ -9,12 +9,12 @@ import {
 export default function Prices() {
     return (
         <>
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem]">
+            <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem] text-blue-gray-800">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
                         standard
                     </p>
-                    <p className="flex justify-center gap-1 mt-6 text-6xl">
+                    <p className="flex justify-center gap-1 mt-6 text-6xl text-blue-gray-800">
                         <span className="mt-2 text-4xl">$</span>29
                         <span className="self-end text-4xl">/mo</span>
                     </p>
@@ -54,12 +54,12 @@ export default function Prices() {
                     </Button>
                 </CardFooter>
             </Card>
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md  lg:max-w-[20rem]">
+            <Card className="w-full max-w-[18rem] p-8 border shadow-md  lg:max-w-[20rem] text-blue-gray-800">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
                         standard
                     </p>
-                    <p className="flex justify-center gap-1 mt-6 text-6xl">
+                    <p className="flex justify-center gap-1 mt-6 text-6xl text-blue-gray-800">
                         <span className="mt-2 text-4xl">$</span>29{" "}
                         <span className="self-end text-4xl">/mo</span>
                     </p>
@@ -99,12 +99,12 @@ export default function Prices() {
                     </Button>
                 </CardFooter>
             </Card>
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem]">
+            <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem] text-blue-gray-800">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
                         standard
                     </p>
-                    <p className="flex justify-center gap-1 mt-6 text-6xl">
+                    <p className="flex justify-center gap-1 mt-6 text-6xl text-blue-gray-800">
                         <span className="mt-2 text-4xl">$</span>29{" "}
                         <span className="self-end text-4xl">/mo</span>
                     </p>
