@@ -1,13 +1,9 @@
-import React from "react";
-// Firebase Auth
-import { auth } from "../../firebase";
+import React, { useContext } from "react";
+import FirebaseContext from "../contexts/FirebaseContext";
 
 
 const LogOut = () => {
-
-    // const signOut = () => {
-    //     signOut(auth)
-    // }
+    const { auth } = useContext(FirebaseContext);
 
     return (
         <div>
