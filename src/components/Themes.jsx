@@ -47,13 +47,13 @@ function Themes() {
 
     useEffect(() => {
         const unsubscribe = getThemes(themes => {
-          setThemes(themes);
-          setIsLoading(false);
+            setThemes(themes);
+            setIsLoading(false);
         });
         return () => {
-          unsubscribe();
+            unsubscribe();
         };
-      }, []);
+    }, []);
 
     return (
         <div className="h-screen w-full flex flex-col justify-center items-center">

@@ -5,7 +5,7 @@ const Message = ({ message, theme }) => {
     const { auth, deleteMessage } = useContext(FirebaseContext);
 
     const isCurrentUser = message.uid === auth.currentUser.uid;
-    
+
     const mssgClass = isCurrentUser ? "chat chat-end" : "chat chat-start";
     const currentTheme = theme;
 

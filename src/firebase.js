@@ -25,9 +25,9 @@ import {
 
 // Firebase Auth
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { 
+import {
     GoogleAuthProvider,
-    signInWithRedirect 
+    signInWithRedirect
 } from "firebase/auth";
 
 const firebaseConfig = {

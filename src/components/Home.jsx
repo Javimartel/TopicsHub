@@ -9,11 +9,11 @@ import Footer from "./home-components/Footer";
 function Home() {
   return (
     <main id="home-main" className="relative flex-col w-full">
-      <Navbar /> 
-      <UpperSection /> 
-      <MiddleSection /> 
+      <Navbar />
+      <UpperSection />
+      <MiddleSection />
       {/* <LowerSection /> */}
-      <Footer /> 
+      <Footer />
     </main>
   );
 }

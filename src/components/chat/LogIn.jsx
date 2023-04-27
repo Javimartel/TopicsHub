@@ -3,7 +3,7 @@ import FirebaseContext from "../contexts/FirebaseContext";
 
 const LogIn = () => {
     const { googleLogIn } = useContext(FirebaseContext);
-    
+
     function handleClick() {
         googleLogIn();
     }
