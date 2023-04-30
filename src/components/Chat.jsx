@@ -9,7 +9,8 @@ import SendMessage from "./chat/SendMessage";
 import SignIn from "./chat/LogIn";
 import LogOut from "./chat/LogOut";
 import Spinner from "./Spinner";
-
+import Navbar from "./theme-components/Navbar"
+import Footer from "./home-components/Footer"
 // Custom hook
 import { useSpinner } from "./hooks/useSpinner";
 
@@ -70,9 +71,9 @@ const Chat = () => {
 
     return (
         <>
-            <div className="w-full text-center p-6">
+            <div className="hidden w-full p-6 text-center ">
                 <h1>Chat</h1>
-                <h2 className="font-bold italic">Eliminar este botón cuando esté el Login creado</h2>
+                <h2 className="italic font-bold">Eliminar este botón cuando esté el Login creado</h2>
                 {user ? <LogOut /> : <SignIn />}
                 <Link to="/themes">
                     <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Themes</button>
@@ -97,12 +98,13 @@ const Chat = () => {
                                         <Message key={message.id} message={message} theme={theme.theme} />
                                     ))}
                                 </div>
-                                <div className="flex w-[100%] justify-center border bg-blue-500 border-solid border-2 border-black">
+                                <div className="flex justify-center w-2/3 py-5 border border-gray-300">
                                     {/* Añadimos el componente para enviar mensajes */}
                                     <SendMessage theme={theme.theme} />
                                 </div>
+                                <Footer />
                             </div>
-                        </div>
+                    
                     )}
                 </main>
             )}

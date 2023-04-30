@@ -1,6 +1,9 @@
 import React, { useRef, useContext } from "react";
 import FirebaseContext from "../contexts/FirebaseContext";
 
+import { Input, Button } from "@material-tailwind/react";
+import { BsFillSendFill } from "react-icons/bs";
+
 const SendMessage = ({ theme }) => {
     // Referencia al input
     const inputRef = useRef("");
@@ -22,12 +25,14 @@ const SendMessage = ({ theme }) => {
     };
 
     return (
-        <div className="w-[50%] m-4">
-            <form onSubmit={handleSubmit} className="flex justify-evenly">
-                <input type="text" ref={inputRef} className="input input-bordered border-black input-info w-full max-w-xs" />
-                <button type="submit" className="btn btn-black">Enviar</button>
-            </form>
-        </div>
+        <form onSubmit={handleSubmit} className="flex items-center w-2/5 gap-1">
+            <Input type="text" inputRef={inputRef} label="Message" className=""/>
+            <Button type="submit" className="flex justify-center">
+                <div>
+                    <BsFillSendFill size={15} />
+                </div>
+            </Button>
+        </form>
     );
 };
 
