@@ -4,36 +4,65 @@ import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { CgMediaPodcast } from "react-icons/cg";
 
+import FirebaseContext from "../contexts/FirebaseContext";
+
 // Profile Dropdown Menu
-const profileMenuItems = [{ label: "My Profile" }, { label: "Edit Profile" }, { label: "Inbox" }, { label: "Help" }, { label: "Sign Out" },];
+const profileMenuItems = [{ label: "My Profile" }, { label: "Edit Profile" }, { label: "Inbox" }, { label: "Help" }];
 
 function ProfileMenu() {
+    const { getUser, auth, googleLogIn } = React.useContext(FirebaseContext);
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const closeMenu = () => setIsMenuOpen(false);
+
+    const user = getUser();
+    const userImg = user ? auth.currentUser.photoURL : "https://robohash.org/1";
 
     return (
         <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
 
             <MenuHandler>
                 <Button variant="text" color="blue-gray" className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto" >
-                    <Avatar variant="circular" size="md" alt="You" className="border border-blue-500 p-0.5" src="https://robohash.org/zzz" />
+                    <Avatar
+                        variant="circular"
+                        size="md"
+                        alt=""
+                        className="border border-blue-500 p-0.5"
+                        src={userImg}/>
                 </Button>
             </MenuHandler>
 
             <MenuList className="p-1">
-                {profileMenuItems.map(({ label }, key) => {
-                    const isLastItem = key === profileMenuItems.length - 1;
+                {profileMenuItems.map(({ label }) => {
                     return (
                         <MenuItem
                             key={label}
                             onClick={closeMenu}
-                            className={`flex items-center gap-2 rounded ${isLastItem ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10" : ""}`}>
-                            <Typography as="span" variant="small" className="font-mono" color={isLastItem ? "red" : "inherit"} >
+                            className={`flex items-center gap-2 rounded`}>
+                            <Typography as="span" variant="small" className="font-mono" color="inherit">
                                 {label}
                             </Typography>
                         </MenuItem>
                     );
                 })}
+                {user ? (
+                    <MenuItem
+                        key="Log Out"
+                        onClick={() => auth.signOut()}
+                        className={`flex items-center gap-2 rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"}`}>
+                        <Typography as="span" variant="small" className="font-mono" color="red" >
+                            Log Out
+                        </Typography>
+                    </MenuItem>
+                ) : (
+                    <MenuItem
+                        key="Log In"
+                        onClick={googleLogIn}
+                        className={`flex items-center gap-2 rounded "hover:bg-green-500/10 focus:bg-green-500/10 active:bg-green-500/10"}`}>
+                        <Typography as="span" variant="small" className="font-mono" color="green" >
+                            Log In
+                        </Typography>
+                    </MenuItem>
+                )}
             </MenuList>
 
         </Menu>
@@ -84,7 +113,7 @@ function NavListMenu() {
         <React.Fragment>
             <Menu open={isMenuOpen} handler={setIsMenuOpen}>
                 <MenuHandler>
-                    <Typography as="a" href="#" variant="paragraph" className="font-mono font-bold">
+                    <Typography href="#" variant="paragraph" className="font-mono font-bold">
                         <MenuItem {...triggers} className="items-center hidden gap-2 text-blue-gray-900 lg:flex">
                             Pages
                         </MenuItem>
@@ -99,7 +128,7 @@ function NavListMenu() {
                     </ul>
                 </MenuList>
             </Menu>
-            <Typography as="a" href="#" variant="paragraph" className="font-mono font-bold">
+            <Typography href="#" variant="paragraph" className="font-mono font-bold">
                 <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
                     Pages
                 </MenuItem>
@@ -111,14 +140,21 @@ function NavListMenu() {
     );
 }
 
-const navListItems = [{ label: "About" }, { label: "Contact" }, { label: "Join" }];
+const navListItems = [{ label: "About", link: "/about" }, { label: "Contact" }];
 
 function NavList() {
     return (
         <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
             <NavListMenu />
+            <Link to="/themes">
+                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
+                    <MenuItem>
+                        Themes
+                    </MenuItem>
+                </Typography>
+            </Link>
             {navListItems.map(({ label }) => (
-                <Typography as="a" href="#" variant="paragraph" color="blue-gray" className="font-mono font-bold">
+                <Typography key={label} href="#" variant="paragraph" color="blue-gray" className="font-mono font-bold">
                     <MenuItem>
                         {label}
                     </MenuItem>

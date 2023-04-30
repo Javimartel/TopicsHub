@@ -19,7 +19,7 @@ const Message = ({ message, theme }) => {
                 <div className="chat-header text-black">
                     {message.name}
                 </div>
-                <div className="flex items-center break-words chat-bubble chat-bubble-primary">
+                <div className="chat-bubble chat-bubble-primary break-words" >
                     {message.text}
                 </div>
                 {isCurrentUser && (

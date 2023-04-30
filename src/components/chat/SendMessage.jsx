@@ -26,7 +26,7 @@ const SendMessage = ({ theme }) => {
 
     return (
         <form onSubmit={handleSubmit} className="flex items-center w-2/5 gap-1">
-            <Input type="text" inputRef={inputRef} label="Message" className=""/>
+            <Input type="text" inputRef={inputRef} label="Message" maxLength={255}/>
             <Button type="submit" className="flex justify-center">
                 <div>
                     <BsFillSendFill size={15} />

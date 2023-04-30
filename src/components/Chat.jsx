@@ -9,8 +9,8 @@ import SendMessage from "./chat/SendMessage";
 import SignIn from "./chat/LogIn";
 import LogOut from "./chat/LogOut";
 import Spinner from "./Spinner";
-import Navbar from "./theme-components/Navbar"
-import Footer from "./home-components/Footer"
+import Navbar from "./reusable-components/Navbar"
+import Footer from "./reusable-components/Footer"
 // Custom hook
 import { useSpinner } from "./hooks/useSpinner";
 
@@ -38,8 +38,8 @@ const Chat = () => {
 
     // Estilos para el chat
     const chatHeight = {
-        minHeight: '60vh',
-        maxHeight: '60vh'
+        minHeight: '50vh',
+        maxHeight: '50vh'
     };
 
     useEffect(() => {
@@ -71,41 +71,39 @@ const Chat = () => {
 
     return (
         <>
-            <div className="hidden w-full p-6 text-center ">
-                <h1>Chat</h1>
-                <h2 className="italic font-bold">Eliminar este botón cuando esté el Login creado</h2>
-                {user ? <LogOut /> : <SignIn />}
-                <Link to="/themes">
-                    <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Themes</button>
-                </Link>
-            </div>
             {/* Comprobamos si está vacío el chat para redirigir a 404 */}
             {isEmpty ? (
                 <Navigate to="/404" />
             ) : (
                 <main>
+                    <Navbar />
                     {/* Añadimos el spinner para que se muestre antes que el main */}
                     {showSpinner ? (
-                        <Spinner />
+                        <div className="flex justify-center items-center w-full h-screen">
+                            <Spinner />
+                        </div>
                     ) : (
-                        <div className="w-[100%] flex justify-center">
-                            {/* <Sidebar /> */}
-                            <div className="w-[50%] flex flex-col items-center">
-                                {/* AÑADIR AQUÍ UN NAVBAR QUE CONTENGA EL TÍTULO DEL CHAT Y UN BOTÓN HACIA ATRAS (THEMES) */}
-                                <div id="chat" ref={chatRef} className="bg-blue-500 border-solid border-2 border-black min-w-full max-w-full flex flex-col border overflow-y-auto" style={chatHeight}>
+                        <>
+                            <div className="flex flex-col items-center w-full mt-12">
+
+                                <div className="flex justify-center w-3/5 py-5 text-3xl font-bold border border-gray-300">
+                                    <h1 >{theme.theme}</h1>
+                                </div>
+
+                                <div id="chat" ref={chatRef} className="w-3/5 p-5 overflow-y-auto border border-gray-300" style={chatHeight}>
                                     {/* Añadimos todos los mensajes */}
                                     {messages && messages.map((message) => (
                                         <Message key={message.id} message={message} theme={theme.theme} />
                                     ))}
                                 </div>
-                                <div className="flex justify-center w-2/3 py-5 border border-gray-300">
+                                <div className="flex justify-center w-3/5 py-5 border border-gray-300">
                                     {/* Añadimos el componente para enviar mensajes */}
                                     <SendMessage theme={theme.theme} />
                                 </div>
-                                <Footer />
                             </div>
-                    
+                        </>
                     )}
+                    <Footer />
                 </main>
             )}
         </>
