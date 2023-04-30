@@ -1,17 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-// Firebase Auth
-import { auth } from '../firebase'
-import { db } from "../firebase";
-import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
-import { useAuthState } from 'react-firebase-hooks/auth'
+import FirebaseContext from "./contexts/FirebaseContext";
+
 // Components
 import Message from "./chat/Message";
 import SendMessage from "./chat/SendMessage";
-import SignIn from "./chat/SignIn";
+import SignIn from "./chat/LogIn";
 import LogOut from "./chat/LogOut";
+import Spinner from "./Spinner";
 import Navbar from "./theme-components/Navbar"
 import Footer from "./home-components/Footer"
 // Custom hook
@@ -20,7 +17,8 @@ import { useSpinner } from "./hooks/useSpinner";
 
 const Chat = () => {
     // Obtenemos el usuario de Firebase Auth
-    const [user] = useAuthState(auth)
+    const { getUser, getMessages } = useContext(FirebaseContext);
+    const user = getUser();
 
     // Si no existe el usuario, redirigimos a 404
     // if (!user) {
@@ -29,12 +27,6 @@ const Chat = () => {
 
     // Obtenemos el tema del chat pasado por ruta
     const theme = useParams();
-
-    // Si no existe el tema, redirigimos a 404
-    if (!theme) {
-        return <Navigate to="/404" />
-    }
-
     // Creamos una referencia para el chat
     const chatRef = useRef(null);
     // Estado para los mensajes
@@ -52,22 +44,16 @@ const Chat = () => {
 
     useEffect(() => {
         // Obtenemos los mensajes de la colección del tema proporcionado
-        const q = query(collection(db, theme.theme), orderBy("timestamp"));
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            let messages = [];
-            querySnapshot.forEach((doc) => {
-                messages.push({ ...doc.data(), id: doc.id });
-            });
-            // Actualizamos el estado con los mensajes
+        getMessages(theme.theme, (messages) => {
+            // Añadimos los mensajes al estado
             setMessages(messages);
-
+            // Hacemos el scroll
             scrollChat();
 
             // Si no hay mensajes, modificamos el estado de isEmpty
             if (messages.length === 0) {
                 setIsEmpty(true);
             }
-
         });
 
         // Añadimos el scroll automático al final del chat
@@ -77,11 +63,10 @@ const Chat = () => {
             }
         };
 
-
         return () => {
-            // Devolvemos la función unsubscribe para que no se quede escuchando
-            unsubscribe();
-        };
+            // Limpiamos el estado de los mensajes
+            setMessages([]);
+        }
     }, []);
 
     return (
@@ -94,37 +79,25 @@ const Chat = () => {
                     <button className='bg-black w-[10%] p-1 rounded-lg text-white'>Themes</button>
                 </Link>
             </div>
-            {/* Añadimos el spinner de 1,5s para que se muestre antes que el main */}
-            {showSpinner ? (
-                <div className="spin">
-                    <div className="flex items-center justify-center m-10">
-                        <svg className="animate-spin spin" fill="none" height="150" viewBox="0 0 20 20" width="150" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 3.5C6.41015 3.5 3.5 6.41015 3.5 10C3.5 10.4142 3.16421 10.75 2.75 10.75C2.33579 10.75 2 10.4142 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18C9.58579 18 9.25 17.6642 9.25 17.25C9.25 16.8358 9.58579 16.5 10 16.5C13.5899 16.5 16.5 13.5899 16.5 10C16.5 6.41015 13.5899 3.5 10 3.5Z" fill="#ffffff" />
-                        </svg>
-                    </div>
-                </div>
+            {/* Comprobamos si está vacío el chat para redirigir a 404 */}
+            {isEmpty ? (
+                <Navigate to="/404" />
             ) : (
-
-                <main className="flex flex-col items-center w-full">
-                    <Navbar />
-                    {/* Comprobamos si está vacío el chat para redirigir a 404 */}
-                    {isEmpty ? (
-                        <Navigate to="/404" />
+                <main>
+                    {/* Añadimos el spinner para que se muestre antes que el main */}
+                    {showSpinner ? (
+                        <Spinner />
                     ) : (
-                        <div className="flex flex-col items-center w-full mt-12">
-
-                                <div className="flex justify-center w-2/3 py-5 text-3xl font-bold border border-gray-300">
-                                    <h1>{theme.theme}</h1>
-                                </div>
-
-                                <div id="chat" ref={chatRef} className="w-2/3 p-5 overflow-y-auto border border-gray-300" style={chatHeight}>
+                        <div className="w-[100%] flex justify-center">
+                            {/* <Sidebar /> */}
+                            <div className="w-[50%] flex flex-col items-center">
+                                {/* AÑADIR AQUÍ UN NAVBAR QUE CONTENGA EL TÍTULO DEL CHAT Y UN BOTÓN HACIA ATRAS (THEMES) */}
+                                <div id="chat" ref={chatRef} className="bg-blue-500 border-solid border-2 border-black min-w-full max-w-full flex flex-col border overflow-y-auto" style={chatHeight}>
                                     {/* Añadimos todos los mensajes */}
                                     {messages && messages.map((message) => (
                                         <Message key={message.id} message={message} theme={theme.theme} />
                                     ))}
                                 </div>
-
-
                                 <div className="flex justify-center w-2/3 py-5 border border-gray-300">
                                     {/* Añadimos el componente para enviar mensajes */}
                                     <SendMessage theme={theme.theme} />
