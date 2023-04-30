@@ -1,48 +1,54 @@
 import React from "react";
 import { FaTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer className="bottom-0 flex flex-row w-full pt-5 bg-[#fbf9fa]"> {/* Footer section */}
-
-            <div className="flex flex-col items-center justify-center w-full h-full">
-                <div className="flex items-center justify-center h-full mb-5">
-                    <Typography variant="paragraph" color="black" className="font-mono text-lg font-bold">
-                    Topics<span className="text-blue-500">Hub</span>
-                    </Typography>
+        <footer className="bottom-0 flex flex-col w-full pt-5 bg-[#fbf9fa] mt-12 justify-center"> {/* Footer section */}
+            <h1 className="font-mono text-2xl font-bold text-center"> {/* Footer title */}
+                Topics<span className="text-blue-500">Hub</span>
+            </h1>
+            <div className="flex flex-col items-center pt-5">
+                <div className="flex flex-col items-center h-full md:flex-row justify-evenly md:w-[350px]"> {/* Footer links */}
+                    <div className="flex items-center justify-center h-full mb-4 md:mb-0 ">
+                        <Link className="hover:text-blue-500">
+                            Contact
+                        </Link>
+                    </div>
+                    <div className="items-center justify-center hidden h-full mb-4 md:mb-0 md:flex">
+                        <p>
+                            |
+                        </p>
+                    </div>
+                    <div className="flex items-center justify-center h-full mb-4 md:mb-0">
+                        <Link className="hover:text-blue-500">
+                            About
+                        </Link>
+                    </div>
+                    <div className="items-center justify-center hidden h-full mb-4 md:mb-0 md:flex">
+                        <p>
+                            |
+                        </p>
+                    </div>
+                    <div className="flex items-center justify-center h-full mb-4 md:mb-0">
+                        <Link className="hover:text-blue-500">
+                            Privacy
+                        </Link>
+                    </div>
                 </div>
-                <div className="flex items-center justify-center h-full mb-5">
-                    <Typography variant="paragraph" color="black" className="font-mono">
-                        Contacto
-                    </Typography>
+                
+                <div className="flex items-center h-full pb-2 justify-evenly w-[200px] md:pt-5">
+                    <FaTwitter size={25} color="black" />
+                    <FaGithub size={25} color="black" />
+                    <FaLinkedinIn size={25} color="black" />
                 </div>
-                <div className="flex items-center justify-center h-full mb-5">
-                    <Typography variant="paragraph" color="black" className="font-mono">
-                        Acerca de
-                    </Typography>
-                </div>
-                <div className="flex items-center justify-center h-full mb-5">
-                    <Typography variant="paragraph" color="black" className="font-mono">
-                        Ayuda
-                    </Typography>
-                </div>
-                <div className="flex items-center justify-center h-full mb-5">
-                    <Typography variant="paragraph" color="black" className="font-mono">
-                        Privacidad
-                    </Typography>
-                </div>
-                <div className="flex items-center justify-center h-full mb-5">
-                    <Typography variant="paragraph" color="black" className="font-mono">
-                        © 2023 TopicsHub
-                    </Typography>
-                </div>
-                <div className="flex items-center justify-center h-full mb-5">
-                    <FaTwitter size={30} color="black" className="mr-8" />
-                    <FaGithub size={30} color="black" className="mr-8" />   
-                    <FaLinkedinIn size={30} color="black" />    
+                <div className="flex items-center justify-center h-full md:pt-2">
+                    <p className="font-mono">
+                        All rights reserved. 2023 Topics<span className="text-blue-500">Hub</span> Inc.
+                    </p>
                 </div>
             </div>
+
         </footer>
     );
 }
