@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { BsPlusCircle } from "react-icons/bs";
-import FirebaseContext from "./contexts/FirebaseContext";
+import { FirebaseContext } from "../contexts/FirebaseContext";
 
 // Componentes
-import Spinner from "./Spinner"
+import Spinner from "../components/loaders/Spinner"
 
-import Navbar from "./reusable-components/Navbar";
+import Navbar from "../components/Navbar";
 import { Input } from "@material-tailwind/react";
-import Cards from "./home-components/Cards";
-import Footer from "./reusable-components/Footer";
+import Cards from "../components/home/Cards";
+import Footer from "../components/Footer";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 function Themes() {
-    const { getUser, getThemes, addTheme, uploadFileAndGetURL } = useContext(FirebaseContext);
-    const user = getUser();
+    const { getThemes, addTheme, uploadFileAndGetURL } = useContext(FirebaseContext);
 
     // Estados
     const [themes, setThemes] = useState([]);

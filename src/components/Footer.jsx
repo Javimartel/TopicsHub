@@ -36,7 +36,7 @@ export default function Footer() {
                         </Link>
                     </div>
                 </div>
-                
+
                 <div className="flex items-center h-full pb-2 justify-evenly w-[200px] md:pt-5">
                     <FaTwitter size={25} color="black" />
                     <FaGithub size={25} color="black" />

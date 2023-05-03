@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import FirebaseContext from "../contexts/FirebaseContext";
+import { FirebaseContext } from "../../contexts/FirebaseContext";
 
 const Message = ({ message, theme }) => {
+    // Mover todo esto para fuera a Chat con un ENUM
     const { auth, deleteMessage } = useContext(FirebaseContext);
 
     const isCurrentUser = message.uid === auth.currentUser.uid;

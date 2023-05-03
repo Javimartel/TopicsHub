@@ -4,17 +4,16 @@ import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { CgMediaPodcast } from "react-icons/cg";
 
-import FirebaseContext from "../contexts/FirebaseContext";
+import { FirebaseContext } from "../contexts/FirebaseContext";
 
 // Profile Dropdown Menu
 const profileMenuItems = [{ label: "My Profile" }, { label: "Edit Profile" }, { label: "Inbox" }, { label: "Help" }];
 
 function ProfileMenu() {
-    const { getUser, auth, googleLogIn } = React.useContext(FirebaseContext);
+    const { user, auth, googleLogIn } = React.useContext(FirebaseContext);
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const closeMenu = () => setIsMenuOpen(false);
 
-    const user = getUser();
     const userImg = user ? auth.currentUser.photoURL : "https://robohash.org/1";
 
     return (
@@ -27,7 +26,7 @@ function ProfileMenu() {
                         size="md"
                         alt=""
                         className="border border-blue-500 p-0.5"
-                        src={userImg}/>
+                        src={userImg} />
                 </Button>
             </MenuHandler>
 

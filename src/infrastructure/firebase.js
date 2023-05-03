@@ -49,8 +49,8 @@ const db = getFirestore(app);
 
 // Obtener usuario
 export const getUser = () => {
-    const [user] = useAuthState(auth)
-    return user;
+    const [user, loading] = useAuthState(auth)
+    return [user, loading];
 }
 
 // Google Auth

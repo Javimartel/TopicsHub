@@ -66,32 +66,32 @@ export default function Modal() {
 
                                     <TabPanel value="sign" className="p-0 min-h-[300px]">
                                         <form className="flex flex-col mt-8">
-                                        <div className="mb-4">
-                                            <p className="font-mono text-lg text-center text-black">
-                                                Welcome to Topics<span className="text-blue-500">Hub</span>
-                                            </p>
-                                            <p className="mb-2 font-mono text-lg text-center text-black ">
-                                                Join <span className="text-blue-500">us</span> filling the form below
-                                            </p>
-                                        </div>
-                                        <div className="flex flex-col gap-4 mb-4 sm:flex-row">
-                                            <Input type="email" label="Name" />
-                                        </div>
-                                        <div className="mb-4">
-                                            <Input type="email" label="Email" id="sign_email" />
-                                        </div>
-                                        <div className="mb-6">
-                                            <Input type="password" label="Password" id="sign_password" />
-                                        </div>
-                                        <Button size="lg">Sign Up</Button>
-                                    </form>
-                                </TabPanel>
-                            </TabsBody>
-                        </Tabs>
-                    </CardBody>
-                </Card>
+                                            <div className="mb-4">
+                                                <p className="font-mono text-lg text-center text-black">
+                                                    Welcome to Topics<span className="text-blue-500">Hub</span>
+                                                </p>
+                                                <p className="mb-2 font-mono text-lg text-center text-black ">
+                                                    Join <span className="text-blue-500">us</span> filling the form below
+                                                </p>
+                                            </div>
+                                            <div className="flex flex-col gap-4 mb-4 sm:flex-row">
+                                                <Input type="email" label="Name" />
+                                            </div>
+                                            <div className="mb-4">
+                                                <Input type="email" label="Email" id="sign_email" />
+                                            </div>
+                                            <div className="mb-6">
+                                                <Input type="password" label="Password" id="sign_password" />
+                                            </div>
+                                            <Button size="lg">Sign Up</Button>
+                                        </form>
+                                    </TabPanel>
+                                </TabsBody>
+                            </Tabs>
+                        </CardBody>
+                    </Card>
+                </label >
             </label >
-        </label >
         </>
     );
 }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import FirebaseContext from './components/contexts/FirebaseContext'
+import { FirebaseProvider } from './contexts/FirebaseContext'
 import {
   auth,
   getUser,
@@ -14,23 +14,14 @@ import {
   sendMessageWith,
   getMessages,
   deleteMessage
-} from "./firebase";
+} from "./infrastructure/firebase";
 
-const FirebaseProvider = ({ children }) => {
-  const params = { auth, getUser, googleLogIn, getThemes, addTheme, uploadFileAndGetURL, sendMessageWith, getMessages, deleteMessage }
-
-  return (
-    <FirebaseContext.Provider value={params}>
-      {children}
-    </FirebaseContext.Provider>
-  );
-};
-
+const firebaseProviderContext = { auth, getUser, googleLogIn, getThemes, addTheme, uploadFileAndGetURL, sendMessageWith, getMessages, deleteMessage }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <FirebaseProvider>
+      <FirebaseProvider value={firebaseProviderContext}>
         <App />
       </FirebaseProvider>
     </BrowserRouter>

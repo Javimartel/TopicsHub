@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './components/Home'
-import Chat from './components/Chat'
-import Themes from './components/Themes'
-import Notfound from './components/NotFound'
+import Home from './pages/Home'
+import Chat from './pages/chat/Chat'
+import Themes from './pages/Themes'
+import Notfound from './pages/NotFound'
 
 function App() {
   return (
