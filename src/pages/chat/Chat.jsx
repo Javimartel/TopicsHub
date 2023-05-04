@@ -28,12 +28,6 @@ const Chat = () => {
     // Añadimos el custom Hook para el spinner
     const showSpinner = useSpinner();
 
-    // Estilos para el chat
-    const chatHeight = {
-        minHeight: '50vh',
-        maxHeight: '50vh'
-    };
-
     useEffect(() => {
         // Obtenemos los mensajes de la colección del tema proporcionado
         getMessages(theme.theme, (messages) => {
@@ -82,16 +76,16 @@ const Chat = () => {
                             ) : (
                                 <>
                                     <div className="flex flex-col items-center w-full mt-12">
-                                        <div className="flex justify-center w-3/5 py-5 text-3xl font-bold border border-gray-300">
+                                        <div className="flex justify-center w-4/5 lg:w-3/5 py-5 text-3xl font-bold border border-gray-300">
                                             <h1>{theme.theme}</h1>
                                         </div>
-                                        <div id="chat" ref={chatRef} className="w-3/5 p-5 overflow-y-auto border border-gray-300" style={chatHeight}>
+                                        <div id="chat" ref={chatRef} className="min-h-[50vh] max-h-[50vh] w-4/5 lg:w-3/5 p-2 overflow-y-auto border border-gray-300">
                                             {/* Añadimos los mensajes */}
                                             {messages && messages.map((message) => (
                                                 <Message key={message.id} message={message} theme={theme.theme} />
                                             ))}
                                         </div>
-                                        <div className="flex justify-center w-3/5 py-5 border border-gray-300">
+                                        <div className="flex justify-center w-4/5 lg:w-3/5 py-5 border border-gray-300">
                                             <SendMessage theme={theme.theme} />
                                         </div>
                                     </div>
