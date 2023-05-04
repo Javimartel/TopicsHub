@@ -13,22 +13,26 @@ function ProfileMenu() {
     const { user, auth, googleLogIn } = React.useContext(FirebaseContext);
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const closeMenu = () => setIsMenuOpen(false);
-
-    const userImg = user ? auth.currentUser.photoURL : "https://robohash.org/1";
+    const userImg = user ? auth.currentUser.photoURL : "";
+    const userElement = user ? (
+        <MenuHandler>
+            <Button variant="text" color="blue-gray" className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto selection:border-none" >
+                <Avatar
+                    variant="circular"
+                    size="md"
+                    alt=""
+                    className="border border-blue-500 p-0.5"
+                    src={userImg} />
+            </Button>
+        </MenuHandler>
+    ) : (
+        <Button size="lg" className="items-center hidden gap-1 lg:flex lg:ml-auto selection:border-none" onClick={googleLogIn}> Join Us </Button>
+    );
 
     return (
         <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
 
-            <MenuHandler>
-                <Button variant="text" color="blue-gray" className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto" >
-                    <Avatar
-                        variant="circular"
-                        size="md"
-                        alt=""
-                        className="border border-blue-500 p-0.5"
-                        src={userImg} />
-                </Button>
-            </MenuHandler>
+            {userElement}
 
             <MenuList className="p-1">
                 {profileMenuItems.map(({ label }) => {
@@ -159,6 +163,7 @@ function NavList() {
                     </MenuItem>
                 </Typography>
             ))}
+
         </ul>
     );
 }
