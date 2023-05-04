@@ -14,17 +14,44 @@ import { FirebaseContext } from "../../contexts/FirebaseContext";
 import { FaSpinner } from "react-icons/fa";
 
 export default function Modal() {
-    const { googleLogIn, createUser } = React.useContext(FirebaseContext);
+    const { googleLogIn, createUser, logIn } = React.useContext(FirebaseContext);
     const [type, setType] = React.useState("card");
     const [isCreating, setIsCreating] = React.useState(false);
-    const formRef = React.useRef(null);
+    const [isLoggingIn, setIsLoggingIn] = React.useState(false);
+    const [loginError, setLoginError] = React.useState(null);
+    const loginFormRef = React.useRef(null);
+    const registerFormRef = React.useRef(null);
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const email = loginFormRef.current["login_email"].value;
+        const password = loginFormRef.current["login_password"].value;
+
+        if (!email || !password) {
+            alert("Please fill all fields");
+            return;
+        }
+
+        setIsLoggingIn(true);
+
+        console.log("email", email);
+
+        logIn(email, password)
+            .then(() => {
+                window.location.reload();
+            })
+            .catch((error) => {
+                setIsLoggingIn(false);
+                setLoginError(error.message);
+            });
+    };
 
     const handleRegister = (event) => {
         event.preventDefault();
-        const name = formRef.current["sign_name"].value;
-        const email = formRef.current["sign_email"].value;
-        const password = formRef.current["sign_password"].value;
-        const profilePicture = formRef.current["sign_profile_picture"].files[0];
+        const name = registerFormRef.current["sign_name"].value;
+        const email = registerFormRef.current["sign_email"].value;
+        const password = registerFormRef.current["sign_password"].value;
+        const profilePicture = registerFormRef.current["sign_profile_picture"].files[0];
 
         if (!name || !email || !password || !profilePicture) {
             alert("Please fill all fields");
@@ -47,6 +74,9 @@ export default function Modal() {
             .then(() => {
                 window.location.reload();
             })
+            .catch(() => {
+                setIsCreating(false);
+            });
     };
 
     return (
@@ -85,7 +115,10 @@ export default function Modal() {
                                 >
                                     <TabPanel value="card" className="p-0 min-h-[300px] flex items-end">
 
-                                        <form className="flex flex-col w-full">
+                                        <form
+                                            className="flex flex-col w-full"
+                                            ref={loginFormRef}
+                                        >
                                             <div className="flex justify-center mb-2">
                                                 <Button onClick={(event) => { event.stopPropagation(); event.preventDefault(); googleLogIn() }} size="md" variant="outlined" className="flex items-center gap-3">
                                                     <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
@@ -99,7 +132,24 @@ export default function Modal() {
                                             <div className="mb-6">
                                                 <Input type="password" label="Password" id="login_password" />
                                             </div>
-                                            <Button size="lg">Login</Button>
+
+                                            <>
+                                                {isLoggingIn ? (
+                                                    <div className="flex justify-center">
+                                                        <FaSpinner className="animate-spin" color="blue" size={20} />
+                                                    </div>
+                                                ) : (
+                                                    <Button
+                                                        type="submit"
+                                                        color={loginError ? "red" : "blue"}
+                                                        size="lg"
+                                                        onClick={handleLogin}
+                                                    >
+                                                        Log In
+                                                    </Button>
+                                                )}
+                                            </>
+
                                         </form>
 
                                     </TabPanel>
@@ -108,7 +158,7 @@ export default function Modal() {
 
                                         <form
                                             className="flex flex-col mt-8"
-                                            ref={formRef}
+                                            ref={registerFormRef}
                                         >
                                             <div className="mb-4">
                                                 <p className="font-mono text-lg text-center text-black">

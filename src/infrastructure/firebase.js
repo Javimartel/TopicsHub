@@ -29,7 +29,8 @@ import {
     GoogleAuthProvider,
     signInWithRedirect,
     createUserWithEmailAndPassword,
-    updateProfile
+    updateProfile,
+    signInWithEmailAndPassword
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -81,10 +82,21 @@ export const createUser = async (name, email, password, profilePicture) => {
             displayName: name,
             photoURL: downloadURL
         });
-        console.log("User created: ", user);
         return Promise.resolve(user);
     } catch (error) {
         console.error("Error creating user: ", error);
+        return Promise.reject(error);
+    }
+};
+
+// Iniciar sesión con email y contraseña
+export const logIn = async (email, password) => {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        return Promise.resolve(user);
+    } catch (error) {
+        console.error("Error signing in: ", error);
         return Promise.reject(error);
     }
 };
