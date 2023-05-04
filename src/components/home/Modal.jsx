@@ -10,24 +10,26 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
+import { FirebaseContext } from "../../contexts/FirebaseContext";
 
 export default function Modal() {
+    const { googleLogIn } = React.useContext(FirebaseContext);
     const [type, setType] = React.useState("card");
 
     return (
         <>
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
 
-            <label htmlFor="my-modal-4" className="cursor-pointer modal">
+            <label htmlFor="my-modal-4" className="cursor-pointer modal" onClick={(event) => {event.stopPropagation(); event.preventDefault()}}>
                 <label className="relative bg-transparent shadow-none modal-box">
                     <Card>
                         <CardBody>
                             <Tabs value={type} className="overflow-visible ">
                                 <TabsHeader className="">
-                                    <Tab value="card" onClick={() => setType("card")}>
+                                    <Tab value="card" onClick={(event) => {event.stopPropagation(); event.preventDefault(); setType("card")}}>
                                         Login
                                     </Tab>
-                                    <Tab value="sign" onClick={() => setType("sign")}>
+                                    <Tab value="sign" onClick={(event) => {event.stopPropagation(); event.preventDefault(); setType("sign")}}>
                                         Sign Up
                                     </Tab>
                                 </TabsHeader>
@@ -48,7 +50,7 @@ export default function Modal() {
                                     <TabPanel value="card" className="p-0 min-h-[300px] flex items-end">
                                         <form className="flex flex-col w-full">
                                             <div className="flex justify-center mb-2">
-                                                <Button size="md" variant="outlined" className="flex items-center gap-3">
+                                                <Button onClick={(event) => {event.stopPropagation(); event.preventDefault(); googleLogIn() }} size="md" variant="outlined" className="flex items-center gap-3">
                                                     <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
                                                     Continue with Google
                                                 </Button>
