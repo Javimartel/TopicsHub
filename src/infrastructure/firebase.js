@@ -27,7 +27,9 @@ import {
 import { useAuthState } from 'react-firebase-hooks/auth'
 import {
     GoogleAuthProvider,
-    signInWithRedirect
+    signInWithRedirect,
+    createUserWithEmailAndPassword,
+    updateProfile
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -50,6 +52,7 @@ const db = getFirestore(app);
 // Obtener usuario
 export const getUser = () => {
     const [user, loading] = useAuthState(auth)
+    console.log("User dentro: ", user);
     return [user, loading];
 }
 
@@ -62,6 +65,29 @@ export const googleLogIn = () => {
         console.error("Error signing in with Google: ", error);
     }
 }
+
+// Crear usuario con email y contraseña
+export const createUser = async (name, email, password, profilePicture) => {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        // subimos la foto de perfil al storage de firebase
+        const storage = getStorage();
+        const storageRef = ref(storage, `profilePictures/${user.uid}`);
+        await uploadBytes(storageRef, profilePicture);
+        const downloadURL = await getDownloadURL(storageRef);
+        // actualizamos el perfil del usuario con el nombre y la foto
+        await updateProfile(user, {
+            displayName: name,
+            photoURL: downloadURL
+        });
+        console.log("User created: ", user);
+        return Promise.resolve(user);
+    } catch (error) {
+        console.error("Error creating user: ", error);
+        return Promise.reject(error);
+    }
+};
 
 // Obtener temas
 export const getThemes = (callback) => {
