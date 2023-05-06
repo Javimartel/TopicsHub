@@ -5,11 +5,11 @@ const StaticCards = () => {
     return (
         <>
         {/* Card 1 */}
-            <div className="shadow-md card bg-base-100 hover:text-white"> 
+            <div className="text-gray-900 shadow-md card"> 
                 <figure>
                     <img className="object-cover" />
                 </figure>
-                <div className="card-body">
+                <div className="flex flex-col items-center card-body">
                     <h2 className="card-title">
                         Test
                         <div className="badge badge-secondary">NEW</div>
@@ -23,14 +23,13 @@ const StaticCards = () => {
                 </div>
             </div>
         {/* Card 2 */} 
-            <div className="shadow-md card bg-base-100 hover:text-white">
+            <div className="text-gray-900 shadow-md card">
                 <figure>
                     <img className="object-cover" />
                 </figure>
-                <div className="card-body">
+                <div className="flex flex-col items-center card-body">
                     <h2 className="card-title">
                         Test
-                        <div className="badge badge-secondary">NEW</div>
                     </h2>
                     <p> Awesome description </p>
                     <div className="justify-end card-actions">
@@ -41,11 +40,11 @@ const StaticCards = () => {
                 </div>
             </div>
         {/* Card 3 */}            
-            <div className="shadow-md card bg-base-100 hover:text-white">
+            <div className="text-gray-900 shadow-md card">
                 <figure>
                     <img className="object-cover" />
                 </figure>
-                <div className="card-body">
+                <div className="flex flex-col items-center card-body">
                     <h2 className="card-title">
                         Test
                         <div className="badge badge-secondary">NEW</div>

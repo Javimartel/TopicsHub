@@ -16,7 +16,7 @@ import {
 
 import { BsFillHeartFill } from "react-icons/bs";
 
-export default function Modal() {
+export default function MobileModal() {
     const [type, setType] = React.useState("card");
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(!open);
@@ -24,14 +24,14 @@ export default function Modal() {
     return (
         <>
             <Fragment>
-                <Button onClick={handleOpen} size="lg" className="items-center hidden gap-2 lg:flex lg:ml-auto selection:border-none">
+                <Button onClick={handleOpen} size="lg" className="flex items-center justify-center gap-2 lg:hidden selection:border-none">
                     Join Us <BsFillHeartFill size={15} />
                 </Button>
                 <Dialog open={open} handler={handleOpen}>
                     <Card>
                         <CardBody>
                             <Tabs value={type} className="overflow-visible ">
-                                <TabsHeader>
+                                <TabsHeader className="">
                                     <Tab value="card" onClick={() => setType("card")}>
                                         Login
                                     </Tab>
@@ -56,7 +56,7 @@ export default function Modal() {
                                     <TabPanel value="card" className="p-0 min-h-[300px] flex items-end">
                                         <form className="flex flex-col w-full">
                                             <div className="flex justify-center mb-2">
-                                                <Button size="md" variant="outlined" className="flex items-center justify-center w-2/3 gap-3º">
+                                                <Button size="md" variant="outlined" className="flex items-center gap-3">
                                                     <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
                                                     Continue with Google
                                                 </Button>

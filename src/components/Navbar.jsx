@@ -9,6 +9,7 @@ import { FirebaseContext } from "../contexts/FirebaseContext";
 
 // Elements
 import Modal from "./home/Modal";
+import MobileModal from "./home/MobileModal";
 
 
 // Profile Dropdown Menu
@@ -31,7 +32,6 @@ function ProfileMenu() {
             </Button>
         </MenuHandler>
     ) : (
-        // <Button size="lg" className="items-center hidden gap-1 lg:flex lg:ml-auto selection:border-none" onClick={googleLogIn}> Join Us </Button>
         <Modal />
     );
 
@@ -81,17 +81,17 @@ function ProfileMenu() {
 // nav list menu
 const navListMenuItems = [
     {
-        title: "Github Repository",
+        title: "Github",
         description:
             "Learn how was created TopicsHub and contribute to the project.",
     },
     {
-        title: "Twitter",
+        title: "PHPLover's LinkedIn",
         description:
             "Follow us on Twitter to stay up to date with the latest news.",
     },
     {
-        title: "Linked In",
+        title: "Javier's LinkedIn",
         description:
             "Follow us on Linked In if you want to know more about us",
     },
@@ -124,7 +124,7 @@ function NavListMenu() {
                 <MenuHandler>
                     <Typography href="#" variant="paragraph" className="font-mono font-bold">
                         <MenuItem {...triggers} className="items-center hidden gap-2 text-blue-gray-900 lg:flex">
-                            Pages
+                            Resources
                         </MenuItem>
                     </Typography>
                 </MenuHandler>
@@ -139,7 +139,7 @@ function NavListMenu() {
             </Menu>
             <Typography href="#" variant="paragraph" className="font-mono font-bold">
                 <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
-                    Pages
+                    Resources
                 </MenuItem>
             </Typography>
             <ul className="flex flex-col w-full gap-1 ml-6 lg:hidden">
@@ -149,12 +149,10 @@ function NavListMenu() {
     );
 }
 
-const navListItems = [{ label: "About", link: "/about" }, { label: "Contact" }];
 
 function NavList() {
     return (
         <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
-            <NavListMenu />
             <Link to="/themes">
                 <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
                     <MenuItem>
@@ -162,14 +160,22 @@ function NavList() {
                     </MenuItem>
                 </Typography>
             </Link>
-            {navListItems.map(({ label }) => (
-                <Typography key={label} href="#" variant="paragraph" color="blue-gray" className="font-mono font-bold">
+            <Link to="/about">
+                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
                     <MenuItem>
-                        {label}
+                    About
                     </MenuItem>
                 </Typography>
-            ))}
-
+            </Link>
+            <Link to="/">
+                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
+                    <MenuItem>
+                    Contact
+                    </MenuItem>
+                </Typography>
+            </Link>
+            <NavListMenu />
+            <MobileModal />
         </ul>
     );
 }
