@@ -21,7 +21,7 @@ export default function Footer() {
                         </p>
                     </div>
                     <div className="flex items-center justify-center h-full mb-4 md:mb-0">
-                        <Link className="hover:text-blue-500">
+                        <Link to="/about" className="hover:text-blue-500">
                             About
                         </Link>
                     </div>
