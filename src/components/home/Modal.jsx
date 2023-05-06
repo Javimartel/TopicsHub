@@ -1,4 +1,6 @@
 import React from "react";
+import { Fragment, useState } from "react";
+
 import {
     Button,
     Card,
@@ -9,17 +11,23 @@ import {
     TabsBody,
     Tab,
     TabPanel,
+    Dialog,
 } from "@material-tailwind/react";
+
+import { BsFillHeartFill } from "react-icons/bs";
 
 export default function Modal() {
     const [type, setType] = React.useState("card");
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open);
 
     return (
         <>
-            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-
-            <label htmlFor="my-modal-4" className="cursor-pointer modal">
-                <label className="relative bg-transparent shadow-none modal-box">
+            <Fragment>
+                <Button onClick={handleOpen} size="lg" className="items-center hidden gap-2 lg:flex lg:ml-auto selection:border-none">
+                    Join Us <BsFillHeartFill size={15} />
+                </Button>
+                <Dialog open={open} handler={handleOpen}>
                     <Card>
                         <CardBody>
                             <Tabs value={type} className="overflow-visible ">
@@ -90,8 +98,8 @@ export default function Modal() {
                             </Tabs>
                         </CardBody>
                     </Card>
-                </label >
-            </label >
+                </Dialog>
+            </Fragment>
         </>
     );
 }

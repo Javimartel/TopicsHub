@@ -1,6 +1,5 @@
 import React from "react";
-import Modal from "./Modal";
-import Cards from "./Cards";
+import StaticCards from "./StaticCards";
 import Prices from "./Prices";
 import {
     BsChatFill,
@@ -95,7 +94,7 @@ export default function Content() {
                                 </p>
                             </div>
                             <div className="flex justify-center mt-6"> {/* Button */}
-                                <Button size="lg" className="flex items-center gap-1"> Read More <BsFillBookmarkFill /> </Button>
+                                <Button size="lg" className="flex items-center gap-2"> Read More <BsFillBookmarkFill /> </Button>
                             </div>
                         </div>
                     </div>
@@ -208,7 +207,7 @@ export default function Content() {
 
                 <div className="flex flex-col items-center mt-12">
                     <div className="flex flex-wrap justify-center gap-8 w-6/6">
-                        <Cards />
+                        <StaticCards />
                     </div>
 
                     <h3 className="mt-12 font-mono text-3xl font-bold text-center text-blue-gray-800">
@@ -220,9 +219,6 @@ export default function Content() {
                         Just choose one and start chatting.
                     </p>
 
-                    <label className="mt-4 hover:bg-[#2196f3] bg-[#2196f3] btn border-none" htmlFor="my-modal-4">
-                        Start Chatting
-                    </label>
 
                 </div>
             </section>
@@ -247,8 +243,6 @@ export default function Content() {
                     </div>
                 </div>
             </section>
-
-            <Modal /> {/* Modal */}
         </>
     );
 }

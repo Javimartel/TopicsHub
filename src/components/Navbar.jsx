@@ -4,7 +4,12 @@ import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { CgMediaPodcast } from "react-icons/cg";
 
+// Context
 import { FirebaseContext } from "../contexts/FirebaseContext";
+
+// Elements
+import Modal from "./home/Modal";
+
 
 // Profile Dropdown Menu
 const profileMenuItems = [{ label: "My Profile" }, { label: "Edit Profile" }, { label: "Inbox" }, { label: "Help" }];
@@ -26,7 +31,8 @@ function ProfileMenu() {
             </Button>
         </MenuHandler>
     ) : (
-        <Button size="lg" className="items-center hidden gap-1 lg:flex lg:ml-auto selection:border-none" onClick={googleLogIn}> Join Us </Button>
+        // <Button size="lg" className="items-center hidden gap-1 lg:flex lg:ml-auto selection:border-none" onClick={googleLogIn}> Join Us </Button>
+        <Modal />
     );
 
     return (
@@ -180,7 +186,7 @@ export default function ComplexNavbar() {
     }, []);
 
     return (
-        <Navbar className="w-2/3 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[340px]">
+        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[340px]">
             <div className="relative flex items-center mx-auto text-blue-gray-900">
                 <Link to={"/"} className="pl-4 text-2xl font-extrabold">
                     <img src="/images/logo.png" alt="logo" className="w-10 scale-[2.3]" />
