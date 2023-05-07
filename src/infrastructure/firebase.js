@@ -53,6 +53,7 @@ const db = getFirestore(app);
 // Obtener usuario
 export const getUser = () => {
     const [user, loading] = useAuthState(auth)
+    console.log(user)
     return [user, loading];
 }
 
@@ -85,6 +86,18 @@ export const createUser = async (name, email, password, profilePicture) => {
     } catch (error) {
         console.error("Error creating user: ", error);
         return Promise.reject(error);
+    }
+};
+
+// Actualizar perfil
+export const updateProfileWith = async (name, email, password, profilePicture) => {
+    try {
+        console.log(name);
+        console.log(email);
+        console.log(password);
+        console.log(profilePicture);
+    } catch (error) {
+        console.error("Error updating profile: ", error);
     }
 };
 
