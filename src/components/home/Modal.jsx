@@ -86,7 +86,7 @@ export default function Modal() {
                 <Button onClick={handleOpen} size="lg" className="items-center hidden gap-2 lg:flex lg:ml-auto selection:border-none">
                     Join Us <BsFillHeartFill size={15} />
                 </Button>
-                <Dialog open={open} handler={handleOpen}>
+                <Dialog open={open} handler={handleOpen} size="sm">
                     <Card>
                         <CardBody>
                             <Tabs value={type} className="overflow-visible ">
@@ -99,7 +99,7 @@ export default function Modal() {
                                     </Tab>
                                 </TabsHeader>
                                 <TabsBody
-                                    className="!overflow-x-hidden !overflow-y-visible"
+                                    className="!overflow-x-hidden !overflow-y-hidden"
                                     animate={{
                                         initial: {
                                             x: type === "card" ? 400 : -400,
@@ -112,13 +112,13 @@ export default function Modal() {
                                         },
                                     }}
                                 >
-                                    <TabPanel value="card" className="p-0 min-h-[300px] flex items-end">
+                                    <TabPanel value="card" className="p-0 flex items-end overflow-y-hidden">
 
                                         <form
                                             className="flex flex-col w-full"
                                             ref={loginFormRef}
                                         >
-                                            <div className="flex justify-center mb-2">
+                                            <div className="flex justify-center mb-2 mt-5">
                                                 <Button onClick={(event) => { event.stopPropagation(); event.preventDefault(); googleLogIn() }} size="md" variant="outlined" className="flex items-center justify-center w-2/3 gap-3">
                                                     <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
                                                     Continue with Google
@@ -153,7 +153,7 @@ export default function Modal() {
 
                                     </TabPanel>
 
-                                    <TabPanel value="sign" className="p-0 min-h-[300px]">
+                                    <TabPanel value="sign" className="p-0">
 
                                         <form
                                             className="flex flex-col mt-8"

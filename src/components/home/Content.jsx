@@ -159,7 +159,7 @@ export default function Content() {
                 <div className="w-full mt-12 md:w-4/5"> {/* What is TopicsHub Cont */}
                     <div className="chat chat-start ">
                         <div className="chat-bubble bg-[#2196f3]">
-                            <h3 className="text-xl font-bold text-white">Who created it? &#128517;</h3>
+                            <h3 className="text-md font-bold text-white">Who created it? &#128517;</h3>
                         </div>
                     </div>
                     <div className="chat chat-start">
@@ -174,7 +174,7 @@ export default function Content() {
                     <div className="mt-8">
                         <div className="chat chat-end">
                             <div className="chat-bubble bg-[#2196f3]">
-                                <p className="text-xl font-bold text-right text-white">How was created? &#129300;</p>
+                                <p className="text-md font-bold text-right text-white">How was created? &#129300;</p>
                             </div>
                         </div>
                         <div className="chat chat-end"> {/* What is TopicsHub Text */}

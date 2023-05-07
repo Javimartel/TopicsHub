@@ -8,7 +8,7 @@ import Spinner from "../components/loaders/Spinner"
 
 import Navbar from "../components/Navbar";
 import { Input } from "@material-tailwind/react";
-import Cards from "../components/home/Cards";
+import Cards from "../components/cards/Cards";
 import Footer from "../components/Footer";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
