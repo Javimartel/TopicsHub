@@ -1,4 +1,6 @@
 import React from "react";
+import { Fragment, useState } from "react";
+
 import {
     Button,
     Card,
@@ -9,13 +11,19 @@ import {
     TabsBody,
     Tab,
     TabPanel,
+    Dialog,
 } from "@material-tailwind/react";
 import { FirebaseContext } from "../../contexts/FirebaseContext";
 import { FaSpinner } from "react-icons/fa";
 
+import { BsFillHeartFill } from "react-icons/bs";
+
 export default function Modal() {
     const { googleLogIn, createUser, logIn } = React.useContext(FirebaseContext);
     const [type, setType] = React.useState("card");
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open);
+    
     const [isCreating, setIsCreating] = React.useState(false);
     const [isLoggingIn, setIsLoggingIn] = React.useState(false);
     const [loginError, setLoginError] = React.useState(null);
@@ -74,12 +82,23 @@ export default function Modal() {
 
     return (
         <>
+            <Fragment>
+                <Button onClick={handleOpen} size="lg" className="items-center hidden gap-2 lg:flex lg:ml-auto selection:border-none">
+                    Join Us <BsFillHeartFill size={15} />
+                </Button>
+                <Dialog open={open} handler={handleOpen}>
+                    <Card>
+                        <CardBody>
+                            <Tabs value={type} className="overflow-visible ">
+                                <TabsHeader>
+                                    <Tab value="card" onClick={() => setType("card")}>
+
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
 
             {/* El preventDefault de aquí evita que se quite el modal si pulsas fuera, pero si no lo pongo el login de Google se ejecuta si pulso el modal en cualquier lado */}
             {/* <label htmlFor="my-modal-4" className="cursor-pointer modal" onClick={(event) => { event.stopPropagation(); event.preventDefault() }}> */}
             {/* <label className="relative bg-transparent shadow-none modal-box"> */}
-            <div className="cursor-pointer modal">
+            {/* <div className="cursor-pointer modal">
                 <label htmlFor="my-modal-4" className="relative bg-transparent shadow-none modal-box" onClick={(event) => { event.stopPropagation(); }}>
                     <Card>
                         <CardBody>
@@ -91,6 +110,7 @@ export default function Modal() {
                                     <Tab value="sign" onClick={(event) => { event.stopPropagation(); event.preventDefault(); setType("sign") }}>
                                         Sign Up
                                     </Tab>
+                                   */}
                                 </TabsHeader>
                                 <TabsBody
                                     className="!overflow-x-hidden !overflow-y-visible"
@@ -113,7 +133,7 @@ export default function Modal() {
                                             ref={loginFormRef}
                                         >
                                             <div className="flex justify-center mb-2">
-                                                <Button onClick={(event) => { event.stopPropagation(); event.preventDefault(); googleLogIn() }} size="md" variant="outlined" className="flex items-center gap-3">
+                                                <Button onClick={(event) => { event.stopPropagation(); event.preventDefault(); googleLogIn() }} size="md" variant="outlined" className="flex items-center justify-center w-2/3 gap-3">
                                                     <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
                                                     Continue with Google
                                                 </Button>
@@ -196,9 +216,9 @@ export default function Modal() {
                             </Tabs>
                         </CardBody>
                     </Card>
-                </label >
-            </div>
-            {/* </label > */}
+                </Dialog>
+            </Fragment>
+
         </>
     );
 }

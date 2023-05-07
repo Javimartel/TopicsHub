@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Chat from './pages/chat/Chat'
 import Themes from './pages/Themes'
 import Notfound from './pages/NotFound'
+import AboutUs from './pages/AboutUs'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="chat/:theme" element={<Chat />} />
       <Route path="themes" element={<Themes />} />
+      <Route path="about" element={<AboutUs />} />
       <Route path="*" element={<Notfound />} />
     </Routes>
   )

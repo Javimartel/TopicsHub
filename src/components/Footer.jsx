@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer className="bottom-0 flex flex-col w-full pt-5 bg-[#fbf9fa] mt-12 justify-center"> {/* Footer section */}
+        <footer className="bottom-0 flex flex-col w-full pt-5 bg-[#fbf9fa] mt-12 justify-center text-gray-900"> {/* Footer section */}
             <h1 className="font-mono text-2xl font-bold text-center"> {/* Footer title */}
                 Topics<span className="text-blue-500">Hub</span>
             </h1>
@@ -21,7 +21,7 @@ export default function Footer() {
                         </p>
                     </div>
                     <div className="flex items-center justify-center h-full mb-4 md:mb-0">
-                        <Link className="hover:text-blue-500">
+                        <Link to="/about" className="hover:text-blue-500">
                             About
                         </Link>
                     </div>
@@ -38,9 +38,9 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-center h-full pb-2 justify-evenly w-[200px] md:pt-5">
-                    <FaTwitter size={25} color="black" />
-                    <FaGithub size={25} color="black" />
-                    <FaLinkedinIn size={25} color="black" />
+                    <FaTwitter size={25} color="#37474f" />
+                    <FaGithub size={25} color="#37474f" />
+                    <FaLinkedinIn size={25} color="#37474f" />
                 </div>
                 <div className="flex items-center justify-center h-full md:pt-2 mb-7">
                     <p className="font-mono">
@@ -48,7 +48,6 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
-
         </footer>
     );
 }

@@ -12,6 +12,13 @@
   }
 }
 
+/* * {
+  border: 1px solid red;
+} */
+:focus {
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

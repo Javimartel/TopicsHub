@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 import { CgMediaPodcast } from "react-icons/cg";
 import { FaSpinner } from "react-icons/fa";
 
+// Context
 import { FirebaseContext } from "../contexts/FirebaseContext";
+
+// Elements
+import Modal from "./home/Modal";
+import MobileModal from "./home/MobileModal";
+
 
 // Profile Dropdown Menu
 const profileMenuItems = [{ label: "My Profile" }, { label: "Edit Profile" }, { label: "Inbox" }, { label: "Help" }];
@@ -16,11 +22,25 @@ function ProfileMenu() {
     const [isDialogOpen, setIsDialogOpen] = React.useState(false);
     const [isUpdating, setIsUpdating] = React.useState(false);
     const closeMenu = () => setIsMenuOpen(false);
+    const userImg = user ? auth.currentUser.photoURL : "";
     const handleDialog = () => setIsDialogOpen(!isDialogOpen);
     const updateProfileFormRef = React.useRef(null);
-
-    const userImg = user ? auth.currentUser.photoURL : "https://robohash.org/1";
-
+    
+    const userElement = user ? (
+        <MenuHandler>
+            <Button variant="text" color="blue-gray" className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto selection:border-none" >
+                <Avatar
+                    variant="circular"
+                    size="md"
+                    alt=""
+                    className="border border-blue-500 p-0.5"
+                    src={userImg} />
+            </Button>
+        </MenuHandler>
+    ) : (
+        <Modal />
+    );
+    
     const handleUpdate = () => {
         const name = updateProfileFormRef.current["edit_name"].value;
         const email = updateProfileFormRef.current["edit_email"]?.value;
@@ -53,16 +73,7 @@ function ProfileMenu() {
     return (
         <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
 
-            <MenuHandler>
-                <Button variant="text" color="blue-gray" className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto" >
-                    <Avatar
-                        variant="circular"
-                        size="md"
-                        alt=""
-                        className="border border-blue-500 p-0.5"
-                        src={userImg} />
-                </Button>
-            </MenuHandler>
+            {userElement}
 
             <MenuList className="p-1">
                 {profileMenuItems.map(({ label }) => {
@@ -182,17 +193,17 @@ function ProfileMenu() {
 // nav list menu
 const navListMenuItems = [
     {
-        title: "Github Repository",
+        title: "Github",
         description:
             "Learn how was created TopicsHub and contribute to the project.",
     },
     {
-        title: "Twitter",
+        title: "PHPLover's LinkedIn",
         description:
             "Follow us on Twitter to stay up to date with the latest news.",
     },
     {
-        title: "Linked In",
+        title: "Javier's LinkedIn",
         description:
             "Follow us on Linked In if you want to know more about us",
     },
@@ -225,7 +236,7 @@ function NavListMenu() {
                 <MenuHandler>
                     <Typography href="#" variant="paragraph" className="font-mono font-bold">
                         <MenuItem {...triggers} className="items-center hidden gap-2 text-blue-gray-900 lg:flex">
-                            Pages
+                            Resources
                         </MenuItem>
                     </Typography>
                 </MenuHandler>
@@ -240,7 +251,7 @@ function NavListMenu() {
             </Menu>
             <Typography href="#" variant="paragraph" className="font-mono font-bold">
                 <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
-                    Pages
+                    Resources
                 </MenuItem>
             </Typography>
             <ul className="flex flex-col w-full gap-1 ml-6 lg:hidden">
@@ -250,12 +261,10 @@ function NavListMenu() {
     );
 }
 
-const navListItems = [{ label: "About", link: "/about" }, { label: "Contact" }];
 
 function NavList() {
     return (
         <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
-            <NavListMenu />
             <Link to="/themes">
                 <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
                     <MenuItem>
@@ -263,13 +272,22 @@ function NavList() {
                     </MenuItem>
                 </Typography>
             </Link>
-            {navListItems.map(({ label }) => (
-                <Typography key={label} href="#" variant="paragraph" color="blue-gray" className="font-mono font-bold">
+            <Link to="/about">
+                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
                     <MenuItem>
-                        {label}
+                    About
                     </MenuItem>
                 </Typography>
-            ))}
+            </Link>
+            <Link to="/">
+                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
+                    <MenuItem>
+                    Contact
+                    </MenuItem>
+                </Typography>
+            </Link>
+            <NavListMenu />
+            <MobileModal />
         </ul>
     );
 }
@@ -286,7 +304,7 @@ export default function ComplexNavbar() {
     }, []);
 
     return (
-        <Navbar className="w-2/3 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[340px]">
+        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[340px]">
             <div className="relative flex items-center mx-auto text-blue-gray-900">
                 <Link to={"/"} className="pl-4 text-2xl font-extrabold">
                     <img src="/images/logo.png" alt="logo" className="w-10 scale-[2.3]" />
