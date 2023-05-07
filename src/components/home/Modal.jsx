@@ -162,7 +162,7 @@ export default function Modal() {
                                                 </p>
                                             </div>
                                             <div className="flex flex-col gap-4 mb-4 sm:flex-row">
-                                                <Input type="email" label="Name" id="sign_name" />
+                                                <Input type="text" label="Name" id="sign_name" />
                                             </div>
                                             <div className="mb-4">
                                                 <Input type="email" label="Email" id="sign_email" />
