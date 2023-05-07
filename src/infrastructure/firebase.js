@@ -30,6 +30,10 @@ import {
     signInWithRedirect,
     createUserWithEmailAndPassword,
     updateProfile,
+    updateEmail,
+    updatePassword,
+    EmailAuthProvider,
+    reauthenticateWithCredential,
     signInWithEmailAndPassword
 } from "firebase/auth";
 
@@ -53,7 +57,6 @@ const db = getFirestore(app);
 // Obtener usuario
 export const getUser = () => {
     const [user, loading] = useAuthState(auth)
-    console.log(user)
     return [user, loading];
 }
 
@@ -90,14 +93,40 @@ export const createUser = async (name, email, password, profilePicture) => {
 };
 
 // Actualizar perfil
-export const updateProfileWith = async (name, email, password, profilePicture) => {
+export const updateProfileWith = async (name, email, password, newPassword, profilePicture) => {
     try {
-        console.log(name);
-        console.log(email);
-        console.log(password);
-        console.log(profilePicture);
+        const user = auth.currentUser;
+
+        if (user.displayName !== name) {
+            await updateProfile(user, {
+                displayName: name
+            });
+        }
+
+        if (user.email !== email) {
+            await updateEmail(user, email);
+        }
+
+        if (newPassword) {
+            const credential = EmailAuthProvider.credential(user.email, password);
+            await reauthenticateWithCredential(user, credential);
+            await updatePassword(user, newPassword);
+        }
+
+        if (profilePicture) {
+            const storage = getStorage();
+            const storageRef = ref(storage, `profilePictures/${user.uid}`);
+            await uploadBytes(storageRef, profilePicture);
+            const downloadURL = await getDownloadURL(storageRef);
+            await updateProfile(user, {
+                photoURL: downloadURL
+            });
+        }
+
+        return Promise.resolve(user);
     } catch (error) {
         console.error("Error updating profile: ", error);
+        return Promise.reject(error);
     }
 };
 
