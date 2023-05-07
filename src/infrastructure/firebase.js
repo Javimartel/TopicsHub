@@ -145,7 +145,7 @@ export const logIn = async (email, password) => {
 // Obtener temas
 export const getThemes = (callback) => {
     try {
-        const unsubscribe = onSnapshot(collection(db, "Themes"), (snapshot) => {
+        const unsubscribe = onSnapshot(query(collection(db, "Themes"), orderBy("name", "asc")), (snapshot) => {
             const themes = [];
             snapshot.forEach((doc) => {
                 themes.push({ id: doc.id, ...doc.data() });
