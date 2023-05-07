@@ -53,7 +53,6 @@ const db = getFirestore(app);
 // Obtener usuario
 export const getUser = () => {
     const [user, loading] = useAuthState(auth)
-    console.log("User dentro: ", user);
     return [user, loading];
 }
 

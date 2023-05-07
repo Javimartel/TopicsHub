@@ -34,8 +34,6 @@ export default function Modal() {
 
         setIsLoggingIn(true);
 
-        console.log("email", email);
-
         logIn(email, password)
             .then(() => {
                 window.location.reload();
@@ -64,11 +62,6 @@ export default function Modal() {
         }
 
         setIsCreating(true);
-
-        console.log("name", name);
-        console.log("email", email);
-        console.log("password", password);
-        console.log("profilePicture", profilePicture);
 
         createUser(name, email, password, profilePicture)
             .then(() => {
