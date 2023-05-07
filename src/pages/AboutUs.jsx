@@ -40,15 +40,6 @@ export default function AboutUs() {
                             </p>
                             <Avatar src="/images/avatarphplover.jpg" alt="avatar" className="w-[200px] h-[200px] border-2 rounded-full" />
                         </div>
-                        <div className="flex items-center justify-center gap-5 ">
-                            <Avatar src="https://robohash.org/cHati" alt="avatar" className="w-[200px] h-[200px] border-2 rounded-full" />
-                            <p className="flex items-center justify-center w-2/3 text-gray-900 max-w-[750px] text-justify">
-                                Esta figura robótica refleja la diversidad y la individualidad. Es un símbolo de la tecnología y la innovación.
-                                Robohash tiene una mente analítica y una gran capacidad para procesar información.
-                                Aunque su apariencia puede ser mecánica, su inteligencia artificial le permite interactuar y adaptarse al entorno.
-                                Es una figura intrigante que despierta la curiosidad de todos aquellos que lo conocen.
-                            </p>
-                        </div>
                     </div>
                 </section>
 

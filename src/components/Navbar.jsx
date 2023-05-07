@@ -14,7 +14,7 @@ import MobileModal from "./home/MobileModal";
 
 
 // Profile Dropdown Menu
-const profileMenuItems = [{ label: "My Profile" }, { label: "Edit Profile" }, { label: "Inbox" }, { label: "Help" }];
+const profileMenuItems = [{ label: "Dark Mode" }, { label: "Edit Profile" }];
 
 function ProfileMenu() {
     const { user, auth, googleLogIn, updateProfileWith } = React.useContext(FirebaseContext);
@@ -196,16 +196,19 @@ const navListMenuItems = [
         title: "Github",
         description:
             "Learn how was created TopicsHub and contribute to the project.",
+        link: "https://github.com/Javimartel/TopicsHub"
     },
     {
         title: "PHPLover's LinkedIn",
         description:
             "Follow us on Twitter to stay up to date with the latest news.",
+        link: "https://www.linkedin.com/in/mario-pérez-marrero-3a5690220/"
     },
     {
         title: "Javier's LinkedIn",
         description:
             "Follow us on Linked In if you want to know more about us",
+        link: "https://www.linkedin.com/in/javimartel/"
     },
 ];
 
@@ -217,8 +220,8 @@ function NavListMenu() {
         onMouseLeave: () => setIsMenuOpen(false),
     };
 
-    const renderItems = navListMenuItems.map(({ title, description }) => (
-        <a href="#" key={title}>
+    const renderItems = navListMenuItems.map(({ title, description, link }) => (
+        <a href={link} target="_blank" key={title}>
             <MenuItem>
                 <Typography variant="h6" color="blue-gray" className="mb-1">
                     {title}
@@ -241,8 +244,8 @@ function NavListMenu() {
                     </Typography>
                 </MenuHandler>
                 <MenuList {...triggers} className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid" >
-                    <Card color="blue" shadow={false} variant="gradient" className="grid w-full h-full col-span-3 rounded-md place-items-center">
-                        <CgMediaPodcast size={120} />
+                    <Card shadow={false} variant="gradient" className="grid w-full h-full col-span-3 rounded-md place-items-center">
+                        <img src="/images/logo.png" alt="" />
                     </Card>
                     <ul className="flex flex-col w-full col-span-4 gap-1">
                         {renderItems}
@@ -254,7 +257,7 @@ function NavListMenu() {
                     Resources
                 </MenuItem>
             </Typography>
-            <ul className="flex flex-col w-full gap-1 ml-6 lg:hidden">
+            <ul className="flex flex-col w-full gap-1 ml-4 lg:hidden">
                 {renderItems}
             </ul>
         </React.Fragment>

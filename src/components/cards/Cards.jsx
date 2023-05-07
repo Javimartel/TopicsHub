@@ -16,8 +16,6 @@ const Cards = (props) => {
                     <p> {props.description} </p>
                     <div className="justify-end card-actions">
                         <div className="badge badge-outline">{props.category}</div>
-                        <div className="badge badge-outline">Anime</div>
-                        <div className="badge badge-outline">Test</div>
                     </div>
                 </div>
             </div>

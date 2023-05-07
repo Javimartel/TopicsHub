@@ -13,7 +13,7 @@ export default function Prices() {
             <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem] text-blue-gray-800">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
-                        standard
+                        basic
                     </p>
                     <p className="flex justify-center gap-1 mt-6 text-6xl text-blue-gray-800">
                         <span className="mt-2 text-4xl">$</span>29
@@ -59,7 +59,7 @@ export default function Prices() {
             <Card className="w-full max-w-[18rem] p-8 border shadow-md  lg:max-w-[20rem] text-blue-gray-800">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
-                        Premium
+                        standard
                     </p>
                     <p className="flex justify-center gap-1 mt-6 text-6xl text-blue-gray-800">
                         <span className="mt-2 text-4xl">$</span>49{" "}
@@ -105,7 +105,7 @@ export default function Prices() {
             <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem] text-blue-gray-800">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
-                        Gigachad
+                        premium
                     </p>
                     <p className="flex justify-center gap-1 mt-6 text-6xl text-blue-gray-800">
                         <span className="mt-2 text-4xl">$</span>99{" "}
