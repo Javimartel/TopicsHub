@@ -14,7 +14,7 @@ const SendMessage = ({ theme }) => {
         const textToAdd = inputRef.current.value.trim();
 
         if (textToAdd === "") {
-            alert("Por favor añade un mensaje");
+            alert("Please, write a message");
             return;
         }
 
@@ -25,7 +25,7 @@ const SendMessage = ({ theme }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex items-center w-2/5 gap-1">
+        <form onSubmit={handleSubmit} className="flex items-center justify-center w-2/5 gap-1">
             <Input type="text" inputRef={inputRef} label="Message" maxLength={255} />
             <Button type="submit" className="flex justify-center">
                 <div>
