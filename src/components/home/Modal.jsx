@@ -23,7 +23,7 @@ export default function Modal() {
     const [type, setType] = React.useState("card");
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(!open);
-    
+
     const [isCreating, setIsCreating] = React.useState(false);
     const [isLoggingIn, setIsLoggingIn] = React.useState(false);
     const [loginError, setLoginError] = React.useState(null);
@@ -92,25 +92,11 @@ export default function Modal() {
                             <Tabs value={type} className="overflow-visible ">
                                 <TabsHeader>
                                     <Tab value="card" onClick={() => setType("card")}>
-
-            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-
-            {/* El preventDefault de aquí evita que se quite el modal si pulsas fuera, pero si no lo pongo el login de Google se ejecuta si pulso el modal en cualquier lado */}
-            {/* <label htmlFor="my-modal-4" className="cursor-pointer modal" onClick={(event) => { event.stopPropagation(); event.preventDefault() }}> */}
-            {/* <label className="relative bg-transparent shadow-none modal-box"> */}
-            {/* <div className="cursor-pointer modal">
-                <label htmlFor="my-modal-4" className="relative bg-transparent shadow-none modal-box" onClick={(event) => { event.stopPropagation(); }}>
-                    <Card>
-                        <CardBody>
-                            <Tabs value={type} className="overflow-visible ">
-                                <TabsHeader className="">
-                                    <Tab value="card" onClick={(event) => { event.stopPropagation(); event.preventDefault(); setType("card") }}>
                                         Login
                                     </Tab>
-                                    <Tab value="sign" onClick={(event) => { event.stopPropagation(); event.preventDefault(); setType("sign") }}>
+                                    <Tab value="sign" onClick={() => setType("sign")}>
                                         Sign Up
                                     </Tab>
-                                   */}
                                 </TabsHeader>
                                 <TabsBody
                                     className="!overflow-x-hidden !overflow-y-visible"
