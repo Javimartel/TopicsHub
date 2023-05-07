@@ -27,7 +27,14 @@ import {
 import { useAuthState } from 'react-firebase-hooks/auth'
 import {
     GoogleAuthProvider,
-    signInWithRedirect
+    signInWithRedirect,
+    createUserWithEmailAndPassword,
+    updateProfile,
+    updateEmail,
+    updatePassword,
+    EmailAuthProvider,
+    reauthenticateWithCredential,
+    signInWithEmailAndPassword
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -62,6 +69,78 @@ export const googleLogIn = () => {
         console.error("Error signing in with Google: ", error);
     }
 }
+
+// Crear usuario con email y contraseña
+export const createUser = async (name, email, password, profilePicture) => {
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        // subimos la foto de perfil al storage de firebase
+        const storage = getStorage();
+        const storageRef = ref(storage, `profilePictures/${user.uid}`);
+        await uploadBytes(storageRef, profilePicture);
+        const downloadURL = await getDownloadURL(storageRef);
+        // actualizamos el perfil del usuario con el nombre y la foto
+        await updateProfile(user, {
+            displayName: name,
+            photoURL: downloadURL
+        });
+        return Promise.resolve(user);
+    } catch (error) {
+        console.error("Error creating user: ", error);
+        return Promise.reject(error);
+    }
+};
+
+// Actualizar perfil
+export const updateProfileWith = async (name, email, password, newPassword, profilePicture) => {
+    try {
+        const user = auth.currentUser;
+
+        if (user.displayName !== name) {
+            await updateProfile(user, {
+                displayName: name
+            });
+        }
+
+        if (user.email !== email) {
+            await updateEmail(user, email);
+        }
+
+        if (newPassword) {
+            const credential = EmailAuthProvider.credential(user.email, password);
+            await reauthenticateWithCredential(user, credential);
+            await updatePassword(user, newPassword);
+        }
+
+        if (profilePicture) {
+            const storage = getStorage();
+            const storageRef = ref(storage, `profilePictures/${user.uid}`);
+            await uploadBytes(storageRef, profilePicture);
+            const downloadURL = await getDownloadURL(storageRef);
+            await updateProfile(user, {
+                photoURL: downloadURL
+            });
+        }
+
+        return Promise.resolve(user);
+    } catch (error) {
+        console.error("Error updating profile: ", error);
+        return Promise.reject(error);
+    }
+};
+
+// Iniciar sesión con email y contraseña
+export const logIn = async (email, password) => {
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        return Promise.resolve(user);
+    } catch (error) {
+        console.error("Error signing in: ", error);
+        return Promise.reject(error);
+    }
+};
 
 // Obtener temas
 export const getThemes = (callback) => {

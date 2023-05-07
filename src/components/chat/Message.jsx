@@ -15,7 +15,7 @@ const Message = ({ message, theme }) => {
     }
 
     return (
-        <div className="w-[100%]">
+        <div className="w-[100%] m-1">
             <div className={mssgClass}>
                 <div className="chat-header text-black">
                     {message.name}
