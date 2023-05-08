@@ -13,7 +13,7 @@ import Footer from "../components/Footer";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 function Themes() {
-    const { user, getThemes, addTheme, uploadFileAndGetURL, getAdmins } = useContext(FirebaseContext);
+    const { user, getThemes, addTheme, uploadFileAndGetURL } = useContext(FirebaseContext);
 
     // Estados
     const [themes, setThemes] = useState([]);
@@ -52,28 +52,15 @@ function Themes() {
     }
 
     useEffect(() => {
-        const unsubscribeThemes = getThemes(themes => {
+        const unsubscribe = getThemes(themes => {
             setThemes(themes);
             setIsLoading(false);
         });
 
-        const unsubscribeAdmins = getAdmins(admins => {
-            admins.forEach(admin => {
-                if (admin.uid === user?.uid) {
-                    setIsAdmin(true);
-                }
-            });
-        });
-
-        if (!user) {
-            setIsAdmin(false);
-        }
-
         return () => {
-            unsubscribeThemes();
-            unsubscribeAdmins();
+            unsubscribe();
         };
-    }, [user]);
+    }, []);
 
     return (
 
@@ -110,7 +97,7 @@ function Themes() {
                                 </Link>
                             ))}
 
-                            {isAdmin && (
+                            {user?.isAdmin && (
                                 <div>
                                     <label htmlFor="my-modal" className="h-full btn bg-transparent border-transparent text-black hover:text-gray-600 hover:bg-transparent hover:border-transparent">
                                         <BsPlusCircle size={100} />
