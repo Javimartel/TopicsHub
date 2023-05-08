@@ -13,11 +13,12 @@ import Footer from "../components/Footer";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 function Themes() {
-    const { getThemes, addTheme, uploadFileAndGetURL } = useContext(FirebaseContext);
+    const { user, getThemes, addTheme, uploadFileAndGetURL, getAdmins } = useContext(FirebaseContext);
 
     // Estados
     const [themes, setThemes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     // Referencias a los inputs
     const temaRef = useRef();
@@ -51,14 +52,28 @@ function Themes() {
     }
 
     useEffect(() => {
-        const unsubscribe = getThemes(themes => {
+        const unsubscribeThemes = getThemes(themes => {
             setThemes(themes);
             setIsLoading(false);
         });
+
+        const unsubscribeAdmins = getAdmins(admins => {
+            admins.forEach(admin => {
+                if (admin.uid === user?.uid) {
+                    setIsAdmin(true);
+                }
+            });
+        });
+
+        if (!user) {
+            setIsAdmin(false);
+        }
+
         return () => {
-            unsubscribe();
+            unsubscribeThemes();
+            unsubscribeAdmins();
         };
-    }, []);
+    }, [user]);
 
     return (
 
@@ -94,47 +109,50 @@ function Themes() {
                                     />
                                 </Link>
                             ))}
-                            <div>
-                                <label htmlFor="my-modal" className="h-full btn bg-transparent border-transparent text-black hover:text-gray-600 hover:bg-transparent hover:border-transparent">
-                                    <BsPlusCircle size={100} />
-                                </label>
 
-                                <input type="checkbox" id="my-modal" className="modal-toggle" />
-                                <div className="modal">
-                                    <div className="modal-box w-11/12 max-w-2xl">
-                                        <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <div className="form-control">
-                                            <h1 className="text-xl text-white text-center mb-5">Nueva Temática</h1>
-                                            <label className="w-full input-group flex justify-center align-center mb-5">
-                                                <span className="w-[30%]">Tema</span>
-                                                <input ref={temaRef} type="text" className="w-[70%] input input-bordered" />
-                                            </label>
-                                            <label className="w-full input-group flex justify-center align-center mb-5">
-                                                <span className="w-[30%]">Descripción</span>
-                                                <input ref={descripcionRef} type="text" className="w-[70%] input input-bordered" />
-                                            </label>
-                                            <label className="w-full input-group flex justify-center align-center mb-5">
-                                                <span className="w-[30%]">Categoría</span>
-                                                <input ref={categoriaRef} type="text" className="w-[70%] input input-bordered" />
-                                            </label>
-                                            <label className="w-full input-group flex justify-center align-center mb-5">
-                                                <span className="w-[30%]">Imagen</span>
-                                                <input ref={imagenRef} type="file" className="w-[70%] input input-bordered" />
-                                            </label>
-                                            <label className="input-group flex justify-center align-center mb-5">
-                                                <span className="">
-                                                    Nuevo chat
-                                                    <input ref={newRef} type="checkbox" className="ml-3 input input-bordered" />
-                                                </span>
-                                            </label>
-                                            <div className="flex justify-center mt-2">
-                                                <label htmlFor="my-modal" className="btn btn-error mr-3">Cancelar</label>
-                                                <label htmlFor="my-modal" onClick={addNewTheme} className="btn btn-success ml-3">Añadir</label>
+                            {isAdmin && (
+                                <div>
+                                    <label htmlFor="my-modal" className="h-full btn bg-transparent border-transparent text-black hover:text-gray-600 hover:bg-transparent hover:border-transparent">
+                                        <BsPlusCircle size={100} />
+                                    </label>
+
+                                    <input type="checkbox" id="my-modal" className="modal-toggle" />
+                                    <div className="modal">
+                                        <div className="modal-box w-11/12 max-w-2xl">
+                                            <label htmlFor="my-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                            <div className="form-control">
+                                                <h1 className="text-xl text-white text-center mb-5">Nueva Temática</h1>
+                                                <label className="w-full input-group flex justify-center align-center mb-5">
+                                                    <span className="w-[30%]">Tema</span>
+                                                    <input ref={temaRef} type="text" className="w-[70%] input input-bordered" />
+                                                </label>
+                                                <label className="w-full input-group flex justify-center align-center mb-5">
+                                                    <span className="w-[30%]">Descripción</span>
+                                                    <input ref={descripcionRef} type="text" className="w-[70%] input input-bordered" />
+                                                </label>
+                                                <label className="w-full input-group flex justify-center align-center mb-5">
+                                                    <span className="w-[30%]">Categoría</span>
+                                                    <input ref={categoriaRef} type="text" className="w-[70%] input input-bordered" />
+                                                </label>
+                                                <label className="w-full input-group flex justify-center align-center mb-5">
+                                                    <span className="w-[30%]">Imagen</span>
+                                                    <input ref={imagenRef} type="file" className="w-[70%] input input-bordered" />
+                                                </label>
+                                                <label className="input-group flex justify-center align-center mb-5">
+                                                    <span className="">
+                                                        Nuevo chat
+                                                        <input ref={newRef} type="checkbox" className="ml-3 input input-bordered" />
+                                                    </span>
+                                                </label>
+                                                <div className="flex justify-center mt-2">
+                                                    <label htmlFor="my-modal" className="btn btn-error mr-3">Cancelar</label>
+                                                    <label htmlFor="my-modal" onClick={addNewTheme} className="btn btn-success ml-3">Añadir</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     )}
                 </div>

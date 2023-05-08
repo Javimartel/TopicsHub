@@ -240,3 +240,19 @@ export const deleteMessage = async (messageId, messageUid, currentTheme) => {
         await deleteDoc(messageRef);
     }
 }
+
+// Obtener administradores
+export const getAdmins = (callback) => {
+    try {
+        const unsubscribe = onSnapshot(query(collection(db, "Admins"), orderBy("name", "asc")), (snapshot) => {
+            const moderators = [];
+            snapshot.forEach((doc) => {
+                moderators.push({ id: doc.id, ...doc.data() });
+            });
+            callback(moderators);
+        });
+        return unsubscribe;
+    } catch (error) {
+        console.error("Error getting moderators: ", error);
+    }
+}
