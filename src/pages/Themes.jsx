@@ -73,7 +73,7 @@ function Themes() {
                             <Spinner />
                         </div>
                     ) : (
-                        <div className="flex flex-wrap items-center justify-center gap-5 p-4 mt-10">
+                        <div className="flex flex-wrap items-center justify-center gap-10 mt-8">
                             {themes.map((theme) => (
                                 <Link key={theme.id} to={`/chat/${theme.name}`}>
                                     <Cards

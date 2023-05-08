@@ -91,10 +91,7 @@ const Chat = () => {
                                     </div>
                                 </>
                             )}
-
-                            <div className="hidden lg:flex">
                                 <Footer />
-                            </div>
                         </main>
                     )}
                 </>

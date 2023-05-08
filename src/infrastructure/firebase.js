@@ -150,6 +150,7 @@ export const getThemes = (callback) => {
             snapshot.forEach((doc) => {
                 themes.push({ id: doc.id, ...doc.data() });
             });
+            console.log(themes);
             callback(themes);
         });
         return unsubscribe;
