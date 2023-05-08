@@ -73,7 +73,7 @@ function Themes() {
                             <Spinner />
                         </div>
                     ) : (
-                        <div className="flex flex-wrap items-center justify-center gap-10 mt-8">
+                        <div className="flex flex-wrap items-center justify-center w-4/5 gap-10 mt-12">
                             {themes.map((theme) => (
                                 <Link key={theme.id} to={`/chat/${theme.name}`}>
                                     <Cards
@@ -81,11 +81,10 @@ function Themes() {
                                         description={theme.description}
                                         category={theme.category}
                                         img={theme.img}
+                                        new={theme.new}
                                     />
                                 </Link>
                             ))}
-
-
 
                             <div className="hidden">
                                 <label htmlFor="my-modal" className="h-full text-black bg-transparent border-transparent btn hover:text-gray-600 hover:bg-transparent hover:border-transparent">
