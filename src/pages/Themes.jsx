@@ -18,7 +18,6 @@ function Themes() {
     // Estados
     const [themes, setThemes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isAdmin, setIsAdmin] = useState(false);
 
     // Referencias a los inputs
     const temaRef = useRef();
