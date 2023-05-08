@@ -1,24 +1,34 @@
 import React from "react";
+import {
+    Card,
+    CardHeader,
+    CardBody,
+    Typography,
+    Button,
+} from "@material-tailwind/react";
 
 const Cards = (props) => {
-
     return (
         <>
-            <div className="shadow-md card bg-base-100 hover:text-white">
-                <figure>
-                    <img className="object-cover" src={props.img} alt={props.name} />
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title">
-                        {props.name}
-                        <div className="badge badge-secondary">NEW</div>
-                    </h2>
-                    <p> {props.description} </p>
-                    <div className="justify-end card-actions">
-                        <div className="badge badge-outline">{props.category}</div>
+            <Card className="flex-row max-w-[40rem]">
+                <CardHeader shadow={false} floated={false} className="w-2/5 m-0 rounded-r-none shrink-0 min-w-[200px]">
+                    <img
+                        src={props.img}
+                        alt={props.name}
+                        className="object-cover w-full h-full min-h-[200px]" />
+                </CardHeader>
+                <CardBody>
+                    <div className="mb-4 font-bold uppercas">
+                        {Math.random() >= 0.5 ? <span className="badge badge-success">New</span> : null}
                     </div>
-                </div>
-            </div>
+                    <Typography variant="h4" color="blue-gray" className="flex items-center gap-4 mb-2">
+                        {props.name}
+                    </Typography>
+                    <Typography color="gray" className="mb-8 font-normal">
+                        {props.description}
+                    </Typography>
+                </CardBody>
+            </Card>
         </>
     );
 }
