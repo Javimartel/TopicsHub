@@ -24,12 +24,14 @@ function Themes() {
     const descripcionRef = useRef();
     const categoriaRef = useRef();
     const imagenRef = useRef();
+    const newRef = useRef();
 
     async function addNewTheme() {
         const tema = temaRef.current.value.trim();
         const descripcion = descripcionRef.current.value.trim();
         const categoria = categoriaRef.current.value.trim();
         const imagen = imagenRef.current.files[0];
+        const newTheme = newRef.current.checked;
 
         // Subimos la imagen a Firebase Storage y obtenemos su URL
         const imagenURL = await uploadFileAndGetURL(imagen);
@@ -39,12 +41,13 @@ function Themes() {
             description: descripcion,
             category: categoria,
             img: imagenURL,
+            new: newTheme
         };
 
         addTheme(themeData);
 
         // Limpiamos los inputs
-        [temaRef, descripcionRef, categoriaRef, imagenRef].forEach(ref => ref.current.value = "");
+        [temaRef, descripcionRef, categoriaRef, imagenRef, newRef].forEach(ref => ref.current.value = "");
     }
 
     useEffect(() => {
@@ -117,6 +120,12 @@ function Themes() {
                                             <label className="w-full input-group flex justify-center align-center mb-5">
                                                 <span className="w-[30%]">Imagen</span>
                                                 <input ref={imagenRef} type="file" className="w-[70%] input input-bordered" />
+                                            </label>
+                                            <label className="input-group flex justify-center align-center mb-5">
+                                                <span className="">
+                                                    Nuevo chat
+                                                    <input ref={newRef} type="checkbox" className="ml-3 input input-bordered" />
+                                                </span>
                                             </label>
                                             <div className="flex justify-center mt-2">
                                                 <label htmlFor="my-modal" className="btn btn-error mr-3">Cancelar</label>

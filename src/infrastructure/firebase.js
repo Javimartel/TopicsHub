@@ -166,6 +166,7 @@ export const addTheme = async (themeData) => {
             description: themeData.description,
             category: themeData.category,
             img: themeData.img,
+            new: themeData.new,
         });
         return docRef;
 
@@ -180,7 +181,7 @@ export const uploadFileAndGetURL = async (file) => {
         // Obtener referencia al Storage
         const storage = getStorage();
         // Crear una referencia al archivo en el Storage con su nombre original
-        const storageRef = ref(storage, file.name);
+        const storageRef = ref(storage, `themes/${file.name}`);
 
         // Subir el archivo al Storage
         await uploadBytes(storageRef, file);
