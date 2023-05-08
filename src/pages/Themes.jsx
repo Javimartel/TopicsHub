@@ -63,7 +63,7 @@ function Themes() {
             <main className="flex flex-col items-center">
                 <Navbar />
                 <div className="flex flex-col items-center mt-12 w-72">
-                    <h1 className="m-3 text-3xl">Topics</h1>
+                    <h1 className="m-3 text-4xl text-gray-900">Topics</h1>
                     <Input variant="outlined" label="Search" />
                 </div>
 
@@ -127,11 +127,11 @@ function Themes() {
 
                 <div className="flex justify-center mt-12">
                     <div className="flex items-center">
-                        <BsArrowLeft size={15} />
-                        <div className="p-2 m-2 text-lg">
+                        <BsArrowLeft size={15} color="black" />
+                        <div className="p-2 m-2 text-lg text-gray-900">
                             1
                         </div>
-                        <BsArrowRight size={15} />
+                        <BsArrowRight size={15} color="black" />
 
                     </div>
                 </div>
