@@ -267,6 +267,8 @@ function NavListMenu() {
 
 
 function NavList() {
+    const { user } = React.useContext(FirebaseContext)
+
     return (
         <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
             <Link to="/themes">
@@ -291,7 +293,9 @@ function NavList() {
                 </Typography>
             </Link>
             <NavListMenu />
-            <MobileModal />
+            {!user && (
+                <MobileModal />
+            )}
         </ul>
     );
 }
