@@ -131,12 +131,12 @@ export default function Content() {
 
             <section className="flex flex-col mt-12"> {/* Features */}
                 <div className="flex flex-col items-center"> {/* Features Cont */}
-                    <div className="w-full p-6 bg-[#fbf9fa] flex flex-col items-center text-blue-gray-900"> {/* Features Title */}
-                        <h2 className="font-mono text-3xl font-bold text-center lg:text-4xl">
+                    <div className="p-6 bg-[#fbf9fa] flex flex-col items-center text-blue-gray-900"> {/* Features Title */}
+                        <h2 className="font-mono text-4xl font-bold text-center lg:text-4xl">
                             Why Topics<span className="text-blue-500">Hub</span>?
                         </h2>
-                        <p className="mt-2 font-mono text-center text-md lg:text-lg">
-                            Topics<span className="text-blue-500">Hub</span> is a place where you can chat with your friends in a safe way.<br />
+                        <p className="mt-2 font-mono text-center lg:text-lg">
+                            Y   ou can chat with your friends in a safe way.<br />
                             You can also create your own chat room and mod it.
                         </p>
                     </div>
