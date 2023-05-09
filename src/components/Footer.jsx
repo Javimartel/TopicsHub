@@ -42,7 +42,7 @@ export default function Footer() {
                     <FaGithub size={25} color="#37474f" />
                     <FaLinkedinIn size={25} color="#37474f" />
                 </div>
-                <div className="flex items-center justify-center h-full md:pt-2 mb-7">
+                <div className="flex items-center justify-center h-full pt-7 mb-7">
                     <p className="font-mono">
                         All rights reserved. 2023 Topics<span className="text-blue-500">Hub</span> Inc.
                     </p>
