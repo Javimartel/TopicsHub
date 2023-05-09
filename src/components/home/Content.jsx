@@ -132,7 +132,7 @@ export default function Content() {
             <section className="flex flex-col mt-12"> {/* Features */}
                 <div className="flex flex-col items-center"> {/* Features Cont */}
                     <div className="w-full p-6 bg-[#fbf9fa] flex flex-col items-center text-blue-gray-900"> {/* Features Title */}
-                        <h2 className="text-4xl font-bold text-center lg:text-4xl">
+                        <h2 className="text-3xl font-bold text-center lg:text-4xl">
                             Why Topics<span className="text-blue-500">Hub</span>?
                         </h2>
                         <p className="mt-2 text-center text-md lg:text-lg">
@@ -148,7 +148,7 @@ export default function Content() {
 
             <section className="flex flex-col items-center lg:mt-12"> {/* What is TopicsHub */}
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] w-full text-blue-gray-900"> {/* What is TopicsHub Tittle */}
-                    <h2 className="font-bold text-4xl">
+                    <h2 className="text-3xl font-bold">
                         What is Topics<span className="text-blue-500">Hub</span>?
                     </h2>
                     <p className="mt-2 text-center text-md lg:text-lg"> {/* What is TopicsHub Description */}
@@ -159,7 +159,7 @@ export default function Content() {
                 <div className="w-full mt-12 md:w-4/5"> {/* What is TopicsHub Cont */}
                     <div className="chat chat-start ">
                         <div className="chat-bubble bg-[#2196f3]">
-                            <h3 className="text-md font-bold text-white">Who created it? &#128517;</h3>
+                            <h3 className="font-bold text-white text-md">Who created it? &#128517;</h3>
                         </div>
                     </div>
                     <div className="chat chat-start">
@@ -174,7 +174,7 @@ export default function Content() {
                     <div className="mt-8">
                         <div className="chat chat-end">
                             <div className="chat-bubble bg-[#2196f3]">
-                                <p className="text-md font-bold text-right text-white">How was created? &#129300;</p>
+                                <p className="font-bold text-right text-white text-md">How was created? &#129300;</p>
                             </div>
                         </div>
                         <div className="chat chat-end"> {/* What is TopicsHub Text */}
@@ -194,7 +194,7 @@ export default function Content() {
             <section className="flex flex-col justify-center mt-12 "> {/* Where to Chat */}
 
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-900"> {/* Where to Chat Tittle */}
-                    <h2 className=" font-bold text-4xl">
+                    <h2 className="text-3xl font-bold ">
                         Where to <span className="text-blue-500">Chat</span>?
                     </h2>
                     <p className="mt-2 text-center text-md lg:text-lg">
@@ -210,11 +210,11 @@ export default function Content() {
                         <StaticCards />
                     </div>
 
-                    <h3 className="mt-12 text-2xl font-bold text-center text-blue-gray-900">
+                    <h3 className="mt-12 text-xl font-bold text-center text-blue-gray-900">
                         Join a chat room and start chatting.
                     </h3>
 
-                    <p className="mt-4 text-md lg:text-lg text-center text-blue-gray-900">
+                    <p className="mt-4 text-center text-md lg:text-lg text-blue-gray-900">
                         Topics<span className="text-blue-500">Hub</span> has a wide range of topics. <br />
                         Just choose one and start chatting.
                     </p>
@@ -226,7 +226,7 @@ export default function Content() {
             <section className="flex flex-col justify-center mt-8"> {/* Chat Owner */}
 
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-900">
-                    <h2 className="font-bold text-4xl">
+                    <h2 className="text-3xl font-bold">
                         My own <span className="text-blue-500">Chat</span>?
                     </h2>
                     <p className="mt-2 text-center text-md lg:text-lg">
