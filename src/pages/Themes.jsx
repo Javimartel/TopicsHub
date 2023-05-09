@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState, useRef, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { BsPlusCircle } from "react-icons/bs";
 import { FirebaseContext } from "../contexts/FirebaseContext";
@@ -18,6 +18,8 @@ function Themes() {
     // Estados
     const [themes, setThemes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredThemes, setFilteredThemes] = useState([]);
 
     // Referencias a los inputs
     const temaRef = useRef();
@@ -50,16 +52,40 @@ function Themes() {
         [temaRef, descripcionRef, categoriaRef, imagenRef, newRef].forEach(ref => ref.current.value = "");
     }
 
+    // Obtenemos los temas
     useEffect(() => {
         const unsubscribe = getThemes(themes => {
             setThemes(themes);
-            setIsLoading(false);
         });
 
         return () => {
             unsubscribe();
         };
     }, []);
+
+    // Filtramos los temas por nombre
+    const memoizedFilteredThemes = useMemo(() => {
+        return themes.filter(theme =>
+            theme.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }, [searchTerm, themes]);
+
+    // Delay para que no se haga un renderizado por cada tecla presionada
+    const delayedSetFilteredThemes = useCallback(
+        (filtered) => {
+            const timeoutId = setTimeout(() => {
+                setFilteredThemes(filtered);
+                setIsLoading(false);
+            }, 500);
+            return () => clearTimeout(timeoutId);
+        },
+        []
+    );
+
+    // Actualizamos el estado de los temas filtrados
+    useEffect(() => {
+        return delayedSetFilteredThemes(memoizedFilteredThemes);
+    }, [delayedSetFilteredThemes, memoizedFilteredThemes]);
 
     return (
 
@@ -68,7 +94,7 @@ function Themes() {
                 <Navbar />
                 <div className="flex flex-col items-center mt-12 w-72">
                     <h1 className="m-3 text-3xl">Topics</h1>
-                    <Input variant="outlined" label="Search" />
+                    <Input variant="outlined" label="Search" onChange={(e) => setSearchTerm(e.target.value)} />
                 </div>
 
                 {/* <section className="flex flex-col w-full">
@@ -85,16 +111,24 @@ function Themes() {
                         </div>
                     ) : (
                         <div className="flex flex-row justify-center items-center w-[50%] gap-5 mt-10">
-                            {themes.map((theme) => (
-                                <Link key={theme.id} to={`/chat/${theme.name}`}>
-                                    <Cards
-                                        name={theme.name}
-                                        description={theme.description}
-                                        category={theme.category}
-                                        img={theme.img}
-                                    />
-                                </Link>
-                            ))}
+
+                            {/* Comprueba si hay temas con el nombre dado */}
+                            {filteredThemes.length === 0 ? (
+                                <div className="flex flex-col justify-center items-center w-full h-[35vh]">
+                                    <h1 className="text-2xl">No se encontraron resultados</h1>
+                                </div>
+                            ) : (
+                                filteredThemes.map((theme) => (
+                                    <Link key={theme.id} to={`/chat/${theme.name}`}>
+                                        <Cards
+                                            name={theme.name}
+                                            description={theme.description}
+                                            category={theme.category}
+                                            img={theme.img}
+                                        />
+                                    </Link>
+                                ))
+                            )}
 
                             {user?.isAdmin && (
                                 <div>
