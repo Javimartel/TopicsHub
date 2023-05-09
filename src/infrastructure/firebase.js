@@ -245,14 +245,14 @@ export const deleteMessage = async (messageId, messageUid, currentTheme) => {
 export const getAdmins = (callback) => {
     try {
         const unsubscribe = onSnapshot(query(collection(db, "Admins"), orderBy("name", "asc")), (snapshot) => {
-            const moderators = [];
+            const admins = [];
             snapshot.forEach((doc) => {
-                moderators.push({ id: doc.id, ...doc.data() });
+                admins.push({ id: doc.id, ...doc.data() });
             });
-            callback(moderators);
+            callback(admins);
         });
         return unsubscribe;
     } catch (error) {
-        console.error("Error getting moderators: ", error);
+        console.error("Error getting admins: ", error);
     }
 }
