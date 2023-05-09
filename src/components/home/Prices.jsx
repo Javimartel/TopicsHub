@@ -9,8 +9,8 @@ import {
 export default function Prices() {
     return (
         <>
-        {/* Price 1 */}
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem] text-blue-gray-800">
+            {/* Price 1 */}
+            <Card className="w-full max-w-[18rem] p-8 border shadow-m text-blue-gray-800 max-h-[300px] md:min-h-[550px]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
                         basic
@@ -20,7 +20,7 @@ export default function Prices() {
                         <span className="self-end text-4xl">/mo</span>
                     </p>
                 </CardHeader>
-                <CardBody className="p-0">
+                <CardBody className="p-0 hidden md:flex">
                     <ul className="flex flex-col gap-4">
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-blue-500 rounded-full">
@@ -55,8 +55,8 @@ export default function Prices() {
                     </Button>
                 </CardFooter>
             </Card>
-        {/* Price 2 */}
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md  lg:max-w-[20rem] text-blue-gray-800">
+            {/* Price 2 */}
+            <Card className="w-full max-w-[18rem] p-8 border shadow-md text-blue-gray-800 max-h-[300px] md:min-h-[550px]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
                         standard
@@ -66,7 +66,7 @@ export default function Prices() {
                         <span className="self-end text-4xl">/mo</span>
                     </p>
                 </CardHeader>
-                <CardBody className="p-0">
+                <CardBody className="p-0 hidden md:flex ">
                     <ul className="flex flex-col gap-4">
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-blue-500 rounded-full ">
@@ -101,8 +101,8 @@ export default function Prices() {
                     </Button>
                 </CardFooter>
             </Card>
-        {/* Price 3 */}
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md lg:max-w-[20rem] text-blue-gray-800">
+            {/* Price 3 */}
+            <Card className="w-full max-w-[18rem] p-8 border shadow-mdtext-blue-gray-800 max-h-[300px] md:min-h-[550px]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="uppercase ">
                         premium
@@ -112,7 +112,7 @@ export default function Prices() {
                         <span className="self-end text-4xl">/mo</span>
                     </p>
                 </CardHeader>
-                <CardBody className="p-0">
+                <CardBody className="p-0 hidden md:flex">
                     <ul className="flex flex-col gap-4">
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-blue-500 rounded-full ">

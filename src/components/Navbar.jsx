@@ -2,7 +2,6 @@ import React from "react";
 import { Navbar, MobileNav, Typography, Button, Menu, MenuHandler, MenuList, MenuItem, Avatar, Card, IconButton, Dialog, DialogHeader, DialogBody, DialogFooter, Input } from "@material-tailwind/react";
 import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { CgMediaPodcast } from "react-icons/cg";
 import { FaSpinner } from "react-icons/fa";
 
 // Context
@@ -25,7 +24,7 @@ function ProfileMenu() {
     const userImg = user ? auth.currentUser.photoURL : "";
     const handleDialog = () => setIsDialogOpen(!isDialogOpen);
     const updateProfileFormRef = React.useRef(null);
-    
+
     const userElement = user ? (
         <MenuHandler>
             <Button variant="text" color="blue-gray" className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto selection:border-none" >
@@ -40,7 +39,7 @@ function ProfileMenu() {
     ) : (
         <Modal />
     );
-    
+
     const handleUpdate = () => {
         const name = updateProfileFormRef.current["edit_name"].value;
         const email = updateProfileFormRef.current["edit_email"]?.value;
@@ -223,10 +222,10 @@ function NavListMenu() {
     const renderItems = navListMenuItems.map(({ title, description, link }) => (
         <a href={link} target="_blank" key={title}>
             <MenuItem>
-                <Typography variant="h6" color="blue-gray" className="mb-1">
+                <Typography className="mb-1 font-mono text-gray-900 font-bold">
                     {title}
                 </Typography>
-                <Typography variant="small" color="gray" className="font-normal">
+                <Typography variant="small" color="gray" className="font-mono font-semibold">
                     {description}
                 </Typography>
             </MenuItem>
@@ -238,8 +237,10 @@ function NavListMenu() {
             <Menu open={isMenuOpen} handler={setIsMenuOpen}>
                 <MenuHandler>
                     <Typography href="#" variant="paragraph" className="font-mono font-bold">
-                        <MenuItem {...triggers} className="items-center hidden gap-2 text-blue-gray-900 lg:flex">
-                            Resources
+                        <MenuItem {...triggers} className="pb-1.5 hidden text-blue-gray-900 lg:flex text-lg">
+                            <div>
+                                Resources
+                            </div>
                         </MenuItem>
                     </Typography>
                 </MenuHandler>
@@ -253,7 +254,7 @@ function NavListMenu() {
                 </MenuList>
             </Menu>
             <Typography href="#" variant="paragraph" className="font-mono font-bold">
-                <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden">
+                <MenuItem className="flex items-center gap-2 text-blue-gray-900 lg:hidden text-lg">
                     Resources
                 </MenuItem>
             </Typography>
@@ -269,23 +270,23 @@ function NavList() {
     return (
         <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
             <Link to="/themes">
-                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
+                <Typography color="blue-gray" className="font-mono font-bold text-lg">
                     <MenuItem>
                         Themes
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/about">
-                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
+                <Typography color="blue-gray" className="font-mono font-bold text-lg">
                     <MenuItem>
-                    About
+                        About
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/">
-                <Typography variant="paragraph" color="blue-gray" className="font-mono font-bold">
+                <Typography color="blue-gray" className="font-mono font-bold text-lg">
                     <MenuItem>
-                    Contact
+                        Contact
                     </MenuItem>
                 </Typography>
             </Link>
@@ -307,7 +308,7 @@ export default function ComplexNavbar() {
     }, []);
 
     return (
-        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[340px]">
+        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[440px] lg:min-w-[800px]">
             <div className="relative flex items-center mx-auto text-blue-gray-900">
                 <Link to={"/"} className="pl-4 text-2xl font-extrabold">
                     <img src="/images/logo.png" alt="logo" className="w-10 scale-[2.3]" />
@@ -321,7 +322,7 @@ export default function ComplexNavbar() {
                 <ProfileMenu />
             </div>
 
-            <MobileNav open={isNavOpen} className="overflow-scroll">
+            <MobileNav open={isNavOpen}>
                 <NavList />
             </MobileNav>
         </Navbar>

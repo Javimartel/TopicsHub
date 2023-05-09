@@ -25,10 +25,10 @@ const SendMessage = ({ theme }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex items-center justify-center w-2/5 gap-1">
+        <form onSubmit={handleSubmit} className="flex items-center justify-center w-2/5 gap-2">
             <Input type="text" inputRef={inputRef} label="Message" maxLength={255} />
             <Button type="submit" className="flex justify-center">
-                <div>
+                <div className="flex">
                     <BsFillSendFill size={15} />
                 </div>
             </Button>

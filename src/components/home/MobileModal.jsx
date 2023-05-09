@@ -84,7 +84,7 @@ export default function MobileModal() {
         <>
             <Fragment>
                 <Button onClick={handleOpen} size="lg" className="flex items-center justify-center gap-2 lg:hidden selection:border-none">
-                    Join Us movil <BsFillHeartFill size={15} />
+                    Join Us <BsFillHeartFill size={15} />
                 </Button>
                 <Dialog open={open} handler={handleOpen} size="xl">
                     <Card>
@@ -112,13 +112,13 @@ export default function MobileModal() {
                                         },
                                     }}
                                 >
-                                    <TabPanel value="card" className="p-0 flex items-end">
+                                    <TabPanel value="card" className="flex items-end p-0">
 
                                         <form
                                             className="flex flex-col w-full"
                                             ref={loginFormRef}
                                         >
-                                            <div className="flex justify-center mb-2 mt-5">
+                                            <div className="flex justify-center mt-5 mb-2">
                                                 <Button onClick={(event) => { event.stopPropagation(); event.preventDefault(); googleLogIn() }} size="md" variant="outlined" className="flex items-center justify-center w-2/3 gap-3">
                                                     <img src="/images/google-tile.svg" alt="google" className="w-6 h-6" />
                                                     Continue with Google
