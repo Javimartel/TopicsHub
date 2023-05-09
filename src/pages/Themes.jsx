@@ -93,7 +93,7 @@ function Themes() {
         <>
             <main className="flex flex-col items-center">
                 <Navbar />
-                <div className="flex flex-col items-center mt-12 w-72">
+                <div className="flex flex-col items-center mt-12 w-72"> 
                     <h1 className="m-3 text-4xl text-gray-900">Topics</h1>
                     <Input variant="outlined" label="Search" onChange={(e) => setSearchTerm(e.target.value)} />
                 </div>
