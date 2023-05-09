@@ -7,7 +7,7 @@ const Message = ({ message, theme }) => {
 
     const isCurrentUser = message.uid === auth.currentUser.uid;
 
-    const mssgClass = isCurrentUser ? "chat chat-end" : "chat chat-start w-2/3";
+    const mssgClass = isCurrentUser ? "chat chat-end" : "chat chat-start";
     const currentTheme = theme;
 
     async function handleClick(messageId, messageUid, currentTheme) {

@@ -29,31 +29,33 @@ const Chat = () => {
     const showSpinner = useSpinner();
 
     useEffect(() => {
-        // Obtenemos los mensajes de la colección del tema proporcionado
-        getMessages(theme.theme, (messages) => {
-            // Añadimos los mensajes al estado
+        // Obtenemos los mensajes del tema
+        const unsubscribe = getMessages(theme.theme, (messages) => {
             setMessages(messages);
-            // Hacemos el scroll
-            scrollChat();
 
-            // Si no hay mensajes, modificamos el estado de isEmpty
+            // Si no hay mensajes, modificamos el estado
             if (messages.length === 0) {
                 setIsEmpty(true);
             }
         });
 
-        // Añadimos el scroll automático al final del chat
-        const scrollChat = () => {
-            if (chatRef.current) {
-                chatRef.current.scrollTo(0, chatRef.current.scrollHeight);
-            }
-        };
-
         return () => {
-            // Limpiamos el estado de los mensajes
             setMessages([]);
-        }
+            unsubscribe();
+        };
     }, []);
+
+    // Función para hacer scroll al final del chat
+    const scrollChat = () => {
+        if (chatRef.current) {
+            chatRef.current.scrollTo(0, chatRef.current.scrollHeight);
+        }
+    };
+
+    // Hacemos scroll al final del chat cuando se añada un mensaje
+    useEffect(() => {
+        scrollChat();
+    }, [messages]);
 
     return (
         <>
@@ -79,7 +81,7 @@ const Chat = () => {
                                         <div className="flex justify-center py-5 text-3xl font-bold">
                                             <h1>{theme.theme}</h1>
                                         </div>
-                                        <div id="chat" ref={chatRef} className="min-h-[50vh] max-h-[55vh] max-w-[50rem] w-full overflow-y-scroll border border-gray-300">
+                                        <div id="chat" ref={chatRef} className="min-h-[60vh] max-h-[60vh] max-w-[50rem] w-full overflow-y-scroll border border-gray-300">
                                             {/* Añadimos los mensajes */}
                                             {messages && messages.map((message) => (
                                                 <Message key={message.id} message={message} theme={theme.theme} />
@@ -91,7 +93,7 @@ const Chat = () => {
                                     </div>
                                 </>
                             )}
-                                <Footer />
+                            <Footer />
                         </main>
                     )}
                 </>
