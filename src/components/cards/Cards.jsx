@@ -25,10 +25,10 @@ const Cards = (props) => {
                             </div>
                         </>
                     ) : null}
-                    <Typography variant="h4" color="blue-gray" className="flex items-center gap-4 mb-2">
+                    <Typography variant="h4" color="blue-gray" className="flex items-center gap-4 mb-2 font-mono">
                         {props.name}
                     </Typography>
-                    <Typography color="gray" className="mb-8 font-normal">
+                    <Typography color="gray" className="mb-8 font-mono font-semibold">
                         {props.description}
                     </Typography>
                 </CardBody>
