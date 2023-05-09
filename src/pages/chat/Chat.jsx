@@ -63,7 +63,7 @@ const Chat = () => {
             ) : (
                 <>
                     {/* Si el chat está vacío redirigimos a 404 */}
-                    {isEmpty ? (
+                    {isEmpty && !user?.isAdmin ? (
                         <Navigate to="/404" />
                     ) : (
                         <main>

@@ -2,8 +2,15 @@ import { createContext } from "react";
 
 export const FirebaseContext = createContext();
 
-export const FirebaseProvider = ({ children, value: { getUser, ...restOfValue } }) => {
+export const FirebaseProvider = ({ children, value: { getUser, getAdmins, ...restOfValue } }) => {
   const [user, loading] = getUser();
+  getAdmins(admins => {
+    admins.forEach(admin => {
+      if (admin.uid === user?.uid) {
+        user.isAdmin = true;
+      }
+    })
+  })
 
   return (
     <FirebaseContext.Provider value={{ ...restOfValue, user, loading }}>

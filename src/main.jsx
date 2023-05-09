@@ -16,10 +16,11 @@ import {
   uploadFileAndGetURL,
   sendMessageWith,
   getMessages,
-  deleteMessage
+  deleteMessage,
+  getAdmins
 } from "./infrastructure/firebase";
 
-const firebaseProviderContext = { auth, getUser, googleLogIn, createUser, updateProfileWith, logIn, getThemes, addTheme, uploadFileAndGetURL, sendMessageWith, getMessages, deleteMessage }
+const firebaseProviderContext = { auth, getUser, googleLogIn, createUser, updateProfileWith, logIn, getThemes, addTheme, uploadFileAndGetURL, sendMessageWith, getMessages, deleteMessage, getAdmins }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
