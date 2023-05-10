@@ -10,7 +10,7 @@ import {
 const Cards = (props) => {
     return (
         <>
-            <Card className="flex-row max-w-[30rem] min-w-[360px] shadow-lg hover:bg-gray-100">
+            <Card className="flex-row max-w-[30rem] min-w-[360px] shadow-md hover:bg-gray-100">
                 <CardHeader shadow={false} floated={false} className="w-2/5 m-0 rounded-r-none shrink-0 min-w-[200px]">
                     <img
                         src={props.img}

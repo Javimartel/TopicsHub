@@ -100,14 +100,14 @@ function Themes() {
 
                 <div className="flex justify-center w-full">
                     {isLoading ? (
-                        <div className="flex flex-wrap items-center justify-center w-4/5 gap-10 mt-12">
+                        <div className="flex flex-wrap items-center justify-center w-4/5 gap-8 mt-12">
                             <Skeleton />
                             <Skeleton />
                             <Skeleton />
                             <Skeleton />
                         </div>
                     ) : (
-                        <div className="flex flex-wrap items-center justify-center w-4/5 gap-10 mt-12">
+                        <div className="flex flex-wrap items-center justify-center w-full gap-8 mt-12">
 
                             {/* Comprueba si hay temas con el nombre dado */}
                             {filteredThemes.length === 0 ? (
