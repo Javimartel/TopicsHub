@@ -6,6 +6,8 @@ import Themes from './pages/Themes'
 import Notfound from './pages/NotFound'
 import AboutUs from './pages/AboutUs'
 import Contact from './pages/Contact'
+import EditProfile from './pages/EditProfile'
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <Route path="themes" element={<Themes />} />
       <Route path="about" element={<AboutUs />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="edit-profile" element={<EditProfile />} />
       <Route path="*" element={<Notfound />} />
     </Routes>
   )
