@@ -9,6 +9,7 @@ import SendMessage from "../../components/chat/SendMessage";
 import Spinner from "../../components/loaders/Spinner";
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
+import SkeletonChat from "../../components/loaders/SkeletonChat";
 // Custom hook
 import { useSpinner } from "../../hooks/useSpinner";
 
@@ -72,9 +73,7 @@ const Chat = () => {
                             <Navbar />
                             {/* Mostramos el spinner para la carga del Chat */}
                             {showSpinner ? (
-                                <div className="flex items-center justify-center w-full h-screen">
-                                    <Spinner />
-                                </div>
+                                    <SkeletonChat />
                             ) : (
                                 <>
                                     <div className="flex flex-col items-center w-full p-5">
