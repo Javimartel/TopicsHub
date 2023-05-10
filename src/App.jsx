@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import Chat from './pages/chat/Chat'
+import Chat from './pages/Chat'
 import Themes from './pages/Themes'
 import Notfound from './pages/NotFound'
 import AboutUs from './pages/AboutUs'

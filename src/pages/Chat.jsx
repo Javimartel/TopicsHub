@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { FirebaseContext } from "../../contexts/FirebaseContext";
+import { FirebaseContext } from "../contexts/FirebaseContext";
 
 // Components
-import Message from "../../components/chat/Message";
-import SendMessage from "../../components/chat/SendMessage";
-import Navbar from "../../components/Navbar"
-import Footer from "../../components/Footer"
-import SkeletonChat from "../../components/loaders/SkeletonChat";
+import Message from "../components/chat/Message";
+import SendMessage from "../components/chat/SendMessage";
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
+import SkeletonChat from "../components/loaders/SkeletonChat";
 // Custom hook
-import { useSpinner } from "../../hooks/useSpinner";
+import { useSpinner } from "../hooks/useSpinner";
 
 
 const Chat = () => {
