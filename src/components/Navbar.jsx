@@ -2,7 +2,6 @@ import React from "react";
 import { Navbar, MobileNav, Typography, Button, Menu, MenuHandler, MenuList, MenuItem, Avatar, Card, IconButton, Dialog, DialogHeader, DialogBody, DialogFooter, Input } from "@material-tailwind/react";
 import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { FaSpinner } from "react-icons/fa";
 
 // Context
 import { FirebaseContext } from "../contexts/FirebaseContext";
@@ -16,14 +15,10 @@ import MobileModal from "./home/MobileModal";
 const profileMenuItems = [{ label: "Dark Mode" }, { label: "Edit Profile" }];
 
 function ProfileMenu() {
-    const { user, auth, googleLogIn, updateProfileWith } = React.useContext(FirebaseContext);
+    const { user, auth, googleLogIn } = React.useContext(FirebaseContext);
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    const [isDialogOpen, setIsDialogOpen] = React.useState(false);
-    const [isUpdating, setIsUpdating] = React.useState(false);
     const closeMenu = () => setIsMenuOpen(false);
     const userImg = user ? auth.currentUser.photoURL : "";
-    const handleDialog = () => setIsDialogOpen(!isDialogOpen);
-    const updateProfileFormRef = React.useRef(null);
 
     const userElement = user ? (
         <MenuHandler>
@@ -40,35 +35,6 @@ function ProfileMenu() {
         <Modal />
     );
 
-    const handleUpdate = () => {
-        const name = updateProfileFormRef.current["edit_name"].value;
-        const email = updateProfileFormRef.current["edit_email"]?.value;
-        const password = updateProfileFormRef.current["edit_password"]?.value;
-        const newPassword = updateProfileFormRef.current["edit_new_password"]?.value;
-        const profilePicture = updateProfileFormRef.current["edit_profile_picture"].files[0];
-
-        if (password && !newPassword || !password && newPassword) {
-            alert("Please enter both old and new password");
-            return;
-        }
-
-        if (newPassword && newPassword.length < 6) {
-            alert("Password must be at least 6 characters");
-            return;
-        }
-
-        setIsUpdating(true);
-
-        updateProfileWith(name, email, password, newPassword, profilePicture)
-            .then(() => {
-                setIsUpdating(false);
-                handleDialog();
-            })
-            .catch((error) => {
-                setIsUpdating(false);
-            });
-    }
-
     return (
         <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
 
@@ -78,15 +44,16 @@ function ProfileMenu() {
                 {profileMenuItems.map(({ label }) => {
                     return (
                         label === "Edit Profile" ?
-                            <MenuItem
-                                key={label}
-                                onClick={() => { closeMenu(); handleDialog(); }}
-                                className={`flex items-center gap-2 rounded`}
-                            >
-                                <Typography as="span" variant="small" className="font-mono" color="inherit">
-                                    {label}
-                                </Typography>
-                            </MenuItem>
+                            <Link to="/edit-profile" key={label}>
+                                <MenuItem
+                                    key={label}
+                                    className={`flex items-center gap-2 rounded`}
+                                >
+                                    <Typography as="span" variant="small" className="font-mono" color="inherit">
+                                        {label}
+                                    </Typography>
+                                </MenuItem>
+                            </Link>
                             :
                             <MenuItem
                                 key={label}
@@ -120,69 +87,6 @@ function ProfileMenu() {
                     </MenuItem>
                 )}
             </MenuList>
-
-            <Dialog open={isDialogOpen} handler={handleDialog} size="sm">
-                <DialogHeader className="flex justify-center">
-                    Edit profile
-                </DialogHeader>
-                <DialogBody divider>
-
-                    {/* Eliminar esta comprobación ya que solo saldrá si está logeado */}
-                    {user ? (
-                        <form ref={updateProfileFormRef}>
-                            <div className="flex flex-col items-center">
-                                <div className="w-[75%] m-2">
-                                    <Input type="text" label="Name" id="edit_name" className="w-full" defaultValue={user.displayName} />
-                                </div>
-                                {/* Si el usuario no está por Google mostramos esto  */}
-                                {user.providerData[0].providerId !== "google.com" && (
-                                    <>
-                                        <div className="w-[75%] m-2">
-                                            <Input type="email" label="Email" id="edit_email" className="w-full" defaultValue={user.email} />
-                                        </div>
-                                        <div className="w-[75%] m-2">
-                                            <Input type="password" label="Current Password" id="edit_password" className="w-full" />
-                                        </div>
-                                        <div className="w-[75%] m-2">
-                                            <Input type="password" label="New Password" id="edit_new_password" className="w-full" />
-                                        </div>
-                                    </>
-                                )}
-                                <div className="w-[75%] m-2">
-                                    <Input type="file" label="Profile Picture" id="edit_profile_picture" className="w-full" />
-                                </div>
-                            </div>
-                        </form>
-                    ) : (
-                        <div className="flex flex-col items-center">
-                            <div className="w-[75%] m-2">No hay usuario</div>
-                        </div>
-                    )}
-
-                </DialogBody>
-                <DialogFooter>
-                    {user && isUpdating ? (
-                        <div className="w-full flex justify-center">
-                            <FaSpinner className="animate-spin" color="blue" size={20} />
-                        </div>
-                    ) : (
-                        <>
-                            <Button
-                                variant="text"
-                                color="red"
-                                onClick={handleDialog}
-                                className="mr-1"
-                            >
-                                <span>Cancel</span>
-                            </Button>
-
-                            <Button variant="gradient" color="blue" onClick={handleUpdate}>
-                                <span>Confirm</span>
-                            </Button>
-                        </>
-                    )}
-                </DialogFooter>
-            </Dialog>
 
         </Menu>
 
