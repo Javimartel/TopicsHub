@@ -26,8 +26,6 @@ const Contact = () => {
 
         const sendEmail = await sendMailWith(name, subject, email, body);
 
-        console.log(sendEmail)
-
         if (sendEmail) {
             setIsSending(false);
             setEmailSent(true);
@@ -55,37 +53,37 @@ const Contact = () => {
                     </p>
                 </section>
 
-                <section class="flex justify-center mt-8 w-full">
-                    <form class="flex flex-col gap-2 w-full sm:w-1/2 items-center" ref={sendFormRef}>
-                        <div class="flex flex-col gap-3 mb-2 w-full items-center lg:flex-row lg:justify-between lg:items-start">
-                            <div class="mt-2 w-full lg:w-1/2 lg:mr-2">
+                <section className="flex justify-center mt-8 w-full">
+                    <form className="flex flex-col gap-2 w-full sm:w-1/2 items-center" ref={sendFormRef}>
+                        <div className="flex flex-col gap-3 mb-2 w-full items-center lg:flex-row lg:justify-between lg:items-start">
+                            <div className="mt-2 w-full lg:w-1/2 lg:mr-2">
                                 <Input label="Name" id="send_name" />
                             </div>
-                            <div class="mt-2 w-full lg:w-1/2 lg:ml-2">
+                            <div className="mt-2 w-full lg:w-1/2 lg:ml-2">
                                 <Input label="Subject" id="send_subject" />
                             </div>
                         </div>
-                        <div class="mt-2 w-full mb-2">
+                        <div className="mt-2 w-full mb-2">
                             <Input label="Email" id="send_email" />
                         </div>
-                        <div class="mt-2 w-full mb-2">
+                        <div className="mt-2 w-full mb-2">
                             <Textarea label="Body" id="send_body" />
                         </div>
                         <div>
                             {isSending ? (
-                                <div class="w-full flex justify-center mt-10 mb-3">
-                                    <FaSpinner class="animate-spin" color="blue" size={20} />
+                                <div className="w-full flex justify-center mt-10 mb-3">
+                                    <FaSpinner className="animate-spin" color="blue" size={20} />
                                 </div>
                             ) : (
-                                <div class="flex justify-center items-center">
-                                    <Button class="mt-5 mb-5" size="md" onClick={handleSend}>
+                                <div className="flex justify-center items-center">
+                                    <Button className="mt-5 mb-5" size="md" onClick={handleSend}>
                                         Send
                                     </Button>
                                 </div>
                             )}
                             {emailSent && (
-                                <div class="w-full flex justify-center mt-3 mb-3">
-                                    <p class="text-green-800 text-xl font-bold">Email sent successfully!</p>
+                                <div className="w-full flex justify-center mt-3 mb-3">
+                                    <p className="text-green-800 text-xl font-bold">Email sent successfully!</p>
                                 </div>
                             )}
                         </div>
