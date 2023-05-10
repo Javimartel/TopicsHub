@@ -148,7 +148,7 @@ export default function Content() {
 
             <section className="flex flex-col items-center lg:mt-12"> {/* What is TopicsHub */}
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] w-full text-blue-gray-900"> {/* What is TopicsHub Tittle */}
-                    <h2 className="text-3xl font-bold">
+                    <h2 className="text-3xl font-bold lg:text-4xl">
                         What is Topics<span className="text-blue-500">Hub</span>?
                     </h2>
                     <p className="mt-2 text-center text-md lg:text-lg"> {/* What is TopicsHub Description */}
@@ -194,7 +194,7 @@ export default function Content() {
             <section className="flex flex-col justify-center mt-12 "> {/* Where to Chat */}
 
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-900"> {/* Where to Chat Tittle */}
-                    <h2 className="text-3xl font-bold ">
+                    <h2 className="text-3xl font-bold lg:text-4xl ">
                         Where to <span className="text-blue-500">Chat</span>?
                     </h2>
                     <p className="mt-2 text-center text-md lg:text-lg">
@@ -224,9 +224,8 @@ export default function Content() {
             </section>
 
             <section className="flex flex-col justify-center mt-8"> {/* Chat Owner */}
-
                 <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-900">
-                    <h2 className="text-3xl font-bold">
+                    <h2 className="text-3xl font-bold lg:text-4xl">
                         My own <span className="text-blue-500">Chat</span>?
                     </h2>
                     <p className="mt-2 text-center text-md lg:text-lg">

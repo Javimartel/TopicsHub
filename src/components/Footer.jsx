@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex flex-col items-center pt-5">
                 <div className="flex flex-col items-center h-full md:flex-row justify-evenly md:w-[350px]"> {/* Footer links */}
                     <div className="flex items-center justify-center h-full mb-4 md:mb-0 ">
-                        <Link className="hover:text-blue-500">
+                        <Link to="/contact" className="hover:text-blue-500">
                             Contact
                         </Link>
                     </div>
@@ -37,7 +37,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex items-center h-full pb-2 justify-evenly w-[200px] md:pt-5">
+                <div className="flex items-center h-full pb-5 justify-evenly w-[200px] md:pt-8">
                     <FaTwitter size={25} color="#37474f" />
                     <FaGithub size={25} color="#37474f" />
                     <FaLinkedinIn size={25} color="#37474f" />
