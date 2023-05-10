@@ -80,7 +80,7 @@ const Chat = () => {
                                             <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl ">{theme.theme}</h1>
                                         </div>
 
-                                        <div id="chat" ref={chatRef} className="min-h-[40vh] max-h-[60vh] max-w-[60rem] w-full bg-[#fbf9fa] rounded-xl shadow-lg shadow-2xl border border-gray-200 p-4 inset-4  overflow-hidden overflow-y-scroll">
+                                        <div id="chat" ref={chatRef} className="min-h-[60vh] max-h-[60vh] max-w-[60rem] w-full bg-[#fbf9fa] rounded-xl shadow-lg shadow-2xl border border-gray-200 p-4 inset-4  overflow-hidden overflow-y-scroll">
                                             {/* Añadimos los mensajes */}
                                             {messages && messages.map((message) => (
                                                 <Message key={message.id} message={message} theme={theme.theme} />
