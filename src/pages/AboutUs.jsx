@@ -11,7 +11,7 @@ export default function AboutUs() {
                 <Navbar />
 
                 <section className="flex flex-col items-center px-5 mt-12">
-                    <h1 className="text-4xl font-bold text-gray-900 lg:text-5xl ">Meet our <span className="text-blue-500" >Team</span></h1>
+                    <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl ">Meet our <span className="text-blue-500" >Team</span></h1>
                     <p className="mt-4 text-center text-gray-900">
                         Our team is made up of three people who are passionate about technology and programming.
                     </p>

@@ -6,7 +6,6 @@ import { FirebaseContext } from "../../contexts/FirebaseContext";
 // Components
 import Message from "../../components/chat/Message";
 import SendMessage from "../../components/chat/SendMessage";
-import Spinner from "../../components/loaders/Spinner";
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
 import SkeletonChat from "../../components/loaders/SkeletonChat";
@@ -73,20 +72,22 @@ const Chat = () => {
                             <Navbar />
                             {/* Mostramos el spinner para la carga del Chat */}
                             {showSpinner ? (
-                                    <SkeletonChat />
+                                <SkeletonChat />
                             ) : (
                                 <>
                                     <div className="flex flex-col items-center w-full p-5">
-                                        <div className="flex justify-center py-5 text-3xl font-bold">
-                                            <h1>{theme.theme}</h1>
+                                        <div className="flex justify-center py-5">
+                                            <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl ">{theme.theme}</h1>
                                         </div>
-                                        <div id="chat" ref={chatRef} className="min-h-[40vh] max-h-[60vh] max-w-[70rem] w-full overflow-y-scroll border border-gray-300">
+
+                                        <div id="chat" ref={chatRef} className="min-h-[40vh] max-h-[60vh] max-w-[60rem] w-full bg-[#fbf9fa] rounded-xl shadow-lg shadow-2xl border border-gray-200 p-4 inset-4  overflow-hidden overflow-y-scroll">
                                             {/* Añadimos los mensajes */}
                                             {messages && messages.map((message) => (
                                                 <Message key={message.id} message={message} theme={theme.theme} />
                                             ))}
                                         </div>
-                                        <div className="flex justify-center w-4/5 py-5 lg:w-3/5">
+
+                                        <div className="flex justify-center w-4/5 py-5 lg:w-3/5 mt-3">
                                             <SendMessage theme={theme.theme} />
                                         </div>
                                     </div>
