@@ -12,7 +12,7 @@ export default function Contact() {
 
                 <section className="flex flex-col items-center mt-12">
                     <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl ">Contact <span className="text-blue-500" >Us</span></h1>
-                    <p className="px-5 mt-4 text-center text-gray-900">
+                    <p className="p-5 mt-4 text-center text-gray-900">
                         Fill up the form and send us your message. We will get back to you as soon as possible.
                     </p>
                 </section>
