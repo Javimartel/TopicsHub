@@ -59,14 +59,12 @@ const EditProfile = () => {
                 <>
                     <Navbar />
 
-                    <div className="flex justify-center mt-20 w-full">
+                    <div className="flex justify-center mt-12 w-full">
                         <Card color="transparent" shadow={false} className="w-full flex justify-center items-center">
-                            <Typography variant="h4" color="blue-gray">
-                                Edit Profile
-                            </Typography>
-                            <Typography color="gray" className="mt-1 font-normal">
+                            <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl ">Edit <span className="text-blue-500" >Profile</span></h1>
+                            <p className="mt-2 text-center text-gray-900">
                                 Please fill out the form below to update your profile.
-                            </Typography>
+                            </p>
                             <form className="mt-10 mb-5 w-3/4" ref={updateProfileFormRef}>
 
                                 {user.providerData[0].providerId !== "google.com" ? (
@@ -88,7 +86,7 @@ const EditProfile = () => {
                                         </div>
                                     </>
                                 ) : (
-<>
+                                    <>
                                         <div className="flex flex-col justify-center items-center">
                                             <div className="h-full flex justify-center">
                                                 <ProfilePicture onPhotoChange={handleProfilePictureChange} />
