@@ -80,7 +80,7 @@ const Chat = () => {
                                         <div className="flex justify-center py-5 text-3xl font-bold">
                                             <h1>{theme.theme}</h1>
                                         </div>
-                                        <div id="chat" ref={chatRef} className="min-h-[60vh] max-h-[60vh] max-w-[50rem] w-full overflow-y-scroll border border-gray-300">
+                                        <div id="chat" ref={chatRef} className="min-h-[40vh] max-h-[60vh] max-w-[70rem] w-full overflow-y-scroll border border-gray-300">
                                             {/* Añadimos los mensajes */}
                                             {messages && messages.map((message) => (
                                                 <Message key={message.id} message={message} theme={theme.theme} />
