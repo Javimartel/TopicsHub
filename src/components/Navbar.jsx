@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, MobileNav, Typography, Button, Menu, MenuHandler, MenuList, MenuItem, Avatar, Card, IconButton, Dialog, DialogHeader, DialogBody, DialogFooter, Input } from "@material-tailwind/react";
+import { Navbar, MobileNav, Typography, Button, Menu, MenuHandler, MenuList, MenuItem, Avatar, Card, IconButton } from "@material-tailwind/react";
 import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
@@ -103,13 +103,13 @@ const navListMenuItems = [
     {
         title: "PHPLover's LinkedIn",
         description:
-            "Follow us on Twitter to stay up to date with the latest news.",
+            "Follow us on LinkedIn to stay up to date with the latest news.",
         link: "https://www.linkedin.com/in/mario-pérez-marrero-3a5690220/"
     },
     {
         title: "Javier's LinkedIn",
         description:
-            "Follow us on Linked In if you want to know more about us",
+            "Follow us on LinkedIn if you want to know more about us",
         link: "https://www.linkedin.com/in/javimartel/"
     },
 ];
