@@ -2,15 +2,11 @@ import React, { useContext } from "react";
 import { FirebaseContext } from "../../contexts/FirebaseContext";
 import { BsFillTrash3Fill } from "react-icons/bs";
 const Message = ({ message, theme }) => {
-    // Mover todo esto para fuera a Chat con un ENUM
     const { auth, deleteMessage } = useContext(FirebaseContext);
 
     const isCurrentUser = message.uid === auth.currentUser.uid;
-
     const mssgClass = isCurrentUser ? "chat chat-end" : "chat chat-start";
-
     const mssgStyle = isCurrentUser ? "break-words chat-bubble bg-gray-900 text-white" : "break-words chat-bubble bg-blue-600 text-white";
-
     const currentTheme = theme;
 
     async function handleClick(messageId, messageUid, currentTheme) {
