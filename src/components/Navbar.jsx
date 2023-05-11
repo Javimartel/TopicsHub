@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 // Context
 import { FirebaseContext } from "../contexts/FirebaseContext";
 
+// Custom hook
+import useDarkMode from "../hooks/useDarkMode";
+
 // Elements
 import Modal from "./home/Modal";
 import MobileModal from "./home/MobileModal";
@@ -17,6 +20,7 @@ const profileMenuItems = [{ label: "Dark Mode" }, { label: "Edit Profile" }];
 function ProfileMenu() {
     const { user, auth, googleLogIn } = React.useContext(FirebaseContext);
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isDarkMode, toggleDarkMode] = useDarkMode();
     const closeMenu = () => setIsMenuOpen(false);
     const userImg = user ? auth.currentUser.photoURL : "";
 
@@ -57,11 +61,11 @@ function ProfileMenu() {
                             :
                             <MenuItem
                                 key={label}
-                                onClick={closeMenu}
+                                onClick={toggleDarkMode}
                                 className={`flex items-center gap-2 rounded`}
                             >
                                 <Typography as="span" variant="small" className="font-mono" color="inherit">
-                                    {label}
+                                    {isDarkMode ? "Light Mode" : "Dark Mode"}
                                 </Typography>
                             </MenuItem>
                     );
@@ -215,7 +219,7 @@ export default function ComplexNavbar() {
     }, []);
 
     return (
-        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[370px] lg:min-w-[800px]">
+        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[370px] lg:min-w-[800px] dark:bg-gray-900">
             <div className="relative flex items-center mx-auto text-blue-gray-900">
                 <Link to={"/"} className="pl-4 text-2xl font-extrabold">
                     <img src="/images/logo.png" alt="logo" className="w-10 scale-[2.3]" />
