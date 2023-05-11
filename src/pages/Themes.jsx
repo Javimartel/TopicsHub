@@ -95,10 +95,12 @@ function Themes() {
     return (
 
         <>
-            <main className="flex flex-col items-center">
+            <div className="pt-5">
                 <Navbar />
+            </div>
+            <main className="flex flex-col items-center">
                 <div className="flex flex-col items-center mt-10 w-72">
-                    <h1 className="m-3 mb-5 text-3xl lg:text-4xl font-bold  text-gray-900">Topics</h1>
+                    <h1 className="m-3 mb-5 text-3xl font-bold text-gray-900 lg:text-4xl dark:text-white">Topics</h1>
                     <Input variant="outlined" label="Search" onChange={(e) => setSearchTerm(e.target.value)} />
                 </div>
 
@@ -115,7 +117,7 @@ function Themes() {
 
                                 <form ref={addFormRef}>
                                     <div className="flex flex-col items-center">
-                                        <div className="w-2/3 m-2 gap-5">
+                                        <div className="w-2/3 gap-5 m-2">
                                             <div>
                                                 <Input type="text" label="Theme" id="add_theme" className="mb-5" />
                                             </div>

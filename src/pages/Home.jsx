@@ -7,7 +7,9 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <main id="home-main" className="relative flex-col w-full">
-      <Navbar />
+      <div className="pt-5">
+        <Navbar />
+      </div>
       <Content />
       <Footer />
     </main>

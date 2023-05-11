@@ -128,11 +128,11 @@ function NavListMenu() {
 
     const renderItems = navListMenuItems.map(({ title, description, link }) => (
         <a href={link} target="_blank" key={title}>
-            <MenuItem>
-                <Typography className="mb-1 text-gray-900">
+            <MenuItem className="dark:hover:bg-transparent">
+                <Typography className="mb-1 text-gray-900 dark:text-white">
                     {title}
                 </Typography>
-                <Typography variant="small" color="gray" className="font-normal">
+                <Typography variant="small" color="gray" className="font-normal dark:text-white">
                     {description}
                 </Typography>
             </MenuItem>
@@ -143,31 +143,29 @@ function NavListMenu() {
         <React.Fragment>
             <Menu open={isMenuOpen} handler={setIsMenuOpen}>
                 <MenuHandler>
-                    <Typography href="#" variant="paragraph" className="font-mono font-bold">
-                        <MenuItem {...triggers} className="pb-1.5 hidden text-blue-gray-900 lg:flex text-md">
-                            <div>
+                    <Typography href="#" variant="paragraph" className="font-mono font-bold dark:text-white">
+                        <MenuItem {...triggers} className="hidden text-blue-gray-900 lg:flex text-md dark:text-white dark:hover:text-black">
                                 Resources
-                            </div>
                         </MenuItem>
                     </Typography>
                 </MenuHandler>
-                <MenuList {...triggers} className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid" >
-                    <Card shadow={false} variant="gradient" className="grid w-full h-full col-span-3 rounded-md place-items-center">
+                <MenuList {...triggers} className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid dark:bg-[#1f2937]">
+                    <Card shadow={false} variant="gradient" className="grid w-full h-full col-span-3 rounded-md place-items-center dark:bg-[#1f2937]">
                         <img src="/images/logo.png" alt="" />
                     </Card>
                     <ul className="flex flex-col w-full col-span-4 gap-1">
                         {renderItems}
                     </ul>
                 </MenuList>
+                <Typography href="#" variant="paragraph" className="font-mono font-bold">
+                    <MenuItem className="flex items-center gap-2 text-md text-blue-gray-900 lg:hidden dark:text-black">
+                        Resources
+                    </MenuItem>
+                </Typography>
+                <ul className="flex flex-col w-full gap-1 ml-4 lg:hidden">
+                    {renderItems}
+                </ul>
             </Menu>
-            <Typography href="#" variant="paragraph" className="font-mono font-bold">
-                <MenuItem className="flex items-center gap-2 text-lg text-blue-gray-900 lg:hidden">
-                    Resources
-                </MenuItem>
-            </Typography>
-            <ul className="flex flex-col w-full gap-1 ml-4 lg:hidden">
-                {renderItems}
-            </ul>
         </React.Fragment>
     );
 }
@@ -177,23 +175,23 @@ function NavList() {
     const { user } = React.useContext(FirebaseContext)
 
     return (
-        <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
+        <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center dark:text-white">
             <Link to="/themes">
-                <Typography color="blue-gray" className="font-mono font-bold text-md">
-                    <MenuItem>
+                <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
+                    <MenuItem className=" dark:hover:text-black">
                         Themes
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/about">
-                <Typography color="blue-gray" className="font-mono font-bold text-md">
+                <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
                     <MenuItem>
                         About
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/contact">
-                <Typography color="blue-gray" className="font-mono font-bold text-md">
+                <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
                     <MenuItem>
                         Contact
                     </MenuItem>
@@ -219,7 +217,7 @@ export default function ComplexNavbar() {
     }, []);
 
     return (
-        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[370px] lg:min-w-[800px] dark:bg-gray-900">
+        <Navbar className="w-3/4  mx-auto border-blue-50 max-w-[900px] min-w-[370px] lg:min-w-[800px] dark:bg-[#1f2937] dark:text-white dark:shadow-gray-800 dark:shadow-lg">
             <div className="relative flex items-center mx-auto text-blue-gray-900">
                 <Link to={"/"} className="pl-4 text-2xl font-extrabold">
                     <img src="/images/logo.png" alt="logo" className="w-10 scale-[2.3]" />

@@ -10,12 +10,13 @@ import {
 const Cards = (props) => {
     return (
         <>
-            <Card className="flex-row max-w-[30rem] min-w-[360px] shadow-md hover:bg-gray-100">
+            <Card className="flex-row max-w-[30rem] min-w-[360px] shadow-md hover:bg-gray-100 dark:shadow-sm  dark:shadow-white dark:bg-gray-900">
                 <CardHeader shadow={false} floated={false} className="w-2/5 m-0 rounded-r-none shrink-0 min-w-[200px]">
                     <img
                         src={props.img}
                         alt={props.name}
-                        className="object-cover w-full h-full min-h-[200px]"/>
+                        className="object-cover w-full h-full min-h-[200px]"
+                    />
                 </CardHeader>
                 <CardBody>
                     {props.new ? (
@@ -25,14 +26,15 @@ const Cards = (props) => {
                             </div>
                         </>
                     ) : null}
-                    <Typography variant="h4" color="blue-gray" className="flex items-center gap-4 mb-2 font-mono">
+                    <Typography variant="h4" color="blue-gray" className="flex items-center gap-4 mb-2 font-mono dark:text-white">
                         {props.name}
                     </Typography>
-                    <Typography color="gray" className="mb-8 font-mono font-semibold">
+                    <Typography color="gray" className="mb-8 font-mono font-semibold dark:text-white">
                         {props.description}
                     </Typography>
                 </CardBody>
             </Card>
+
         </>
     );
 }

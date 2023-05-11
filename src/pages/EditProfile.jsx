@@ -57,24 +57,26 @@ const EditProfile = () => {
                 <Navigate to="/404" />
             ) : (
                 <>
-                    <Navbar />
+                    <div className="pt-5">
+                        <Navbar />
+                    </div>
 
-                    <div className="flex justify-center mt-12 w-full">
-                        <Card color="transparent" shadow={false} className="w-full flex justify-center items-center">
+                    <div className="flex justify-center w-full mt-12">
+                        <Card color="transparent" shadow={false} className="flex items-center justify-center w-full">
                             <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl ">Edit <span className="text-blue-500" >Profile</span></h1>
                             <p className="mt-2 text-center text-gray-900">
                                 Please fill out the form below to update your profile.
                             </p>
-                            <form className="mt-10 mb-5 w-3/4" ref={updateProfileFormRef}>
+                            <form className="w-3/4 mt-10 mb-5" ref={updateProfileFormRef}>
 
                                 {user.providerData[0].providerId !== "google.com" ? (
                                     <>
-                                        <div className="flex flex-col justify-center items-center md:flex-row-reverse">
-                                            <div className="h-full flex justify-center items-center w-1/3">
+                                        <div className="flex flex-col items-center justify-center md:flex-row-reverse">
+                                            <div className="flex items-center justify-center w-1/3 h-full">
                                                 <ProfilePicture onPhotoChange={handleProfilePictureChange} />
                                             </div>
 
-                                            <div className="mt-4 mb-2 flex flex-col gap-6 h-full md:w-1/3">
+                                            <div className="flex flex-col h-full gap-6 mt-4 mb-2 md:w-1/3">
                                                 <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" />
 
                                                 <Input type="email" size="lg" label="Email" defaultValue={user.email} id="edit_email" />
@@ -87,12 +89,12 @@ const EditProfile = () => {
                                     </>
                                 ) : (
                                     <>
-                                        <div className="flex flex-col justify-center items-center">
-                                            <div className="h-full flex justify-center">
+                                        <div className="flex flex-col items-center justify-center">
+                                            <div className="flex justify-center h-full">
                                                 <ProfilePicture onPhotoChange={handleProfilePictureChange} />
                                             </div>
 
-                                            <div className="mt-4 mb-2 flex flex-col gap-6 h-full">
+                                            <div className="flex flex-col h-full gap-6 mt-4 mb-2">
                                                 <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" />
                                             </div>
 
@@ -100,14 +102,14 @@ const EditProfile = () => {
                                     </>
                                 )}
 
-                                <div className="flex justify-center mb-5 mt-5">
+                                <div className="flex justify-center mt-5 mb-5">
                                     {user && isUpdating ? (
-                                        <div className="w-full flex justify-center mt-12 mb-3">
+                                        <div className="flex justify-center w-full mt-12 mb-3">
                                             <FaSpinner className="animate-spin" color="blue" size={20} />
                                         </div>
                                     ) : (
                                         <>
-                                            <div className="flex justify-center items-center">
+                                            <div className="flex items-center justify-center">
                                                 <Button className="mt-5 mb-5" size="md" onClick={handleUpdate}>
                                                     Update
                                                 </Button>
