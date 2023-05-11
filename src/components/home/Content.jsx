@@ -94,7 +94,7 @@ export default function Content() {
                                 </p>
                             </div>
                             <div className="flex justify-center mt-4"> {/* Button */}
-                                <Button size="lg" className="flex items-center gap-2"> Read More <BsFillBookmarkFill /> </Button>
+                                <a href="https://github.com/Javimartel/TopicsHub" target="_blank"><Button size="lg" className="flex items-center gap-2"> Read More <BsFillBookmarkFill /> </Button></a>
                             </div>
                         </div>
                     </div>
