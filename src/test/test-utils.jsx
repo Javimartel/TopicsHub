@@ -3,7 +3,7 @@ import { vi } from 'vitest';
 import { render } from '@testing-library/react';
 import { FirebaseContext } from '../contexts/FirebaseContext';
 
-const mockFirebase = {
+export const mockFirebase = {
     auth: {
         currentUser: {
             uid: '123',
@@ -11,6 +11,8 @@ const mockFirebase = {
         },
     },
     sendMessageWith: vi.fn(),
+    createUser: vi.fn(),
+    logIn: vi.fn()
 };
 
 const MockFirebaseProvider = ({ children }) => {
