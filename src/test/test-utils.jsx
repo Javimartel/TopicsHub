@@ -6,7 +6,7 @@ import { FirebaseContext } from '../contexts/FirebaseContext';
 const mockFirebase = {
     auth: {
         currentUser: {
-            uid: 'test-uid',
+            uid: '123',
             displayName: 'Test User',
         },
     },
