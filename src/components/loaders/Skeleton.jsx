@@ -5,7 +5,7 @@ import React from "react";
 const Skeleton = () => {
     return (
         <>
-            <div className="flex max-w-[30rem] min-w-[360px] gap-5 p-5 bg-white dark:bg-gray-900 shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl ">
+            <div className="flex max-w-[30rem] min-w-[360px] gap-5 p-5 bg-white dark:bg-gray-800 shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl ">
                 <div className="bg-gray-200 dark:bg-gray-600 h-52 sm:h-full sm:w-32 rounded-xl animate-pulse">
                 </div>
                 <div className="flex flex-col flex-1 gap-5 sm:p-2">

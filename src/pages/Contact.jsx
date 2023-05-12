@@ -56,10 +56,10 @@ const Contact = () => {
                 </section>
 
                 <section className="flex justify-center w-full mt-8">
-                    <form className="flex flex-col items-center w-full gap-2 sm:w-1/2" ref={sendFormRef}>
+                    <form className="flex flex-col items-center gap-2 sm:w-1/2" ref={sendFormRef}>
                         <div className="flex flex-col items-center w-full gap-3 mb-2 lg:flex-row lg:justify-between lg:items-start">
                             <div className="w-full mt-2 lg:w-1/2 lg:mr-2">
-                                <Input label="Name" id="send_name" />
+                                <Input label="Name" id="send_name" className="w-[300px] sm:w-full   " />
                             </div>
                             <div className="w-full mt-2 lg:w-1/2 lg:ml-2">
                                 <Input label="Subject" id="send_subject" />

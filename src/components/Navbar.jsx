@@ -217,7 +217,7 @@ export default function ComplexNavbar() {
     }, []);
 
     return (
-        <Navbar className="w-3/4  mx-auto border-blue-50 max-w-[900px] min-w-[370px] lg:min-w-[800px] dark:bg-[#1f2937] dark:text-white dark:shadow-gray-800 dark:shadow-lg">
+        <Navbar className="w-3/4  mx-auto border-blue-50 max-w-[900px] min-w-[320px] lg:min-w-[800px] dark:bg-[#1f2937] dark:text-white dark:shadow-gray-800 dark:shadow-lg">
             <div className="relative flex items-center mx-auto text-blue-gray-900">
                 <Link to={"/"} className="pl-4 text-2xl font-extrabold">
                     <img src="/images/logo.png" alt="logo" className="w-10 scale-[2.3]" />
