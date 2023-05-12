@@ -5,7 +5,7 @@ const StaticCards = () => {
     return (
         <>
             {/* Card 1 */}
-            <div className="text-gray-900 shadow-md card min-w-[300px] max-w-[300px] cursor-pointer select-none dark:shadow-sm dark:border dark:boder-white dark:shadow-white dark:bg-blue-gray-800">
+            <div className="text-gray-900 shadow-md card min-w-[300px] max-w-[300px] cursor-pointer select-none dark:shadow-sm dark:border dark:boder-white dark:shadow-white dark:bg-[#333f4e]">
                 <figure>
                     <img className="object-cover" />
                 </figure>
@@ -22,7 +22,7 @@ const StaticCards = () => {
                 </div>
             </div>
             {/* Card 2 */}
-            <div className="text-gray-900 shadow-md card min-w-[300px] max-w-[300px] cursor-pointer select-none dark:shadow-sm dark:border dark:boder-white dark:shadow-white dark:bg-blue-gray-800">
+            <div className="text-gray-900 shadow-md card min-w-[300px] max-w-[300px] cursor-pointer select-none dark:shadow-sm dark:border dark:boder-white dark:shadow-white dark:bg-[#333f4e]">
                 <figure>
                     <img className="object-cover" />
                 </figure>
@@ -39,7 +39,7 @@ const StaticCards = () => {
                 </div>
             </div>
             {/* Card 3 */}
-            <div className="text-gray-900 shadow-md card min-w-[300px] max-w-[300px] cursor-pointer select-none dark:shadow-sm dark:border dark:boder-white dark:shadow-white dark:bg-blue-gray-800">
+            <div className="text-gray-900 shadow-md card min-w-[300px] max-w-[300px] cursor-pointer select-none dark:shadow-sm dark:border dark:boder-white dark:shadow-white dark:bg-[#333f4e]">
                 <figure>
                     <img className="object-cover" />
                 </figure>

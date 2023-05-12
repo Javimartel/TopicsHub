@@ -14,7 +14,7 @@ export default function AboutUs() {
 
                 <section className="flex flex-col items-center px-5 mt-12">
                     <h1 className="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl ">Meet our <span className="text-blue-500">Team</span></h1>
-                    <p className="w-1/3 mt-4 text-center text-gray-900 dark:text-white">
+                    <p className="mt-4 text-center text-gray-900 md:w-2/3 dark:text-white">
                         Our team is made up of three people who are passionate about technology and programming.
                     </p>
                 </section>

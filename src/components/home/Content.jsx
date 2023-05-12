@@ -19,27 +19,27 @@ export default function Content() {
             <div className="w-1/2 mb-8">
                 <BsChatFill size={30} color="rgb(46 149 237)" className="flex justify-center w-full mb-4 " />
                 <div className="md:w-full md:flex md:justify-center">
-                    <p className="text-base text-gray-800">Chat</p>
+                    <p className="text-base text-gray-800 dark:text-white">Chat</p>
                 </div>
             </div>
 
             <div className="w-1/2 mb-8">
                 <BsPersonCheckFill size={30} color="rgb(46 149 237)" className="flex justify-center w-full mb-4" />
                 <div className="md:w-full md:flex md:justify-center">
-                    <p className="text-base text-gray-800">Security</p>
+                    <p className="text-base text-gray-800 dark:text-white">Security</p>
                 </div>
             </div>
 
             <div className="w-1/2 mb-8">
                 <BsFlagFill size={30} color="rgb(46 149 237)" className="flex justify-center w-full mb-4" />
                 <div className="md:w-full md:flex md:justify-center">
-                    <p className="text-base text-gray-800">Report Content</p>
+                    <p className="text-base text-gray-800 dark:text-white">Report Content</p>
                 </div>
             </div>
             <div className="w-1/2 mb-8">
                 <BsAwardFill size={30} color="rgb(46 149 237)" className="flex justify-center w-full mb-4" />
                 <div className="md:w-full md:flex md:justify-center">
-                    <p className="text-base text-gray-800">Chat Owner</p>
+                    <p className="text-base text-gray-800 dark:text-white">Chat Owner</p>
                 </div>
             </div>
         </>
@@ -136,7 +136,7 @@ export default function Content() {
 
             <section className="flex flex-col mt-12 dark:bg-[#1f2937]"> {/* Features */}
                 <div className="flex flex-col items-center"> {/* Features Cont */}
-                    <div className="w-full p-6 bg-[#fbf9fa] flex flex-col items-center text-blue-gray-900 dark:text-gray-100 dark:bg-[#1f2937]"> {/* Features Title */}
+                    <div className="w-full p-6 bg-[#fbf9fa] flex flex-col items-center text-blue-gray-900 dark:text-gray-100  dark:bg-[#333f4e]"> {/* Features Title */}
                         <h2 className="text-3xl font-bold text-center">
                             Why Topics<span className="text-blue-500">Hub</span>?
                         </h2>
@@ -152,7 +152,7 @@ export default function Content() {
             </section>
 
             <section className="flex flex-col items-center lg:mt-12 dark:bg-[#1f2937] "> {/* What is TopicsHub */}
-                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] dark:bg-[#1f2937] w-full text-blue-gray-900 dark:text-gray-100"> {/* What is TopicsHub Tittle */}
+                <div className="flex flex-col items-center p-6 bg-[#fbf9fa]  w-full text-blue-gray-900 dark:text-gray-100 dark:bg-[#333f4e]"> {/* What is TopicsHub Tittle */}
                     <h2 className="text-3xl font-bold ">
                         What is Topics<span className="text-blue-500">Hub</span>?
                     </h2>
@@ -197,7 +197,7 @@ export default function Content() {
             </section>
 
             <section className="flex flex-col justify-center mt-12 dark:bg-[#1f2937]"> {/* Where to Chat */}
-                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-900 dark:bg-[#1f2937] dark:text-white"> {/* Where to Chat Tittle */}
+                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] text-blue-gray-900 dark:bg-[#333f4e] dark:text-white "> {/* Where to Chat Tittle */}
                     <h2 className="text-3xl font-bold">
                         Where to <span className="text-blue-500">Chat</span>?
                     </h2>
@@ -228,7 +228,7 @@ export default function Content() {
             </section>
 
             <section className="flex flex-col justify-center mt-8"> {/* Chat Owner */}
-                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] dark:bg-[#1f2937] text-blue-gray-900 dark:text-white">
+                <div className="flex flex-col items-center p-6 bg-[#fbf9fa] dark:bg-[#333f4e] text-blue-gray-900 dark:text-white">
                     <h2 className="text-3xl font-bold">
                         My own <span className="text-blue-500">Chat</span>?
                     </h2>
@@ -241,7 +241,7 @@ export default function Content() {
                 </div>
 
                 <div className="flex justify-center mt-12">
-                    <div className="flex flex-wrap justify-center w-full gap-5 lg:gap-12 xl:gap-20">
+                    <div className="flex flex-wrap justify-center w-full gap-5 xl:gap-10">
                         <Prices />
                     </div>
                 </div>

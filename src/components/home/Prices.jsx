@@ -9,7 +9,7 @@ import {
 export default function Prices() {
     return (
         <>
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px] dark:shadow-white dark:border-none dark:shadow-sm dark:bg-blue-gray-800">
+            <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px]  dark:shadow-white dark:border-none dark:shadow-sm dark:bg-[#333f4e]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="text-gray-800 uppercase dark:text-white">
                         premium
@@ -49,7 +49,7 @@ export default function Prices() {
                     </Button>
                 </CardFooter>
             </Card>
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px] dark:shadow-white dark:border-none dark:shadow-sm dark:bg-blue-gray-800">
+            <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px] dark:shadow-white dark:border-none dark:shadow-sm dark:bg-[#333f4e]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="text-gray-800 uppercase dark:text-white">
                         premium
@@ -89,7 +89,7 @@ export default function Prices() {
                     </Button>
                 </CardFooter>
             </Card>
-            <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px] dark:shadow-white dark:border-none dark:shadow-sm dark:bg-blue-gray-800">
+            <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px] dark:shadow-white dark:border-none dark:shadow-sm dark:bg-[#333f4e]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="text-gray-800 uppercase dark:text-white">
                         premium

@@ -59,17 +59,17 @@ const Contact = () => {
                     <form className="flex flex-col items-center gap-2 sm:w-1/2" ref={sendFormRef}>
                         <div className="flex flex-col items-center w-full gap-3 mb-2 lg:flex-row lg:justify-between lg:items-start">
                             <div className="w-full mt-2 lg:w-1/2 lg:mr-2">
-                                <Input label="Name" id="send_name" className="w-[300px] sm:w-full   " />
+                                <Input label="Name" id="send_name" className="w-[300px] sm:w-full dark:text-white" />
                             </div>
                             <div className="w-full mt-2 lg:w-1/2 lg:ml-2">
-                                <Input label="Subject" id="send_subject" />
+                                <Input label="Subject" id="send_subject" className="dark:text-white" />
                             </div>
                         </div>
                         <div className="w-full mt-2 mb-2">
-                            <Input label="Email" id="send_email" />
+                            <Input label="Email" id="send_email" className="dark:text-white"/>
                         </div>
                         <div className="w-full mt-2 mb-2">
-                            <Textarea label="Body" id="send_body" />
+                            <Textarea label="Body" id="send_body" className="dark:text-white"/>
                         </div>
                         <div>
                             {isSending ? (
