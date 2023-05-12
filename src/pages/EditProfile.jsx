@@ -62,9 +62,11 @@ const EditProfile = () => {
                     </div>
 
                     <div className="flex justify-center w-full mt-12">
-                        <Card color="transparent" shadow={false} className="flex items-center justify-center w-full">
-                            <h1 className="text-3xl font-bold text-gray-900 lg:text-4xl ">Edit <span className="text-blue-500" >Profile</span></h1>
-                            <p className="mt-2 text-center text-gray-900">
+                        <Card color="transparent" shadow={false} className="flex items-center justify-center w-full ">
+                            <h1 className="text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">
+                                Edit <span className="text-blue-500">Profile</span>
+                            </h1>
+                            <p className="mt-2 text-center text-gray-900 dark:text-white">
                                 Please fill out the form below to update your profile.
                             </p>
                             <form className="w-3/4 mt-10 mb-5" ref={updateProfileFormRef}>
@@ -76,12 +78,11 @@ const EditProfile = () => {
                                                 <ProfilePicture onPhotoChange={handleProfilePictureChange} />
                                             </div>
 
-                                            <div className="flex flex-col h-full gap-6 mt-4 mb-2 md:w-1/3">
-                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" />
-
-                                                <Input type="email" size="lg" label="Email" defaultValue={user.email} id="edit_email" />
-                                                <Input type="password" size="lg" label="Current Password" id="edit_password" />
-                                                <Input type="password" size="lg" label="New Password" id="edit_new_password" />
+                                            <div className="flex flex-col h-full gap-4 mt-4 mb-2 md:w-1/3">
+                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" className="text-white bg-gray-900" />
+                                                <Input type="email" size="lg" label="Email" defaultValue={user.email} id="edit_email" className="dark:text-white" />
+                                                <Input type="password" size="lg" label="Current Password" id="edit_password" className="dark:text-white" />
+                                                <Input type="password" size="lg" label="New Password" id="edit_new_password" className="dark:text-white" />
 
                                             </div>
 
@@ -95,7 +96,7 @@ const EditProfile = () => {
                                             </div>
 
                                             <div className="flex flex-col h-full gap-6 mt-4 mb-2">
-                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" />
+                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" className="text-white bg-gray-900" />
                                             </div>
 
                                         </div>
@@ -120,6 +121,7 @@ const EditProfile = () => {
                             </form>
                         </Card>
                     </div>
+
 
                     <Footer />
                 </>

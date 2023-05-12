@@ -128,11 +128,11 @@ function NavListMenu() {
 
     const renderItems = navListMenuItems.map(({ title, description, link }) => (
         <a href={link} target="_blank" key={title}>
-            <MenuItem className="dark:hover:bg-transparent">
-                <Typography className="mb-1 text-gray-900 dark:text-white">
+            <MenuItem className="dark:hover:bg-gray-700">
+                <Typography className="mb-1 font-mono text-gray-900 dark:text-white">
                     {title}
                 </Typography>
-                <Typography variant="small" color="gray" className="font-normal dark:text-white">
+                <Typography variant="small" color="gray" className="font-mono dark:text-white">
                     {description}
                 </Typography>
             </MenuItem>
@@ -144,8 +144,8 @@ function NavListMenu() {
             <Menu open={isMenuOpen} handler={setIsMenuOpen}>
                 <MenuHandler>
                     <Typography href="#" variant="paragraph" className="font-mono font-bold dark:text-white">
-                        <MenuItem {...triggers} className="hidden text-blue-gray-900 lg:flex text-md dark:text-white dark:hover:text-black">
-                                Resources
+                        <MenuItem {...triggers} className="hidden text-blue-gray-900 lg:flex text-md dark:text-white dark:hover:bg-gray-700">
+                            Resources
                         </MenuItem>
                     </Typography>
                 </MenuHandler>
@@ -158,7 +158,7 @@ function NavListMenu() {
                     </ul>
                 </MenuList>
                 <Typography href="#" variant="paragraph" className="font-mono font-bold">
-                    <MenuItem className="flex items-center gap-2 text-md text-blue-gray-900 lg:hidden dark:text-black">
+                    <MenuItem className="flex items-center gap-2 text-md text-blue-gray-900 lg:hidden dark:hover:bg-gray-700 dark:text-white">
                         Resources
                     </MenuItem>
                 </Typography>
@@ -175,24 +175,24 @@ function NavList() {
     const { user } = React.useContext(FirebaseContext)
 
     return (
-        <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center dark:text-white">
+        <ul className="flex flex-col gap-1 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center dark:text-white">
             <Link to="/themes">
                 <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
-                    <MenuItem className=" dark:hover:text-black">
+                    <MenuItem className=" dark:hover:bg-gray-700 dark:text-white">
                         Themes
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/about">
                 <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
-                    <MenuItem>
+                    <MenuItem className=" dark:hover:bg-gray-700 dark:text-white">
                         About
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/contact">
                 <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
-                    <MenuItem>
+                    <MenuItem className=" dark:hover:bg-gray-700 dark:text-white">
                         Contact
                     </MenuItem>
                 </Typography>

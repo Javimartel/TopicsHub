@@ -1,8 +1,27 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { FaTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+    
+    // Paginación Dark Mode
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        const savedDarkMode = localStorage.getItem("dark-mode");
+        return savedDarkMode ? true : false;
+    });
+
+    let setColor = "";
+
+    useEffect(() => {
+        if (isDarkMode) {
+            setColor = "white";
+        }
+        else {
+            setColor = "black";
+        }
+    }, [isDarkMode]);
+    
     return (
         <footer className="bottom-0 flex flex-col w-full pt-5 bg-[#fbf9fa] dark:bg-[#1f2937] mt-12 justify-center text-gray-900 dark:text-gray-100 dark:border-t-2"> {/* Footer section */}
             <h1 className="font-mono text-2xl font-bold text-center"> {/* Footer title */}
@@ -32,9 +51,9 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-center h-full pb-5 justify-evenly w-[200px] md:pt-8">
-                    <FaTwitter size={25} color="#37474f" className="dark:text-gray-100" />
-                    <FaGithub size={25} color="#37474f" className="dark:text-gray-100" />
-                    <FaLinkedinIn size={25} color="#37474f" className="dark:text-gray-100" />
+                    <FaTwitter size={25} color={setColor} className="dark:text-gray-100" />
+                    <FaGithub size={25} color={setColor} className="dark:text-gray-100" />
+                    <FaLinkedinIn size={25} color={setColor} className="dark:text-gray-100" />
                 </div>
                 <div className="flex items-center justify-center h-full pt-7 mb-7">
                     <p className="font-mono">

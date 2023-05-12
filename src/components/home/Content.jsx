@@ -95,7 +95,7 @@ export default function Content() {
                             </div>
                             <div className="flex justify-center mt-4"> {/* Button */}
                                 <a href="https://github.com/Javimartel/TopicsHub" target="_blank" rel="noopener noreferrer">
-                                    <Button size="lg" className="flex items-center gap-2 dark:bg-[#1f2937] dark:hover:bg-gray-600">
+                                    <Button size="lg" className="flex items-center shadow-none gap-2 dark:bg-[#1f2937] dark:hover:bg-white dark:hover:text-[#1f2937] dark:shadow-sm border">
                                         Read More <BsFillBookmarkFill />
                                     </Button>
                                 </a>
