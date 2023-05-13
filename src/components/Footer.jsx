@@ -14,12 +14,7 @@ export default function Footer() {
     let setColor = "";
 
     useEffect(() => {
-        if (isDarkMode) {
-            setColor = "white";
-        }
-        else {
-            setColor = "black";
-        }
+        setColor = isDarkMode ? "white" : "black";
     }, [isDarkMode]);
 
     return (
@@ -51,9 +46,9 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-center h-full pb-5 justify-evenly w-[200px] md:pt-8">
-                    <FaTwitter size={25} color={setColor} className="dark:text-gray-100" />
-                    <FaGithub size={25} color={setColor} className="dark:text-gray-100" />
-                    <FaLinkedinIn size={25} color={setColor} className="dark:text-gray-100" />
+                    <FaTwitter size={25} color={setColor}  />
+                    <FaGithub size={25} color={setColor}  />
+                    <FaLinkedinIn size={25} color={setColor}  />
                 </div>
                 <div className="flex items-center justify-center h-full pt-4 mb-7">
                     <p className="font-mono">
