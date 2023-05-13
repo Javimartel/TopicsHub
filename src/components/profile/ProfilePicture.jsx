@@ -27,7 +27,7 @@ const ProfilePicture = ({onPhotoChange}) => {
             />
             <label
                 htmlFor="photo"
-                className="block text-gray-700 text-sm font-bold mb-2 text-center"
+                className="block mb-2 text-sm font-bold text-center text-gray-700 dark:text-white"
             >
                 Profile Photo
             </label>
@@ -36,12 +36,12 @@ const ProfilePicture = ({onPhotoChange}) => {
                     <img
                         src={auth.currentUser.photoURL}
                         alt="Profile"
-                        className="w-40 h-40 m-auto rounded-full shadow object-cover"
+                        className="object-cover w-40 h-40 m-auto rounded-full shadow"
                     />
                 </div>
                 <div className="mt-2" style={{ display: photoPreview ? "block" : "none" }}>
                     <span
-                        className="block w-40 h-40 rounded-full m-auto shadow"
+                        className="block w-40 h-40 m-auto rounded-full shadow"
                         style={{
                             backgroundSize: "cover",
                             backgroundRepeat: "no-repeat",

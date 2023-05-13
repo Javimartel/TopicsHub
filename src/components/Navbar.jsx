@@ -2,9 +2,12 @@ import React from "react";
 import { Navbar, MobileNav, Typography, Button, Menu, MenuHandler, MenuList, MenuItem, Avatar, Card, IconButton } from "@material-tailwind/react";
 import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
-
+import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 // Context
 import { FirebaseContext } from "../contexts/FirebaseContext";
+
+// Custom hook
+import useDarkMode from "../hooks/useDarkMode";
 
 // Elements
 import Modal from "./home/Modal";
@@ -12,7 +15,7 @@ import MobileModal from "./home/MobileModal";
 
 
 // Profile Dropdown Menu
-const profileMenuItems = [{ label: "Dark Mode" }, { label: "Edit Profile" }];
+const profileMenuItems = [{ label: "Edit Profile" }];
 
 function ProfileMenu() {
     const { user, auth, googleLogIn } = React.useContext(FirebaseContext);
@@ -43,27 +46,16 @@ function ProfileMenu() {
             <MenuList className="p-1">
                 {profileMenuItems.map(({ label }) => {
                     return (
-                        label === "Edit Profile" ?
-                            <Link to="/edit-profile" key={label}>
-                                <MenuItem
-                                    key={label}
-                                    className={`flex items-center gap-2 rounded`}
-                                >
-                                    <Typography as="span" variant="small" className="font-mono" color="inherit">
-                                        {label}
-                                    </Typography>
-                                </MenuItem>
-                            </Link>
-                            :
+                        <Link to="/edit-profile" key={label}>
                             <MenuItem
                                 key={label}
-                                onClick={closeMenu}
-                                className={`flex items-center gap-2 rounded`}
+                                className={`flex items-center gap-2 rounded focus:outline-none`}
                             >
                                 <Typography as="span" variant="small" className="font-mono" color="inherit">
                                     {label}
                                 </Typography>
                             </MenuItem>
+                        </Link>
                     );
                 })}
 
@@ -71,7 +63,7 @@ function ProfileMenu() {
                     <MenuItem
                         key="Log Out"
                         onClick={() => auth.signOut()}
-                        className={`flex items-center gap-2 rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"}`}>
+                        className={`flex items-center gap-2 rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10 focus:outline-none`}>
                         <Typography as="span" variant="small" className="font-mono" color="red" >
                             Log Out
                         </Typography>
@@ -80,7 +72,7 @@ function ProfileMenu() {
                     <MenuItem
                         key="Log In"
                         onClick={googleLogIn}
-                        className={`flex items-center gap-2 rounded "hover:bg-green-500/10 focus:bg-green-500/10 active:bg-green-500/10"}`}>
+                        className={`flex items-center gap-2 rounded "hover:bg-green-500/10 focus:bg-green-500/10 active:bg-green-500/10`}>
                         <Typography as="span" variant="small" className="font-mono" color="green" >
                             Log In
                         </Typography>
@@ -116,6 +108,7 @@ const navListMenuItems = [
 
 function NavListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isDarkMode, toggleDarkMode] = useDarkMode();
 
     const triggers = {
         onMouseEnter: () => setIsMenuOpen(true),
@@ -124,11 +117,11 @@ function NavListMenu() {
 
     const renderItems = navListMenuItems.map(({ title, description, link }) => (
         <a href={link} target="_blank" key={title}>
-            <MenuItem>
-                <Typography className="mb-1 text-gray-900">
+            <MenuItem className="dark:hover:bg-gray-700">
+                <Typography className="mb-1 font-mono text-gray-900 dark:text-white">
                     {title}
                 </Typography>
-                <Typography variant="small" color="gray" className="font-normal">
+                <Typography variant="small" color="gray" className="font-mono dark:text-white">
                     {description}
                 </Typography>
             </MenuItem>
@@ -139,31 +132,40 @@ function NavListMenu() {
         <React.Fragment>
             <Menu open={isMenuOpen} handler={setIsMenuOpen}>
                 <MenuHandler>
-                    <Typography href="#" variant="paragraph" className="font-mono font-bold">
-                        <MenuItem {...triggers} className="pb-1.5 hidden text-blue-gray-900 lg:flex text-md">
-                            <div>
-                                Resources
-                            </div>
+                    <Typography href="#" variant="paragraph" className="font-mono font-bold dark:text-white">
+                        <MenuItem {...triggers} className="hidden text-blue-gray-900 lg:flex text-md dark:text-white dark:hover:bg-gray-700">
+                            Resources
                         </MenuItem>
                     </Typography>
                 </MenuHandler>
-                <MenuList {...triggers} className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid" >
-                    <Card shadow={false} variant="gradient" className="grid w-full h-full col-span-3 rounded-md place-items-center">
-                        <img src="/images/logo.png" alt="" />
+                <MenuList {...triggers} className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid dark:bg-[#1f2937]">
+                    <Card shadow={false} variant="gradient" className="grid w-full h-full col-span-3 rounded-md place-items-center dark:bg-[#1f2937]">
+                        <img src="/images/logo.png" alt="logo" />
                     </Card>
                     <ul className="flex flex-col w-full col-span-4 gap-1">
                         {renderItems}
                     </ul>
                 </MenuList>
-            </Menu>
-            <Typography href="#" variant="paragraph" className="font-mono font-bold">
-                <MenuItem className="flex items-center gap-2 text-lg text-blue-gray-900 lg:hidden">
-                    Resources
+                <Typography href="#" variant="paragraph" className="font-mono font-bold">
+                    <MenuItem className="flex items-center gap-2 text-md text-blue-gray-900 lg:hidden dark:hover:bg-gray-700 dark:text-white">
+                        Resources
+                    </MenuItem>
+                </Typography>
+                <ul className="flex flex-col w-full gap-1 ml-4 lg:hidden">
+                    {renderItems}
+                </ul>
+                <MenuItem className="flex justify-center mt-2 dark:hover:bg-gray-70 lg:mt-0" onClick={toggleDarkMode}>
+                    {isDarkMode ? (
+                        <>
+                            <BsFillSunFill size={18} color="white" />
+                        </>
+                    ) : (
+                        <>
+                            <BsFillMoonStarsFill size={18} color="black"/>
+                        </>
+                    )}
                 </MenuItem>
-            </Typography>
-            <ul className="flex flex-col w-full gap-1 ml-4 lg:hidden">
-                {renderItems}
-            </ul>
+            </Menu>
         </React.Fragment>
     );
 }
@@ -173,24 +175,24 @@ function NavList() {
     const { user } = React.useContext(FirebaseContext)
 
     return (
-        <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
+        <ul className="flex flex-col gap-1 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center dark:text-white">
             <Link to="/themes">
-                <Typography color="blue-gray" className="font-mono font-bold text-md">
-                    <MenuItem>
+                <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
+                    <MenuItem className=" dark:hover:bg-gray-700 dark:text-white">
                         Themes
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/about">
-                <Typography color="blue-gray" className="font-mono font-bold text-md">
-                    <MenuItem>
+                <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
+                    <MenuItem className=" dark:hover:bg-gray-700 dark:text-white">
                         About
                     </MenuItem>
                 </Typography>
             </Link>
             <Link to="/contact">
-                <Typography color="blue-gray" className="font-mono font-bold text-md">
-                    <MenuItem>
+                <Typography color="blue-gray" className="font-mono font-bold text-md dark:text-white">
+                    <MenuItem className=" dark:hover:bg-gray-700 dark:text-white">
                         Contact
                     </MenuItem>
                 </Typography>
@@ -215,7 +217,7 @@ export default function ComplexNavbar() {
     }, []);
 
     return (
-        <Navbar className="w-3/4 mx-auto mt-6 border-blue-50 max-w-[900px] min-w-[370px] lg:min-w-[800px]">
+        <Navbar className="w-3/4  mx-auto border-blue-50 max-w-[900px] min-w-[320px] lg:min-w-[800px] dark:bg-[#1f2937] dark:text-white dark:shadow-gray-800 dark:shadow-lg">
             <div className="relative flex items-center mx-auto text-blue-gray-900">
                 <Link to={"/"} className="pl-4 text-2xl font-extrabold">
                     <img src="/images/logo.png" alt="logo" className="w-10 scale-[2.3]" />
