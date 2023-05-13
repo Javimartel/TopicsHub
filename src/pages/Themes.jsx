@@ -132,7 +132,7 @@ function Themes() {
                                 Add new theme
                             </DialogHeader>
                             <DialogBody divider>
-                                <form ref={addFormRef}>
+                                <form ref={addFormRef}> 
                                     <div className="flex flex-col items-center">
                                         <div className="w-2/3 gap-5 m-2">
                                             <div className="mb-5">

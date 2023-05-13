@@ -28,7 +28,7 @@ const Message = ({ message, theme }) => {
                         <BsFillTrash3Fill size={15} color="red"/>
                     </button>
                 </div>
-            )}
+            )} 
         </div>
     );
 }
