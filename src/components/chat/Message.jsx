@@ -1,6 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { FirebaseContext } from "../../contexts/FirebaseContext";
-import { BsFillTrash3Fill } from "react-icons/bs";
+import { FaTrash } from "react-icons/fa";
 
 const Message = ({ message, theme }) => {
     const { auth, deleteMessage } = useContext(FirebaseContext);
@@ -25,10 +25,10 @@ const Message = ({ message, theme }) => {
             {isCurrentUser && (
                 <div className="pt-1 chat-footer">
                     <button onClick={() => handleClick(message.id, message.uid, currentTheme)}>
-                        <BsFillTrash3Fill size={15} color="red"/>
+                        <FaTrash size={15} color="gray" />
                     </button>
                 </div>
-            )} 
+            )}
         </div>
     );
 }

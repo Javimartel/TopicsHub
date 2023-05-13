@@ -79,7 +79,7 @@ const EditProfile = () => {
                                             </div>
 
                                             <div className="flex flex-col h-full gap-4 mt-4 mb-2 md:w-1/3">
-                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" className="text-white bg-gray-900" />
+                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" className="bg-gray-900 dark:text-white" />
                                                 <Input type="email" size="lg" label="Email" defaultValue={user.email} id="edit_email" className="dark:text-white" />
                                                 <Input type="password" size="lg" label="Current Password" id="edit_password" className="dark:text-white" />
                                                 <Input type="password" size="lg" label="New Password" id="edit_new_password" className="dark:text-white" />
@@ -96,7 +96,7 @@ const EditProfile = () => {
                                             </div>
 
                                             <div className="flex flex-col h-full gap-6 mt-4 mb-2">
-                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" className="text-white bg-gray-900" />
+                                                <Input size="lg" label="Name" defaultValue={user.displayName} id="edit_name" className="bg-gray-900 dark:text-white" />
                                             </div>
 
                                         </div>

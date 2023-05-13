@@ -1,21 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { FaTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-
-    // Paginación Dark Mode
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        const savedDarkMode = localStorage.getItem("dark-mode");
-        return savedDarkMode ? true : false;
-    });
-
-    let setColor = "";
-
-    useEffect(() => {
-        setColor = isDarkMode ? "white" : "black";
-    }, [isDarkMode]);
 
     return (
         <footer className="bottom-0 flex flex-col w-full pt-5 bg-[#fbf9fa] dark:bg-[#1f2937] mt-12 justify-center text-gray-900 dark:text-gray-100 dark:border-t-2"> {/* Footer section */}
@@ -46,9 +33,9 @@ export default function Footer() {
                 </div>
 
                 <div className="flex items-center h-full pb-5 justify-evenly w-[200px] md:pt-8">
-                    <FaTwitter size={25} color={setColor}  />
-                    <FaGithub size={25} color={setColor}  />
-                    <FaLinkedinIn size={25} color={setColor}  />
+                    <FaTwitter size={25} />
+                    <FaGithub size={25} />
+                    <FaLinkedinIn size={25} />
                 </div>
                 <div className="flex items-center justify-center h-full pt-4 mb-7">
                     <p className="font-mono">
