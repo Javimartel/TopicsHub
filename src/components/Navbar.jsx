@@ -154,7 +154,7 @@ function NavListMenu() {
                 <ul className="flex flex-col w-full gap-1 ml-4 lg:hidden">
                     {renderItems}
                 </ul>
-                <MenuItem className="flex justify-center mt-2 dark:hover:bg-gray-70 lg:mt-0" onClick={toggleDarkMode}>
+                <MenuItem className="flex justify-center mt-2 dark:hover:bg-gray-70 lg:mt-0 focus:bg-transparent" onClick={toggleDarkMode}>
                     {isDarkMode ? (
                         <>
                             <BsFillSunFill size={18} color="white" />
