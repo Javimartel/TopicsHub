@@ -43,13 +43,13 @@ function ProfileMenu() {
 
             {userElement}
 
-            <MenuList className="p-1">
+            <MenuList className="p-1 dark:bg-[#1f2937] dark:border-none">
                 {profileMenuItems.map(({ label }) => {
                     return (
                         <Link to="/edit-profile" key={label}>
                             <MenuItem
                                 key={label}
-                                className={`flex items-center gap-2 rounded focus:outline-none`}
+                                className={`flex items-center gap-2 rounded focus:outline-none dark:hover:text-black`}
                             >
                                 <Typography as="span" variant="small" className="font-mono" color="inherit">
                                     {label}
