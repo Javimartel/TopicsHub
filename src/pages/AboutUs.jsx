@@ -33,10 +33,10 @@ export default function AboutUs() {
                         <div className="flex flex-col items-center gap-7 lg:flex-row-reverse">
                             <Avatar src="/images/avatarphplover.jpg" alt="avatar" className="w-[200px] h-[200px] border-2 rounded-full" />
                             <p className="flex items-center justify-center w-2/3 text-gray-900 dark:text-white max-w-[750px] text-justify ">
-                                This person is a PHP programming language enthusiast. They are passionate about web development and have extensive knowledge in the field.
-                                They are always willing to share their knowledge and help other programmers.
-                                They are persevering and never give up in the face of technical challenges.
-                                Additionally, they are sociable and enjoy collaborating in teams to achieve exceptional results.
+                                This person is a PHP programming language enthusiast. He is passionate about web development and have extensive knowledge in the field.
+                                He is always willing to share their knowledge and help other programmers.
+                                He is persevering and never give up in the face of technical challenges.
+                                Additionally, he is sociable and enjoy collaborating in teams to achieve exceptional results.
                             </p>
                         </div>
                     </div>

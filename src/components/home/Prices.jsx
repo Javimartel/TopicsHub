@@ -12,10 +12,10 @@ export default function Prices() {
             <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px]  dark:shadow-white dark:border-none dark:shadow-sm dark:bg-[#333f4e]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="text-gray-800 uppercase dark:text-white">
-                        premium
+                        Basic
                     </p>
                     <p className="flex justify-center gap-1 mt-6 text-6xl text-gray-800 dark:text-white">
-                        <span className="mt-2 text-4xl ">$</span>99{" "}
+                        <span className="mt-2 text-4xl ">$</span>29{" "}
                         <span className="self-end text-4xl">/mo</span>
                     </p>
                 </CardHeader>
@@ -23,19 +23,19 @@ export default function Prices() {
                     <ul className="flex flex-col gap-4">
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">Unlimited team members</p>
+                            <p className="font-mono text-gray-800 dark:text-white">5 team members</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">500+ components</p>
+                            <p className="font-mono text-gray-800 dark:text-white">200+ components</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">80+ built-in pages</p>
+                            <p className="font-mono text-gray-800 dark:text-white">40+ built-in pages</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">3 years free updates</p>
+                            <p className="font-mono text-gray-800 dark:text-white">1 year free updates</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
@@ -52,10 +52,10 @@ export default function Prices() {
             <Card className="w-full max-w-[18rem] p-8 border shadow-md text-white bg-white max-h-[300px] md:min-h-[550px] dark:shadow-white dark:border-none dark:shadow-sm dark:bg-[#333f4e]">
                 <CardHeader floated={false} shadow={false} color="transparent" className="pb-8 m-0 mb-8 font-bold text-center">
                     <p className="text-gray-800 uppercase dark:text-white">
-                        premium
+                        Standard
                     </p>
                     <p className="flex justify-center gap-1 mt-6 text-6xl text-gray-800 dark:text-white">
-                        <span className="mt-2 text-4xl ">$</span>99{" "}
+                        <span className="mt-2 text-4xl ">$</span>49{" "}
                         <span className="self-end text-4xl">/mo</span>
                     </p>
                 </CardHeader>
@@ -63,19 +63,19 @@ export default function Prices() {
                     <ul className="flex flex-col gap-4">
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">Unlimited team members</p>
+                            <p className="font-mono text-gray-800 dark:text-white">10 team members</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">500+ components</p>
+                            <p className="font-mono text-gray-800 dark:text-white">300+ components</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">80+ built-in pages</p>
+                            <p className="font-mono text-gray-800 dark:text-white">60+ built-in pages</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>
-                            <p className="font-mono text-gray-800 dark:text-white">3 years free updates</p>
+                            <p className="font-mono text-gray-800 dark:text-white">2 years free updates</p>
                         </li>
                         <li className="flex items-center gap-4">
                             <span className="p-1 border border-gray-600 rounded-full dark:border-white "></span>

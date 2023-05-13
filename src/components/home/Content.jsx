@@ -51,7 +51,7 @@ export default function Content() {
                 <BsChatFill size={30} color="rgb(46 149 237)" className="mb-4" />
                 <div className="flex flex-col">
                     <p className="text-lg font-bold text-gray-800 text-md dark:text-white">Chat with Friends</p>
-                    <p className="text-sm text-left text-gray-800 dark:text-white">Chatea with your friends safely</p>
+                    <p className="text-sm text-left text-gray-800 dark:text-white">Chat with your friends safely</p>
                 </div>
             </div>
             <div className="flex flex-col w-1/5">

@@ -9,8 +9,7 @@ import { FaSpinner } from "react-icons/fa";
 import {
     Card,
     Input,
-    Button,
-    Typography,
+    Button
 } from "@material-tailwind/react";
 
 const EditProfile = () => {
@@ -18,6 +17,7 @@ const EditProfile = () => {
     const [isUpdating, setIsUpdating] = React.useState(false);
     const updateProfileFormRef = React.useRef(null);
     const [profilePicture, setProfilePicture] = React.useState(null);
+    const [updateDone, setUpdateDone] = React.useState(false);
 
     const handleProfilePictureChange = (preview) => {
         setProfilePicture(preview);
@@ -44,7 +44,7 @@ const EditProfile = () => {
         updateProfileWith(name, email, password, newPassword, profilePicture)
             .then(() => {
                 setIsUpdating(false);
-
+                setUpdateDone(true);
             })
             .catch((error) => {
                 setIsUpdating(false);
@@ -118,6 +118,11 @@ const EditProfile = () => {
                                         </>
                                     )}
                                 </div>
+                                {updateDone && (
+                                    <div className="flex justify-center w-full mt-3 mb-3">
+                                        <p className="text-xl font-bold text-green-800 dark:text-white">Profile updated successfully!</p>
+                                    </div>
+                                )}
                             </form>
                         </Card>
                     </div>

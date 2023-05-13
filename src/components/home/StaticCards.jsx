@@ -14,7 +14,7 @@ const StaticCards = () => {
                         Anime
                         <div className="badge badge-secondary">NEW</div>
                     </h2>
-                    <p> Chat sobre Anime </p>
+                    <p> Chat about Anime </p>
                     <div className="justify-end card-actions">
                         <div className="badge badge-outline">Anime</div>
                         <div className="badge badge-outline">Manga</div>
@@ -28,13 +28,12 @@ const StaticCards = () => {
                 </figure>
                 <div className="flex flex-col items-center card-body dark:text-white">
                     <h2 className="card-title">
-                        Anime
-                        <div className="badge badge-secondary">NEW</div>
+                        Fashion
                     </h2>
-                    <p> Chat sobre Anime </p>
+                    <p> Chat about Fashion </p>
                     <div className="justify-end card-actions">
-                        <div className="badge badge-outline">Anime</div>
-                        <div className="badge badge-outline">Manga</div>
+                        <div className="badge badge-outline">Fashion</div>
+                        <div className="badge badge-outline">Style</div>
                     </div>
                 </div>
             </div>
@@ -45,13 +44,13 @@ const StaticCards = () => {
                 </figure>
                 <div className="flex flex-col items-center card-body dark:text-white">
                     <h2 className="card-title">
-                        Anime
+                        Sports
                         <div className="badge badge-secondary">NEW</div>
                     </h2>
-                    <p> Chat sobre Anime </p>
+                    <p> Chat about Sports </p>
                     <div className="justify-end card-actions">
-                        <div className="badge badge-outline">Anime</div>
-                        <div className="badge badge-outline">Manga</div>
+                        <div className="badge badge-outline">Sports</div>
+                        <div className="badge badge-outline">Football</div>
                     </div>
                 </div>
             </div>
