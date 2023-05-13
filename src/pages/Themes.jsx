@@ -112,7 +112,6 @@ function Themes() {
     }, [isDarkMode]);
 
     return (
-
         <>
             <div className="pt-5">
                 <Navbar />
@@ -126,54 +125,48 @@ function Themes() {
                 {/* Si el usuario es admin puede añadir temas */}
                 {user?.isAdmin && (
                     <>
-                        <Button onClick={handleDialog} className="mt-5">Add Theme</Button>
+                        <Button onClick={handleDialog} className="mt-5 dark:bg-[#1f2937] dark:hover:bg-white dark:hover:text-[#1f2937] dark:shadow-sm border">Add Theme</Button>
 
-                        <Dialog open={isDialogOpen} handler={handleDialog} size="sm">
-                            <DialogHeader className="flex justify-center">
+                        <Dialog open={isDialogOpen} handler={handleDialog} size="sm" className="dark:bg-gray-800">
+                            <DialogHeader className="flex justify-center text-gray-900 dark:text-gray-200 ">
                                 Add new theme
                             </DialogHeader>
                             <DialogBody divider>
-
-                                <form ref={addFormRef}>
+                                <form ref={addFormRef}> 
                                     <div className="flex flex-col items-center">
-                                        <div className="w-2/3 m-2 gap-5">
-                                            <div>
-                                                <Input type="text" label="Theme" id="add_theme" className="mb-5" />
+                                        <div className="w-2/3 gap-5 m-2">
+                                            <div className="mb-5">
+                                                <Input type="text" label="Theme" id="add_theme" className="dark:text-white " />
                                             </div>
                                             <div className="mt-5">
-                                                <Input type="text" label="Description" id="add_description" />
+                                                <Input type="text" label="Description" id="add_description" className="dark:text-white"/>
                                             </div>
                                             <div className="mt-5">
-                                                <Input type="text" label="Category" id="add_category" />
+                                                <Input type="text" label="Category" id="add_category" className="dark:text-white"/>
                                             </div>
                                             <div className="mt-5">
-                                                <Input type="file" label="Image" id="add_image" />
+                                                <Input type="file" label="Image" id="add_image" className="dark:text-white" />
                                             </div>
-                                            <div className="flex justify-center mt-5">
-                                                <Checkbox label="Check as new" id="add_new" />
+                                            <div className="flex items-center justify-center mt-5">
+                                                <Checkbox id="add_new" className="dark:text-white" />
+                                                <p className="font-mono dark:text-white">Check as new</p>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
-
                             </DialogBody>
                             <DialogFooter>
                                 <div className="flex justify-center w-full">
-                                    <Button
-                                        variant="text"
-                                        color="red"
-                                        onClick={handleDialog}
-                                        className="mr-1"
-                                    >
+                                    <Button variant="text" color="red" onClick={handleDialog} className="mr-1">
                                         <span>Cancel</span>
                                     </Button>
-
                                     <Button variant="gradient" color="blue" onClick={addNewTheme}>
                                         <span>Add</span>
                                     </Button>
                                 </div>
                             </DialogFooter>
                         </Dialog>
+
                     </>
                 )}
 
