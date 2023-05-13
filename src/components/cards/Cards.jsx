@@ -38,8 +38,6 @@ const Cards = (props) => {
                     </div>
                 </CardBody>
             </Card>
-
-
         </>
     );
 }

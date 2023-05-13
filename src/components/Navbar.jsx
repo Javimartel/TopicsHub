@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, MobileNav, Typography, Button, Menu, MenuHandler, MenuList, MenuItem, Avatar, Card, IconButton } from "@material-tailwind/react";
 import { FcMenu } from "react-icons/fc";
 import { Link } from "react-router-dom";
-
+import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 // Context
 import { FirebaseContext } from "../contexts/FirebaseContext";
 
@@ -15,12 +15,11 @@ import MobileModal from "./home/MobileModal";
 
 
 // Profile Dropdown Menu
-const profileMenuItems = [{ label: "Dark Mode" }, { label: "Edit Profile" }];
+const profileMenuItems = [{ label: "Edit Profile" }];
 
 function ProfileMenu() {
     const { user, auth, googleLogIn } = React.useContext(FirebaseContext);
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    const [isDarkMode, toggleDarkMode] = useDarkMode();
     const closeMenu = () => setIsMenuOpen(false);
     const userImg = user ? auth.currentUser.photoURL : "";
 
@@ -47,27 +46,16 @@ function ProfileMenu() {
             <MenuList className="p-1">
                 {profileMenuItems.map(({ label }) => {
                     return (
-                        label === "Edit Profile" ?
-                            <Link to="/edit-profile" key={label}>
-                                <MenuItem
-                                    key={label}
-                                    className={`flex items-center gap-2 rounded`}
-                                >
-                                    <Typography as="span" variant="small" className="font-mono" color="inherit">
-                                        {label}
-                                    </Typography>
-                                </MenuItem>
-                            </Link>
-                            :
+                        <Link to="/edit-profile" key={label}>
                             <MenuItem
                                 key={label}
-                                onClick={toggleDarkMode}
-                                className={`flex items-center gap-2 rounded`}
+                                className={`flex items-center gap-2 rounded focus:outline-none`}
                             >
                                 <Typography as="span" variant="small" className="font-mono" color="inherit">
-                                    {isDarkMode ? "Light Mode" : "Dark Mode"}
+                                    {label}
                                 </Typography>
                             </MenuItem>
+                        </Link>
                     );
                 })}
 
@@ -75,7 +63,7 @@ function ProfileMenu() {
                     <MenuItem
                         key="Log Out"
                         onClick={() => auth.signOut()}
-                        className={`flex items-center gap-2 rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"}`}>
+                        className={`flex items-center gap-2 rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10 focus:outline-none`}>
                         <Typography as="span" variant="small" className="font-mono" color="red" >
                             Log Out
                         </Typography>
@@ -84,7 +72,7 @@ function ProfileMenu() {
                     <MenuItem
                         key="Log In"
                         onClick={googleLogIn}
-                        className={`flex items-center gap-2 rounded "hover:bg-green-500/10 focus:bg-green-500/10 active:bg-green-500/10"}`}>
+                        className={`flex items-center gap-2 rounded "hover:bg-green-500/10 focus:bg-green-500/10 active:bg-green-500/10`}>
                         <Typography as="span" variant="small" className="font-mono" color="green" >
                             Log In
                         </Typography>
@@ -120,6 +108,7 @@ const navListMenuItems = [
 
 function NavListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isDarkMode, toggleDarkMode] = useDarkMode();
 
     const triggers = {
         onMouseEnter: () => setIsMenuOpen(true),
@@ -151,7 +140,7 @@ function NavListMenu() {
                 </MenuHandler>
                 <MenuList {...triggers} className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid dark:bg-[#1f2937]">
                     <Card shadow={false} variant="gradient" className="grid w-full h-full col-span-3 rounded-md place-items-center dark:bg-[#1f2937]">
-                        <img src="/images/logo.png" alt="" />
+                        <img src="/images/logo.png" alt="logo" />
                     </Card>
                     <ul className="flex flex-col w-full col-span-4 gap-1">
                         {renderItems}
@@ -165,6 +154,17 @@ function NavListMenu() {
                 <ul className="flex flex-col w-full gap-1 ml-4 lg:hidden">
                     {renderItems}
                 </ul>
+                <MenuItem className="flex justify-center mt-2 dark:hover:bg-gray-70 lg:mt-0" onClick={toggleDarkMode}>
+                    {isDarkMode ? (
+                        <>
+                            <BsFillSunFill size={18} color="white" />
+                        </>
+                    ) : (
+                        <>
+                            <BsFillMoonStarsFill size={18} color="black"/>
+                        </>
+                    )}
+                </MenuItem>
             </Menu>
         </React.Fragment>
     );
