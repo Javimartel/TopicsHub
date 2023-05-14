@@ -52,7 +52,7 @@ npm install
 npm run dev
 ```
 
-5. Accede a `localhost:5173` o pulsa en el terminal con CTRL + Click sobre el enlace.
+5. Accede a `localhost:5173` o pulse en el terminal con CTRL + Click sobre el enlace.
 6. Disfrute de la aplicación 😊
 
 # Uso
