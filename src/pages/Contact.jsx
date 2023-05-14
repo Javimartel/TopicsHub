@@ -21,6 +21,7 @@ const Contact = () => {
             return;
         }
 
+        setEmailSent(false);
         // Cambiamos el estado de envío a true
         setIsSending(true);
 

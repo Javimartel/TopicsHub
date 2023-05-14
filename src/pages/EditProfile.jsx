@@ -39,6 +39,7 @@ const EditProfile = () => {
             return;
         }
 
+        setUpdateDone(false);
         setIsUpdating(true);
 
         updateProfileWith(name, email, password, newPassword, profilePicture)
@@ -73,8 +74,8 @@ const EditProfile = () => {
 
                                 {user.providerData[0].providerId !== "google.com" ? (
                                     <>
-                                        <div className="flex flex-col items-center justify-center md:flex-row-reverse">
-                                            <div className="flex items-center justify-center w-1/3 h-full">
+                                        <div className="flex flex-col items-center justify-center gap-3 md:flex-row-reverse">
+                                            <div className="flex justify-center h-full">
                                                 <ProfilePicture onPhotoChange={handleProfilePictureChange} />
                                             </div>
 
